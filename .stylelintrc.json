@@ -1,0 +1,15 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "rules": {
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "at-rule-no-unknown": null,
+    "property-no-vendor-prefix": null,
+    "no-duplicate-selectors": null,
+    "selector-type-no-unknown": null,
+    "selector-pseudo-class-no-unknown": null,
+    "property-no-unknown": null,
+    "at-rule-no-vendor-prefix": null,
+    "no-invalid-position-at-import-rule": null
+  }
+}
