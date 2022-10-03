@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import superjson from 'superjson';
 import { Toaster } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
 import '../scss/app.scss';
 import { URL } from '../constants';
@@ -15,6 +16,11 @@ import { store } from '../redux/store';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
+      <Head>
+        <title>Morphex</title>
+        <meta name="description" content="Morphex Swap - Lend & Borrow" />
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
       <Toaster
         position="top-right"
         toastOptions={{
