@@ -7,7 +7,11 @@ const Footer = () => {
       <div className="auto__container">
         <div className="footer__inner">
           <div className="footer__inner-social">
-            <Link href="#">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/MorpheusSwap"
+            >
               <svg
                 id="twitter"
                 width="16"
@@ -21,8 +25,12 @@ const Footer = () => {
                   fill="#787878"
                 />
               </svg>
-            </Link>
-            <Link href="#">
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/MorpheusSwap"
+            >
               <svg
                 width="17"
                 height="14"
@@ -35,8 +43,12 @@ const Footer = () => {
                   fill="#787878"
                 />
               </svg>
-            </Link>
-            <Link href="#">
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/MorpheusSwap"
+            >
               <svg
                 width="16"
                 height="16"
@@ -56,8 +68,12 @@ const Footer = () => {
                   </clipPath>
                 </defs>
               </svg>
-            </Link>
-            <Link href="#">
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/MorpheusSwap"
+            >
               <svg
                 width="21"
                 height="21"
@@ -77,7 +93,7 @@ const Footer = () => {
                   </clipPath>
                 </defs>
               </svg>
-            </Link>
+            </a>
           </div>
           <p className="sm">© 2022 Morphex. All rights reserved.</p>
         </div>
