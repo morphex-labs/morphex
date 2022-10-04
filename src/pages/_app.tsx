@@ -8,10 +8,11 @@ import { Toaster } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
-import '../scss/app.scss';
+import '../scss/main.scss';
 import { URL } from '../constants';
 import { AppRouter } from '../server/route/app.router';
 import { store } from '../redux/store';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -19,7 +20,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Morphex</title>
         <meta name="description" content="Morphex Swap - Lend & Borrow" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter&family=Rubik:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Toaster
         position="top-right"
@@ -33,7 +45,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
         }}
       />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
   );
 }
