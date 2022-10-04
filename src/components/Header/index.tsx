@@ -1,13 +1,16 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsOpen, selectMenuOpen } from '../../redux/navigation/selectors';
+import {
+  selectMenuOpen,
+  selectWalletOpen,
+} from '../../redux/navigation/selectors';
 import { toggleMenu, togglePopup } from '../../redux/navigation/slice';
 
 const Header = () => {
   // const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const isOpen = useSelector(selectIsOpen);
+  const openWallet = useSelector(selectWalletOpen);
   const openMenu = useSelector(selectMenuOpen);
 
   // const { body } = document;
@@ -18,12 +21,12 @@ const Header = () => {
 
   const handleMenuClick = () => {
     dispatch(toggleMenu({ value: true }));
-    if (isOpen) {
+    if (openWallet) {
       dispatch(togglePopup({ value: false }));
     }
   };
 
-  const handleWalletClick = () => dispatch(togglePopup({ value: !isOpen }));
+  const handleWalletClick = () => dispatch(togglePopup({ value: !openWallet }));
   const handleMenuClose = () => dispatch(toggleMenu({ value: false }));
 
   return (
@@ -143,7 +146,7 @@ const Header = () => {
               </div>
             </Link>
           </div>
-          <div className={`popup ${isOpen ? 'active' : ''}`} id="popUp">
+          <div className={`popup ${openWallet ? 'active' : ''}`} id="popUp">
             <h4>Wallet</h4>
             <div className="input">
               <input type="text" placeholder="0xC6c...B77D" />
