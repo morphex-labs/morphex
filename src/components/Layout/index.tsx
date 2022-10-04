@@ -7,9 +7,6 @@ import PopupOuter from './PopupOuter';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useDispatch();
-  const menu = document.getElementById('menu');
-  const popup = document.getElementById('popUp');
-  const popupOuter = document.getElementById('popupOuter');
 
   const handleOutsideClick = () => {
     dispatch(togglePopup({ value: false }));
