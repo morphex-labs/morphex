@@ -1,0 +1,151 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 30px 0;
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation-name: sticky;
+    animation-duration: 0.4s;
+  }
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 30px;
+    background-color: $white;
+    border-radius: 30px;
+    box-shadow: -1px 8px 19px 0px #0000000d;
+    position: relative;
+    &-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      position: absolute;
+      top: 50%;
+      left: 45px;
+      transform: translateY(-50%);
+      z-index: 12;
+      img {
+        width: 100%;
+      }
+    }
+    &-user {
+      display: flex;
+      align-items: center;
+      background-color: #f6f6f6;
+      padding-left: 16px;
+      box-shadow: -1px 8px 19px 0px #0000000d;
+      border-radius: 14px;
+      &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 23px;
+        height: 23px;
+        margin-right: 6px;
+        img {
+          width: 100%;
+        }
+      }
+      > p {
+        color: $black;
+        margin-right: 13px;
+      }
+    }
+  }
+}
+// 1024px
+@mixin header-lg-xlg {
+  .header {
+    &__inner {
+      padding: 8px 20px;
+      &-logo {
+        left: 30px;
+      }
+    }
+  }
+}
+// 930px
+@mixin header-md-lg {
+  .header {
+    padding: unset;
+    &__inner {
+      justify-content: flex-end;
+      background-color: unset;
+      box-shadow: unset;
+      padding: 25px 0;
+      &-logo {
+        left: 0;
+        width: 43px;
+      }
+      &-user {
+        margin-right: 30px;
+        box-shadow: -1px 8px 19px rgba(0, 0, 0, 0.05);
+        border-radius: 18px;
+        padding-left: 22px;
+        &-icon {
+          width: 19px;
+          height: 19px;
+        }
+        .button {
+          margin: 0 0 0 auto;
+          &.user {
+            border-radius: 50%;
+            padding: 8px;
+            span {
+              margin: unset;
+            }
+            p {
+              display: none;
+            }
+          }
+        }
+      }
+      & > .button {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+// 540px
+@mixin header-xsm-sm {
+  .header {
+    &__inner{
+      padding: 15px 0;
+      &-user {
+        margin-right: 15px;
+        &-icon{
+          width: 19px;
+          height: 19px;
+        }
+        .button {
+          &.user {
+            span {
+              margin: unset;
+              width: 21px;
+              height: 21px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes sticky {
+  0% {
+    top: -60px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
