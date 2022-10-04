@@ -33,27 +33,46 @@ const Header = () => {
     <header className="header" id="header">
       <div className="auto__container">
         <div className="header__inner">
-          <a href="/" className="header__inner-logo">
-            <img src="/images/logo.svg" alt="" />
-          </a>
-          <nav className={`nav ${openMenu ? 'active' : ''}`} id="menu">
+          <Link href="/">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="header__inner-logo">
+              <img src="/images/logo.svg" alt="" />
+            </a>
+          </Link>
+          <nav
+            className={`nav ${openMenu ? 'active' : ''}`}
+            id="menu"
+            onClick={handleMenuClose}
+          >
             <div className="nav__inner">
               <div className="nav__inner-links">
-                <Link href="home.html" className="active">
+                <Link href="/" passHref onClick={handleMenuClose}>
                   Home
                 </Link>
-                <Link href="liquidations.html">Liquidations</Link>
-                <Link href="borrow.html">Borrow</Link>
-                <Link href="staking.html">Staking</Link>
-                <Link href="gauges.html">Gauges</Link>
-                <Link href="mlqdr.html">mLQDR</Link>
-                <Link href="#">Voting</Link>
-                <p style={{ fontWeight: 'bold' }} onClick={handleMenuClose}>
+                <Link href="/liquidations" className="active">
+                  Liquidations
+                </Link>
+                <Link href="/borrow">Borrow</Link>
+                <Link href="/staking">Staking</Link>
+                <Link href="/gauges">Gauges</Link>
+                <Link href="/mlqdr">mLQDR</Link>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/morphex-labs/morphex"
+                >
+                  Voting
+                </a>
+                {/* <p style={{ fontWeight: 'bold' }} onClick={handleMenuClose}>
                   CLOSE
-                </p>
+                </p> */}
               </div>
               <div className="nav__inner-social">
-                <Link href="#">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://twitter.com/MorpheusSwap"
+                >
                   <svg
                     id="twitter"
                     width="16"
@@ -67,8 +86,12 @@ const Header = () => {
                       fill="#787878"
                     />
                   </svg>
-                </Link>
-                <Link href="#">
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://twitter.com/MorpheusSwap"
+                >
                   <svg
                     width="17"
                     height="14"
@@ -81,8 +104,12 @@ const Header = () => {
                       fill="#787878"
                     />
                   </svg>
-                </Link>
-                <Link href="#">
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://twitter.com/MorpheusSwap"
+                >
                   <svg
                     width="16"
                     height="16"
@@ -102,8 +129,12 @@ const Header = () => {
                       </clipPath>
                     </defs>
                   </svg>
-                </Link>
-                <Link href="#">
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://twitter.com/MorpheusSwap"
+                >
                   <svg
                     width="21"
                     height="21"
@@ -123,13 +154,13 @@ const Header = () => {
                       </clipPath>
                     </defs>
                   </svg>
-                </Link>
+                </a>
               </div>
             </div>
           </nav>
           <div className="header__inner-user">
             <div className="header__inner-user-icon">
-              <img src="/images/icons/main-icon.png" alt="" />
+              <img src="/images/icons/icon-logo.svg" alt="" />
             </div>
             <p>$0.00</p>
             <Link href="#">
