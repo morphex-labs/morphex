@@ -109,7 +109,7 @@
     background-color: $gray-6;
     border-radius: 50%;
     transition: all 0.3s ease;
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     transform: translateY(-50%);
@@ -134,7 +134,7 @@
     background-color: $gray-6;
     border-radius: 50%;
     transition: all 0.3s ease;
-    content: "";
+    content: '';
     position: absolute;
     right: 0;
     transform: translateY(-50%);
@@ -160,7 +160,7 @@
   .nav {
     &__inner {
       &-links {
-       margin-left: 90px;
+        margin-left: 90px;
         a {
           margin-right: 20px;
         }
@@ -223,9 +223,8 @@
 
 // 540px
 @mixin nav-xsm-sm {
-  
   .burger {
-      width: 26px;
+    width: 26px;
     span {
       width: 6px;
       height: 6px;

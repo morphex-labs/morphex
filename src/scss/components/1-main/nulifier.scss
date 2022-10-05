@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
 body {
@@ -9,11 +10,11 @@ body {
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
 }
 button {
   outline: none;
@@ -63,10 +64,10 @@ a {
   text-decoration: none;
   opacity: 1;
   color: $primary;
-  transition: .3s ease;
+  transition: 0.3s ease;
   cursor: pointer;
   &:hover {
-    opacity: .88;
+    opacity: 0.88;
   }
 }
 ul {
@@ -80,5 +81,3 @@ ul {
   margin: 0 auto;
   padding: 0 40px;
 }
-
-
