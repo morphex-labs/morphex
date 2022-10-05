@@ -393,13 +393,13 @@
                 border-radius: 22px;
                 border: 1px solid #D3D7ED;
                 width: calc(18% - 10px);
-                max-width: 198px;
+                max-width: 40em;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 &:last-child {
                     width: calc(82% - 10px);
-                    max-width: 934px;
+                    max-width: 120em;
                 }
                 .button {
                     background-color: #F6F6F6;
@@ -418,7 +418,7 @@
         }
         &-col {
             width: calc(50% - 15px);
-            max-width: 558px;
+            max-width: 72em;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -728,14 +728,14 @@
             flex-direction: column;
             justify-content: space-between;
             width: calc(49% - 15px);
-            max-width: 553px;
+            max-width: 63em;
             background-color: $white;
             border-radius: 19px;
             box-shadow: -1px 8px 19px 0px #6F6F6F0A;
             &:first-child {
                 background-color: transparent;
                 width: calc(51% - 15px);
-                max-width: 568px;
+                max-width: 64em;
                 box-shadow: unset;
                 .borrow__inner-col-top {
                     box-shadow: -1px 8px 19px 0px #6F6F6F0A;
@@ -1139,7 +1139,7 @@
 .about {
     padding: 10px 0 15px;
     .auto__container {
-        max-width: 995px;
+        max-width: 100em;
     }
     &__inner {
         &-row {
@@ -1152,7 +1152,7 @@
             flex-direction: column;
             justify-content: space-between;
             width: calc(50% - 7px);
-            max-width: 450px;
+            max-width: 60em;
             background-color: $white;
             border-radius: 12px;
             padding: 24px 35px 28px;
@@ -1334,7 +1334,7 @@
         border-radius: 12px;
         &-col {
             width: calc(50% - 42px);
-            max-width: 380px;
+            max-width: 40em;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -1342,7 +1342,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                height: 36px;
+                height: 4em;
                 overflow: hidden;
                 margin-bottom: 8px;
                 h4 {

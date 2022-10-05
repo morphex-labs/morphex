@@ -53,9 +53,9 @@ Global Settings
    ***/
 body {
   font-family: $rubik;
-  font-size: 13px;
+  font-size: 16px;
   color: $black-2;
-  line-height: 16px;
+  line-height: 19px;
   font-weight: 400;
   background: $light-gray;
 }
@@ -76,7 +76,7 @@ ul {
 }
 .auto__container {
   position: relative;
-  max-width: 1240px;
+  max-width: 120em; // 1920px
   margin: 0 auto;
   padding: 0 40px;
 }
