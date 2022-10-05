@@ -11,7 +11,7 @@ const Borrow = () => {
                 <h4>My Collateral</h4>
                 <h3>
                   <span>
-                    <img src="/images/icons/main-icon.png" alt="" />
+                    <img src="/images/icons/main-icon.svg" alt="" />
                   </span>
                   0.00 USD
                   <small>0 BNB</small>
@@ -115,7 +115,39 @@ const Borrow = () => {
                     <p>Collateral</p>
                     <h5>
                       <span>
-                        <img src="images/icons/main-icon.png" alt="" />
+                        <img src="images/icons/main-icon.svg" alt="" />
+                      </span>
+                      BNB
+                    </h5>
+                  </td>
+                  <td>
+                    <p>Price</p>
+                    $261.869
+                  </td>
+                  <td>
+                    <p>Collateral ratio</p>
+                    66%
+                  </td>
+                  <td>
+                    <p>Collateral</p>
+                    <span>
+                      0 BNB <small>$0</small>
+                    </span>
+                  </td>
+                  <td>
+                    <p>Borrowed</p>0 MRX
+                  </td>
+                  <td>
+                    <p>Net Borrowing APR</p>
+                    -2%
+                  </td>
+                </tr>
+                <tr className="bg">
+                  <td>
+                    <p>Collateral</p>
+                    <h5>
+                      <span>
+                        <img src="images/icons/main-icon.svg" alt="" />
                       </span>
                       BNB
                     </h5>
