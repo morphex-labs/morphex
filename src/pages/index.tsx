@@ -101,7 +101,7 @@ const Home: NextPage = () => {
                   <p>Collateral</p>
                   <h5>
                     <span>
-                      <img src="/images/icons/main-icon.png" alt="" />
+                      <img src="/images/icons/main-icon.svg" alt="" />
                     </span>
                     BNB
                   </h5>
