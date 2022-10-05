@@ -196,7 +196,16 @@
   }
   .main {
     &__bg {
-      display: none;
+      // display: none;
+      &-image {
+        display: block;
+        left: 0%;
+        width: 100%;
+        height: 100vh;
+      }
+      &-image.right {
+        display: none;
+      }
       &.index {
         display: block;
       }
@@ -470,11 +479,11 @@
         }
       }
     }
-    &.long{
+    &.long {
       padding-bottom: 20px;
       margin: unset;
     }
-    
+
     &.sm {
       display: flex;
       thead {
@@ -486,12 +495,12 @@
         flex-direction: column;
         width: 100%;
         tr {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            padding: 0;
-            background: unset;
-            margin-bottom: 0;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding: 0;
+          background: unset;
+          margin-bottom: 0;
         }
       }
       p {
@@ -508,15 +517,15 @@
         align-items: center;
         padding: 16px 25px;
         &:nth-child(4) {
-         span{
-          font-size: 13px;
-          line-height: 16px;
-          small {
+          span {
             font-size: 13px;
             line-height: 16px;
-            margin-left: 7px;
+            small {
+              font-size: 13px;
+              line-height: 16px;
+              margin-left: 7px;
+            }
           }
-         }
         }
         .bar {
           display: none;
@@ -555,15 +564,15 @@
   }
   .lock {
     &__inner {
-        margin: 30px auto 90px;
-        width: calc(100% - 40px);
-        max-width: 342px;
-        padding: 20px 16px;
-        h4 {
-            margin-bottom: 12px
-        }
+      margin: 30px auto 90px;
+      width: calc(100% - 40px);
+      max-width: 342px;
+      padding: 20px 16px;
+      h4 {
+        margin-bottom: 12px;
+      }
     }
-}
+  }
   .progress {
     &__outer {
       p {
@@ -571,7 +580,7 @@
       }
     }
   }
- 
+
   @include header-xsm-sm;
   @include nav-xsm-sm;
   @include intro-xsm-sm;
@@ -598,6 +607,9 @@
 @include xxsm-xsm {
   .main {
     &__bg {
+      &-circle {
+        top: -15%;
+      }
       &.index {
         display: none;
       }
@@ -633,10 +645,10 @@
       }
     }
   }
-    @include intro-xxsm-xsm;
-    @include info-xxsm-xsm;
-    @include borrow-xxsm-xsm;
-    @include about-xxsm-xsm;
+  @include intro-xxsm-xsm;
+  @include info-xxsm-xsm;
+  @include borrow-xxsm-xsm;
+  @include about-xxsm-xsm;
 }
 // 390px
 @include xxxsm-xxsm {
@@ -749,13 +761,12 @@
         padding: 14px 15px;
         &:first-child {
           padding: 14px 15px;
-          
         }
-        &:nth-child(4){
-          span{
+        &:nth-child(4) {
+          span {
             font-size: 12px;
             line-height: 14px;
-            small{
+            small {
               font-size: 12px;
               line-height: 14px;
               display: inline-block;
@@ -779,5 +790,4 @@
   }
   @include list-sm;
   @include intro-xxxsm-xxsm;
-
 }
