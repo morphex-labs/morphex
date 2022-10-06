@@ -105,6 +105,9 @@ ul {
     margin-top: 50px;
     margin-bottom: 30px !important;
   }
+  .list__inner-main-wrapper:after {
+    display: none;
+  }
 
   // Borrow page
   .borrow__inner-col {
