@@ -52,7 +52,8 @@ const mLQDR = () => {
               </div>
               <div className="about__inner-col-bottom">
                 <div className="aboutInfo dark">
-                  <p className="sm">0.0</p>
+                  {/* <p className="sm">0.0</p> */}
+                  <input type="number" defaultValue="0.0" />
                   <a href="#" className="button">
                     50% MAX
                   </a>
