@@ -85,11 +85,9 @@ ul {
 * Width of the auto container can be adjusted here for larger devices (monitors, etc)
 */
 @media screen and (min-width: 1600px) {
+  // Wrapper for all content
   .auto__container {
-    position: relative;
     max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 40px;
   }
 
   // Home page
