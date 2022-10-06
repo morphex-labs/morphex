@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
 body {
@@ -9,11 +10,11 @@ body {
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
 }
 button {
   outline: none;
@@ -63,10 +64,10 @@ a {
   text-decoration: none;
   opacity: 1;
   color: $primary;
-  transition: .3s ease;
+  transition: 0.3s ease;
   cursor: pointer;
   &:hover {
-    opacity: .88;
+    opacity: 0.88;
   }
 }
 ul {
@@ -74,6 +75,7 @@ ul {
     list-style: none;
   }
 }
+
 .auto__container {
   position: relative;
   max-width: 1240px;
@@ -81,4 +83,107 @@ ul {
   padding: 0 40px;
 }
 
+/**
+* Width of the auto container can be adjusted here for larger devices (monitors, etc)
+*/
+@media screen and (min-width: 1600px) {
+  // Wrapper for all content
+  .auto__container {
+    max-width: 1500px;
+  }
 
+  // Home page
+  .info__inner-col {
+    max-width: 650px !important;
+  }
+  .info__inner-head-item {
+    max-width: 1100px !important;
+  }
+
+  // Liquidations page
+  .list__inner-buttons {
+    margin-top: 50px;
+    margin-bottom: 30px !important;
+  }
+  .list__inner-main-wrapper:after {
+    display: none;
+  }
+
+  // Borrow page
+  .borrow__inner-col {
+    max-width: 650px !important;
+  }
+  .borrow {
+    margin-top: 25px;
+  }
+  .borrow__inner-row {
+    margin-bottom: 50px !important;
+  }
+
+  // Gauges page
+  .list__inner.gauges {
+    margin-top: 50px;
+  }
+
+  /** 
+  * Fixing height between blocks
+  */
+  .info__inner-head {
+    margin: 50px 0 100px 0 !important;
+  }
+  .info__inner-row {
+    margin-bottom: 100px !important;
+  }
+
+  /**
+  * mLQDR Page
+  */
+  .about .auto__container {
+    max-width: 1200px !important;
+  }
+  .about__inner-col {
+    max-width: 600px !important;
+  }
+  .about__inner-col-top h4 {
+    max-width: 150px;
+    width: 100%;
+  }
+  .about__inner {
+    &-row {
+      margin-bottom: 50px !important;
+    }
+    margin-top: 50px;
+  }
+
+  /** 
+  * Fixing font size for paragraphs and headings, anchor tags and buttons
+  */
+  a {
+    font-size: 16px !important;
+  }
+  a.button {
+    font-size: 14px !important;
+  }
+  a.button.uniq {
+    font-size: 15px !important;
+  }
+  p {
+    font-size: 16px !important;
+  }
+  p.sm {
+    font-size: 14px !important;;
+  }
+  span {
+    font-size: 15px !important;
+  }
+
+  h4,
+  h6 {
+    font-size: 18px !important;
+  }
+
+  td,
+  th {
+    font-size: 16px !important;
+  }
+}
