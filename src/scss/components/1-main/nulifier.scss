@@ -131,6 +131,26 @@ ul {
     margin-top: 50px;
   }
 
+  // Staking page
+  .staking__inner-content .stakingItem,
+  .staking__inner .stakingItem {
+    max-width: 320px !important;
+  }
+  .staking__inner-table table {
+    height: 100px;
+  }
+  .stakingItem h4 {
+    opacity: 0.7;
+  }
+
+  // Lock popup
+  .lock__inner {
+    max-width: 600px !important;
+  }
+  .lock__inner-info {
+    margin-bottom: 30px !important;
+  }
+
   /** 
   * Fixing height between blocks
   */
@@ -139,6 +159,9 @@ ul {
   }
   .info__inner-row {
     margin-bottom: 100px !important;
+  }
+  .lockItem.sm {
+    margin-bottom: 20px;
   }
 
   /**
@@ -186,6 +209,11 @@ ul {
   h4,
   h6 {
     font-size: 18px !important;
+  }
+
+  h5 {
+    font-size: 16px !important;
+    opacity: .7;
   }
 
   td,
