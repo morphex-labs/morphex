@@ -81,7 +81,7 @@ const Staking = () => {
                     <th>
                       <h4>
                         <span>
-                          <img src="/images/icons/main-icon.png" alt="" />
+                          <img src="/images/icons/main-icon.svg" alt="" />
                         </span>
                         BNB
                       </h4>
