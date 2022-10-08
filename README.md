@@ -1,4 +1,16 @@
-# Morphex
+<p align="center">
+<a width="150px" href="https://github.com/morphex-labs/morphex/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/morphex-labs/morphex?style=flat"></a>
+<a href="https://github.com/morphex-labs/morphex/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/morphex-labs/morphex?style=flat"></a>
+<a href="https://github.com/morphex-labs/morphex/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/morphex-labs/morphex?style=flat"></a>
+<a href="https://github.com/morphex-labs/morphex/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/morphex-labs/morphex?style=flat"></a>
+<a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fmorphex-labs%2Fmorphex"><img alt="Twitter" src="https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FMorpheusSwap"></a>
+</p>
+
+<p align="center">
+ <img src="https://user-images.githubusercontent.com/39880364/194701979-0d5b9f06-7dcb-4f5c-b303-78e63051a2dd.png" align="center" alt="GitHub Readme Stats" />
+</p>
+
+# Preview of the Application
 
 <img width="1007" alt="Morphex Homepage" src="https://user-images.githubusercontent.com/39880364/192579941-aaf1e9d5-c5ae-401b-a1ed-ddf1bbbd3ae4.png">
 
