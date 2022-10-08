@@ -92,7 +92,11 @@ const mLQDR = () => {
                   </div>
                   <div className="aboutInfo">
                     <p className="sm">Balance</p>
-                    <p className="sm">0.0</p>
+                    <input
+                      className="aboutInfo-input"
+                      type="number"
+                      defaultValue="0.0"
+                    />
                   </div>
                 </div>
                 <div className="aboutItem__arrow-wrapper">
@@ -118,7 +122,11 @@ const mLQDR = () => {
                   </div>
                   <div className="aboutInfo">
                     <p className="sm">Balance</p>
-                    <p className="sm">0.0</p>
+                    <input
+                      className="aboutInfo-input"
+                      type="number"
+                      defaultValue="0.0"
+                    />
                   </div>
                 </div>
               </div>
