@@ -4,6 +4,9 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Project Tech Stack
+[![My Skills](https://skillicons.dev/icons?i=nextjs,react,ts,redux,sass,solidity)](https://skillicons.dev)
+
 ## Getting Started
 
 First, run the development server:
