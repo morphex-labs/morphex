@@ -13,3 +13,9 @@ npm run dev
 # or
 yarn dev
 ```
+
+## Donations
+
+If you like what we are doing, consider donating to the project. All the funds donated are split between the development team members. Any sum of money is highly appreciated.
+
+<a href="https://www.buymeacoffee.com/morphex" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
