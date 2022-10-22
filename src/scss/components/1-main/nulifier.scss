@@ -99,6 +99,9 @@ ul {
   }
 
   // Home page
+  .info__inner-list table {
+    border-spacing: 0px 28px;
+  }
   .info__inner-col {
     max-width: 650px !important;
   }
@@ -114,6 +117,13 @@ ul {
   .list__inner-main-wrapper:after {
     display: none;
   }
+  .list__inner-main {
+    height: 700px !important;
+
+    table {
+      border-spacing: 0px 28px;
+    }
+  }
 
   // Borrow page
   .borrow__inner-col {
@@ -124,6 +134,9 @@ ul {
   }
   .borrow__inner-row {
     margin-bottom: 50px !important;
+  }
+  .borrow__inner-list table {
+    border-spacing: 0px 28px;
   }
 
   // Gauges page
@@ -213,7 +226,7 @@ ul {
 
   h5 {
     font-size: 16px !important;
-    opacity: .7;
+    opacity: 0.7;
   }
 
   td,

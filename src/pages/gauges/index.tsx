@@ -85,7 +85,7 @@ const Gauges = () => {
                 <tbody>
                   {/* TODO: Fix this when pulling actuall data */}
                   {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-                  {[...new Array(5).fill(0)].map((v, _) => (
+                  {[...new Array(6).fill(0)].map((v, _) => (
                     <GaugeItem />
                   ))}
                 </tbody>
