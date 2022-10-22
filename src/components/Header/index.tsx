@@ -1,18 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   selectMenuOpen,
   selectWalletOpen,
 } from '../../redux/navigation/selectors';
-import { toggleMenu, togglePopup } from '../../redux/navigation/slice';
 import NavLinks from './NavLinks';
+import { toggleMenu, togglePopup } from '../../redux/navigation/slice';
 
 const Header = () => {
   // const [isOpen, setIsOpen] = useState(false);
-  const { pathname } = useRouter();
   const dispatch = useDispatch();
   const openWallet = useSelector(selectWalletOpen);
   const openMenu = useSelector(selectMenuOpen);
@@ -32,7 +31,6 @@ const Header = () => {
       <div className="auto__container">
         <div className="header__inner">
           <Link href="/">
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="header__inner-logo">
               <img src="/images/logo.svg" alt="" />
             </a>
@@ -63,6 +61,8 @@ const Header = () => {
               </div>
             </Link>
           </div>
+
+          {/* Wallet popup */}
           <div className={`popup ${openWallet ? 'active' : ''}`} id="popUp">
             <h4>Wallet</h4>
             <div className="input">
