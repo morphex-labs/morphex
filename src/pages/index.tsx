@@ -15,9 +15,6 @@ const Home: NextPage = () => {
     return <Welcome />;
   }
 
-  // const notify = () => toast.custom((t) => <CustomToast t={t} />);
-  // const notify = () => toast.success('Transaction completed successfully!');
-
   return (
     <section className="info">
       <div className="auto__container">
