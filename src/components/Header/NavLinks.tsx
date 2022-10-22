@@ -22,10 +22,10 @@ const NavLinks = () => {
         <Link href="/staking" passHref>
           <a className={pathname === '/staking' ? 'active' : ''}>Staking</a>
         </Link>
-        <Link href="/gauges">
+        <Link href="/gauges" passHref>
           <a className={pathname === '/gauges' ? 'active' : ''}>Gauges</a>
         </Link>
-        <Link href="/mlqdr">
+        <Link href="/mlqdr" passHref>
           <a className={pathname === '/mlqdr' ? 'active' : ''}>mLQDR</a>
         </Link>
         <a
