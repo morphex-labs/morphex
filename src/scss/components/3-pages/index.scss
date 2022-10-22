@@ -414,7 +414,6 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
-
         }
         &-col {
             width: calc(50% - 15px);
@@ -427,6 +426,8 @@
             border-radius: 12px;
             box-shadow: -1px 8px 19px 0px #6F6F6F0A;
             position: relative;
+            // animation-name: fadeInDown;
+            // animation-duration: 0.8s;
             &:last-child {
                 background-color: transparent;
                 box-shadow: unset;
