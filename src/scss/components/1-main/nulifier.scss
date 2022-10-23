@@ -92,6 +92,36 @@ ul {
 }
 
 /**
+  * Hover message for Question Mark
+  @note Background and color can be changed
+  */
+.hovertext {
+  position: relative;
+
+  &:before {
+    content: attr(data-hover);
+    left: 0;
+    opacity: 0;
+    top: 110%;
+    width: max-content;
+    padding: 3px 5px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    visibility: hidden;
+    background-color: #5b52fa;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+  }
+
+  &:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/**
 * Width of the auto container can be adjusted here for larger devices (monitors, etc)
 */
 @media screen and (min-width: 1600px) {
