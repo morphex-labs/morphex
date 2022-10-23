@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import Welcome from '../components/Welcome';
+import { Messages } from '../constants';
 // import toast from 'react-hot-toast';
 // import { trpc } from '../utils/trpc';
 
@@ -51,8 +53,16 @@ const Home: NextPage = () => {
               <div className="infoItem">
                 <h4>
                   Net Asset Value
-                  <span>
-                    <img src="./images/icons/question-circle.svg" alt="" />
+                  <span
+                    className="hovertext"
+                    data-hover={Messages.NET_ASSET_VALUE}
+                  >
+                    <Image
+                      width={12}
+                      height={12}
+                      src="/images/icons/question-circle.svg"
+                      alt="Question mark"
+                    />
                   </span>
                 </h4>
                 <div className="infoItem__price">

@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+import { Messages } from '../../constants';
 
 const Borrow = () => {
   return (
@@ -21,8 +23,16 @@ const Borrow = () => {
                 <div className="borrowItem">
                   <h4>
                     Net Borrowing APR
-                    <span>
-                      <img src="/images/icons/question-circle.svg" alt="" />
+                    <span
+                      className="hovertext"
+                      data-hover={Messages.NET_BORROWING_APR}
+                    >
+                      <Image
+                        width={12}
+                        height={12}
+                        src="/images/icons/question-circle.svg"
+                        alt="Question mark"
+                      />
                     </span>
                   </h4>
                   <h2>2%</h2>
@@ -31,8 +41,16 @@ const Borrow = () => {
                   <div className="borrowItem">
                     <h4>
                       Morphex Rewards
-                      <span>
-                        <img src="/images/icons/question-circle.svg" alt="" />
+                      <span
+                        className="hovertext"
+                        data-hover={Messages.MORPHEX_REWARDS}
+                      >
+                        <Image
+                          width={12}
+                          height={12}
+                          src="/images/icons/question-circle.svg"
+                          alt="Question mark"
+                        />
                       </span>
                     </h4>
                     <h3>0%</h3>
@@ -40,8 +58,16 @@ const Borrow = () => {
                   <div className="borrowItem">
                     <h4>
                       Borrowing APR (Fee)
-                      <span>
-                        <img src="/images/icons/question-circle.svg" alt="" />
+                      <span
+                        className="hovertext"
+                        data-hover={Messages.BORROWING_APR_FEE}
+                      >
+                        <Image
+                          width={12}
+                          height={12}
+                          src="/images/icons/question-circle.svg"
+                          alt="Question mark"
+                        />
                       </span>
                     </h4>
                     <h3>2%</h3>
