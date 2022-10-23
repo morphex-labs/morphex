@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const MetamaskNotFound: React.FC<Props> = ({ isWalletInstalled }) => {
-  const [isOpen, setIsOpen] = useState(!isWalletInstalled);
+  const [isOpen, setIsOpen] = useState(isWalletInstalled);
 
   const closeModal = () => {
     setIsOpen(false);
