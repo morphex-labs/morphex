@@ -104,33 +104,35 @@ const Home: NextPage = () => {
                 </tr>
               </thead>
               <tbody>
-                <td>
-                  <p>Collateral</p>
-                  <h5>
-                    <span>
-                      <img src="/images/icons/main-icon.svg" alt="" />
-                    </span>
-                    BNB
-                  </h5>
-                </td>
-                <td>
-                  <p>Amount</p>0 BNB
-                </td>
-                <td>
-                  <p>Borrowing Utilization</p>
-                  0% <span className="bar" />
-                </td>
-                <td>
-                  <p>Borrowed</p>0 MPX
-                </td>
-                <td>
-                  <p>Net Borrowing APR</p>
-                  -2%
-                </td>
-                <td>
-                  <p>Actions</p>
-                  -2%
-                </td>
+                <tr>
+                  <td>
+                    <p>Collateral</p>
+                    <h5>
+                      <span>
+                        <img src="/images/icons/main-icon.svg" alt="" />
+                      </span>
+                      BNB
+                    </h5>
+                  </td>
+                  <td>
+                    <p>Amount</p>0 BNB
+                  </td>
+                  <td>
+                    <p>Borrowing Utilization</p>
+                    0% <span className="bar" />
+                  </td>
+                  <td>
+                    <p>Borrowed</p>0 MPX
+                  </td>
+                  <td>
+                    <p>Net Borrowing APR</p>
+                    -2%
+                  </td>
+                  <td>
+                    <p>Actions</p>
+                    -2%
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

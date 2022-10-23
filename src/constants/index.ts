@@ -10,3 +10,7 @@ export const Messages = {
   NET_BORROWING_APR: 'Net Borrowing APR',
   NET_ASSET_VALUE: 'Net Asset Value',
 };
+
+export const localStorageKeys = {
+  METAMASK_NOT_FOUND: 'x-wallet-integration',
+};
