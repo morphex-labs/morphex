@@ -30,8 +30,10 @@ const Liquidations: NextPage = () => {
                   </tr>
                 </thead>
                 <thead className="space">
-                  {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                  <th />
+                  <tr>
+                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                    <th />
+                  </tr>
                 </thead>
                 <tbody>
                   <tr>

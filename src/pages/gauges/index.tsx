@@ -69,7 +69,9 @@ const Gauges = () => {
                   </tr>
                 </thead>
                 <thead className="space">
-                  <th />
+                  <tr>
+                    <th />
+                  </tr>
                 </thead>
                 <thead className="top">
                   <tr>
@@ -80,13 +82,16 @@ const Gauges = () => {
                   </tr>
                 </thead>
                 <thead className="space">
-                  <th />
+                  <tr>
+                    <th />
+                  </tr>
                 </thead>
                 <tbody>
                   {/* TODO: Fix this when pulling actuall data */}
                   {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-                  {[...new Array(6).fill(0)].map((v, _) => (
-                    <GaugeItem />
+                  {[...new Array(6).fill(0)].map((v, id) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <GaugeItem key={`gauge-${id}`} />
                   ))}
                 </tbody>
               </table>
