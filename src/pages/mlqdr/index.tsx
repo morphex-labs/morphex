@@ -1,6 +1,13 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from 'react';
 
-const mLQDR = () => {
+const MLQDR = () => {
+  const [swapLQDR, setSwapLQDR] = useState(false);
+
+  const handleSwapChange = () => {
+    setSwapLQDR(!swapLQDR);
+  };
+
   return (
     <section className="about">
       <div className="auto__container">
@@ -99,11 +106,18 @@ const mLQDR = () => {
                     />
                   </div>
                 </div>
+                {/* Changing direction arrow */}
                 <div className="aboutItem__arrow-wrapper">
-                  <div className="aboutItem__arrow">
+                  <div
+                    role="none"
+                    className="aboutItem__arrow"
+                    onClick={handleSwapChange}
+                    style={swapLQDR ? { rotate: '180deg' } : { rotate: '0deg' }}
+                  >
                     <img src="/images/icons/arrow.svg" alt="" />
                   </div>
                 </div>
+
                 <div className="aboutItem uniq">
                   <p className="sm">Output</p>
                   <div className="aboutItem__row">
@@ -186,4 +200,4 @@ const mLQDR = () => {
   );
 };
 
-export default mLQDR;
+export default MLQDR;
