@@ -1,3 +1,5 @@
+import { Chain } from 'wagmi';
+
 export const BASE_URL = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : 'http://localhost:3000';
@@ -13,4 +15,25 @@ export const Messages = {
 
 export const localStorageKeys = {
   METAMASK_NOT_FOUND: 'x-wallet-integration',
+};
+
+const ftmScan = { name: 'Ftmscan', url: 'https://ftmscan.com/' }; // blockexplorer for Fantom
+// Since Fantom is not a default chain supported by wagmi, we need to import the Chain type and create our own
+export const ftmChain: Chain = {
+  id: 250,
+  name: 'Fantom',
+  network: 'Fantom Opera',
+  nativeCurrency: { name: 'Fantom', symbol: 'FTM', decimals: 18 },
+  rpcUrls: {
+    default: 'https://rpc.ftm.tools/',
+    public: 'https://rpc.ftm.tools/',
+  },
+  blockExplorers: {
+    etherscan: ftmScan,
+    default: ftmScan,
+  },
+  multicall: {
+    address: '0xb828C456600857abd4ed6C32FAcc607bD0464F4F',
+    blockCreated: 2323970,
+  },
 };
