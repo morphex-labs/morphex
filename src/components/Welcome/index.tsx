@@ -1,3 +1,5 @@
+import { ConnectKitButton } from 'connectkit';
+
 const Welcome = () => {
   return (
     <section className="intro">
@@ -26,9 +28,13 @@ const Welcome = () => {
               </div>
               <div className="introItem">
                 <div className="introItem__inner">
-                  <a href="#connect-wallet" className="button">
-                    Connect Wallet
-                  </a>
+                  <ConnectKitButton
+                    customTheme={{
+                      '--ck-connectbutton-background': '#0c00ff',
+                      '--ck-connectbutton-color': 'white',
+                      '--ck-connectbutton-hover-color': '#453cfc',
+                    }}
+                  />
                 </div>
               </div>
             </div>
