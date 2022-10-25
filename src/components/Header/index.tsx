@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ConnectKitButton } from 'connectkit';
 
 import {
   selectMenuOpen,
@@ -23,7 +24,7 @@ const Header = () => {
     }
   };
 
-  const handleWalletClick = () => dispatch(togglePopup({ value: !openWallet }));
+  // const handleWalletClick = () => dispatch(togglePopup({ value: !openWallet }));
   const handleMenuClose = () => dispatch(toggleMenu({ value: false }));
 
   return (
@@ -47,7 +48,11 @@ const Header = () => {
               <img src="/images/icons/icon-logo.svg" alt="" />
             </div>
             <p>$0.00</p>
-            <Link href="#">
+
+            {/* Using ConnectKit wallet button */}
+            <ConnectKitButton />
+
+            {/* <Link href="#">
               <div
                 role="none"
                 className="button user"
@@ -59,11 +64,11 @@ const Header = () => {
                 </span>
                 <p>0xC6c...B77D</p>
               </div>
-            </Link>
+            </Link> */}
           </div>
 
-          {/* Wallet popup */}
-          <div className={`popup ${openWallet ? 'active' : ''}`} id="popUp">
+          {/* Wallet popup (old):
+           <div className={`popup ${openWallet ? 'active' : ''}`} id="popUp">
             <h4>Wallet</h4>
             <div className="input">
               <input type="text" placeholder="0xC6c...B77D" />
@@ -86,7 +91,7 @@ const Header = () => {
             <button type="button" className="button">
               Disconnect
             </button>
-          </div>
+          </div> */}
           <div
             role="none"
             className="burger"
