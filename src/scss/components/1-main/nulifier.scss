@@ -144,6 +144,12 @@ ul {
     max-width: 1500px;
   }
 
+  // Welcome page
+  .introItem__wrapper .introItem:last-child {
+    max-width: 800px !important;
+    width: 100% !important;
+  }
+
   // Home page
   .info__inner-list table {
     border-spacing: 0px 28px;
