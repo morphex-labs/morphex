@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ConnectKitButton } from 'connectkit';
 
 import {
   selectMenuOpen,
@@ -11,7 +12,6 @@ import NavLinks from './NavLinks';
 import { toggleMenu, togglePopup } from '../../redux/navigation/slice';
 
 const Header = () => {
-  // const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const openWallet = useSelector(selectWalletOpen);
   const openMenu = useSelector(selectMenuOpen);
@@ -23,7 +23,6 @@ const Header = () => {
     }
   };
 
-  const handleWalletClick = () => dispatch(togglePopup({ value: !openWallet }));
   const handleMenuClose = () => dispatch(toggleMenu({ value: false }));
 
   return (
@@ -47,45 +46,9 @@ const Header = () => {
               <img src="/images/icons/icon-logo.svg" alt="" />
             </div>
             <p>$0.00</p>
-            <Link href="#">
-              <div
-                role="none"
-                className="button user"
-                id="popupBtn"
-                onClick={handleWalletClick}
-              >
-                <span>
-                  <img src="/images/icons/metamask.svg" alt="" />
-                </span>
-                <p>0xC6c...B77D</p>
-              </div>
-            </Link>
-          </div>
 
-          {/* Wallet popup */}
-          <div className={`popup ${openWallet ? 'active' : ''}`} id="popUp">
-            <h4>Wallet</h4>
-            <div className="input">
-              <input type="text" placeholder="0xC6c...B77D" />
-              <button type="button" className="input__button">
-                <img src="/images/icons/copy.svg" alt="" />
-              </button>
-              <button type="button" className="input__button">
-                <img src="/images/icons/share.svg" alt="" />
-              </button>
-            </div>
-            <div className="popup__row">
-              <h5>
-                <span>
-                  <img src="/images/icons/icon-logo.svg" alt="" />
-                </span>
-                MRX
-              </h5>
-              <p>0</p>
-            </div>
-            <button type="button" className="button">
-              Disconnect
-            </button>
+            {/* Using ConnectKit wallet button */}
+            <ConnectKitButton />
           </div>
           <div
             role="none"
