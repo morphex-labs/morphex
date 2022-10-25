@@ -122,6 +122,20 @@ ul {
 }
 
 /**
+* For Mobile Screens smaller than 400px we make the wallet & coin price block smaller
+*/
+@media screen and (max-width: 400px) {
+  .header__inner-user {
+    padding-left: 8px !important;
+    margin-right: 5px !important;
+
+    p {
+      margin-right: 0px !important;
+    }
+  }
+}
+
+/**
 * Width of the auto container can be adjusted here for larger devices (monitors, etc)
 */
 @media screen and (min-width: 1600px) {
