@@ -1,19 +1,20 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import { useAccount } from 'wagmi';
 import Welcome from '../components/Welcome';
 import { Messages } from '../constants';
 // import toast from 'react-hot-toast';
 // import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
-  const isWalletConnected = true;
+  const { isConnected } = useAccount();
   // const { data, isLoading } = trpc.useQuery(['some.query-here']);
 
   // if (isLoading) {
   //   return <p>Loading...</p>;
   // }
 
-  if (!isWalletConnected) {
+  if (!isConnected) {
     return <Welcome />;
   }
 
