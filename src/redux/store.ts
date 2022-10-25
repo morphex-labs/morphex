@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { popupOuter } from './navigation/slice';
+import { menuNavigation } from './navigation/slice';
 
 export const store = configureStore({
   reducer: {
-    popupOuter: popupOuter.reducer,
+    menuNavigation: menuNavigation.reducer,
   },
 });
 

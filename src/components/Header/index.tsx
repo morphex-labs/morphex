@@ -4,26 +4,15 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ConnectKitButton } from 'connectkit';
 
-import {
-  selectMenuOpen,
-  selectWalletOpen,
-} from '../../redux/navigation/selectors';
+import { selectMenuOpen } from '../../redux/navigation/selectors';
 import NavLinks from './NavLinks';
-import { toggleMenu, togglePopup } from '../../redux/navigation/slice';
+import { toggleMenu } from '../../redux/navigation/slice';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const openWallet = useSelector(selectWalletOpen);
   const openMenu = useSelector(selectMenuOpen);
 
-  const handleMenuClick = () => {
-    dispatch(toggleMenu({ value: true }));
-    if (openWallet) {
-      dispatch(togglePopup({ value: false }));
-    }
-  };
-
-  const handleMenuClose = () => dispatch(toggleMenu({ value: false }));
+  const handleMenuToggle = () => dispatch(toggleMenu({ value: !openMenu }));
 
   return (
     <header className="header" id="header">
@@ -37,7 +26,7 @@ const Header = () => {
           <nav
             className={`nav ${openMenu ? 'active' : ''}`}
             id="menu"
-            onClick={handleMenuClose}
+            onClick={handleMenuToggle}
           >
             <NavLinks />
           </nav>
@@ -54,7 +43,7 @@ const Header = () => {
             role="none"
             className="burger"
             id="menuBtn"
-            onClick={handleMenuClick}
+            onClick={handleMenuToggle}
           >
             <span />
           </div>
