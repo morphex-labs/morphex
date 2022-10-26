@@ -33,6 +33,7 @@ const Welcome = () => {
                       '--ck-connectbutton-background': '#0c00ff',
                       '--ck-connectbutton-color': 'white',
                       '--ck-connectbutton-hover-color': '#453cfc',
+                      '--ck-font-family': 'Rubik, sans-serif',
                     }}
                   />
                 </div>

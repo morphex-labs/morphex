@@ -37,7 +37,13 @@ const Header = () => {
             <p>$0.00</p>
 
             {/* Using ConnectKit wallet button */}
-            <ConnectKitButton />
+            <ConnectKitButton
+              customTheme={{
+                '--ck-font-family': 'Rubik, sans-serif',
+                '--ck-connectbutton-color': '#B1B1B1',
+                '--ck-connectbutton-font-size': '15px',
+              }}
+            />
           </div>
           <div
             role="none"
