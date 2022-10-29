@@ -15,6 +15,7 @@ export const Messages = {
 
 export const localStorageKeys = {
   METAMASK_NOT_FOUND: 'x-wallet-integration',
+  MORPHEX_THEME: 'x-morphex-theme',
 };
 
 const ftmScan = { name: 'Ftmscan', url: 'https://ftmscan.com/' }; // blockexplorer for Fantom
