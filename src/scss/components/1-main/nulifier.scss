@@ -122,9 +122,25 @@ ul {
 }
 
 /**
+  * Image switch for Dark Mode
+  @note Margins and color can be changed
+  */
+.theme-switch {
+  max-width: 375px;
+  width: 100%;
+  justify-content: flex-end;
+}
+@media screen and (max-width: 570px) {
+  .theme-switch {
+    max-width: none;
+    width: unset;
+  }
+}
+
+/**
 * For Mobile Screens smaller than 400px we make the wallet & coin price block smaller
 */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   .header__inner-user {
     padding-left: 8px !important;
     margin-right: 5px !important;
