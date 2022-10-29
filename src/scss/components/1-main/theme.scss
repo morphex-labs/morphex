@@ -85,12 +85,18 @@ $text-light-gray: #e5e7eb;
 
   .intro__inner-row-wrapper,
   .introItem__inner {
-    background-color: $bg-dark;
+    background: $bg-dark;
   }
 
   .button.uniq {
     background: $bg-dark;
     color: $text-light-gray;
+  }
+
+  @media (max-width: 440px) {
+    .intro__inner-row-wrapper {
+      background: transparent;
+    }
   }
 
   @media (min-width: 650px) {
