@@ -29,17 +29,17 @@ const client = createClient(
 // so for now I just wrapped everything with the web3 providers. ConnectKitProvider goes inside WagmiConfig
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig client={client}>
-      <ConnectKitProvider
-        theme="auto"
-        mode="light"
-        options={{
-          embedGoogleFonts: true,
-          disclaimer:
-            'Morphex is a fully decentralized stablecoin protocol. No representation or warranty is made concerning any aspect of the Morphex Protocol, including its suitability, quality, availability, accessibility, accuracy or safety. Your access to and use of the Morphex Protocol through this interface is entirely at your own risk and could lead to substantial losses. You take full responsibility for your use of the interface, and acknowledge that you use it on the basis of your own enquiry, without solicitation or inducement by Contributors.',
-        }}
-      >
-        <Provider store={store}>
+    <Provider store={store}>
+      <WagmiConfig client={client}>
+        <ConnectKitProvider
+          theme="auto"
+          mode="light"
+          options={{
+            embedGoogleFonts: true,
+            disclaimer:
+              'Morphex is a fully decentralized stablecoin protocol. No representation or warranty is made concerning any aspect of the Morphex Protocol, including its suitability, quality, availability, accessibility, accuracy or safety. Your access to and use of the Morphex Protocol through this interface is entirely at your own risk and could lead to substantial losses. You take full responsibility for your use of the interface, and acknowledge that you use it on the basis of your own enquiry, without solicitation or inducement by Contributors.',
+          }}
+        >
           <Head>
             <title>Morphex</title>
             <meta name="description" content="Morphex Swap - Lend & Borrow" />
@@ -64,9 +64,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </Provider>
-      </ConnectKitProvider>
-    </WagmiConfig>
+        </ConnectKitProvider>
+      </WagmiConfig>
+    </Provider>
   );
 }
 
