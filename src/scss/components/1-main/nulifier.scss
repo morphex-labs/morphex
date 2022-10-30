@@ -126,9 +126,11 @@ ul {
   @note Margins and color can be changed
   */
 .theme-switch {
+  display: flex;
+  justify-content: flex-end;
   max-width: 375px;
   width: 100%;
-  justify-content: flex-end;
+  margin-right: 4px;
 }
 @media screen and (max-width: 570px) {
   .theme-switch {

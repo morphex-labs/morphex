@@ -27,7 +27,7 @@ export const DarkModeSwitch = () => {
   };
 
   return (
-    <div className="theme-switch flex mr-1">
+    <div className="theme-switch">
       {theme === 'light' ? (
         <Image
           src="/images/icons/dark-mode.png"
