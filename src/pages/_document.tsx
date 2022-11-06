@@ -4,6 +4,23 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <meta
+          property="og:url"
+          content="https://morphex-labs.vercel.app/"
+          key="og:url"
+        />
+        <meta property="og:title" content="Morphex" key="og:title" />
+        <meta
+          property="og:description"
+          content="Derivatives exchange on Fantom"
+          key="og:description"
+        />
+        <meta
+          property="og:image"
+          content="https://morphex-labs.vercel.app/images/Logo_blue.png"
+          key="og:image"
+        />
+        <meta property="og:site_name" content="Morphex" key="og:site_name" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
