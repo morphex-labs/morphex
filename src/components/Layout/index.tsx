@@ -1,9 +1,10 @@
 import React from 'react';
-import { isWalletInstalled } from '../../utils/wallet';
-import { MetamaskNotFound } from '../dialogs/MetamaskNotFound';
+
 import Footer from '../Footer';
 import Header from '../Header';
 import PopupOuter from './PopupOuter';
+import { MetamaskNotFound } from '../dialogs/MetamaskNotFound';
+import { isWalletInstalled } from '../../utils/wallet';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const isWalletPresent = isWalletInstalled();

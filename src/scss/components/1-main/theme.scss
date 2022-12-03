@@ -1,0 +1,113 @@
+$bg-dark: #1e293b;
+$bg-light-dark: #334155;
+$text-light-gray: #e5e7eb;
+
+.dark {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+
+  body {
+    background: $bg-dark;
+  }
+
+  a {
+    color: $text-light-gray;
+  }
+
+  p.big {
+    color: $text-light-gray;
+  }
+
+  .header__inner {
+    background: #334155;
+
+    &-logo img {
+      filter: invert(23%) sepia(95%) saturate(5398%) hue-rotate(244deg)
+        brightness(100%) contrast(97%);
+    }
+
+    &-user {
+      background: $bg-light-dark;
+
+      & > p {
+        color: $text-light-gray;
+      }
+    }
+  }
+
+  .nav__inner {
+    background: $bg-light-dark;
+  }
+
+  .info__inner {
+    h4,
+    h2 {
+      color: $text-light-gray;
+    }
+
+    &-col:first-child {
+      background: $bg-light-dark;
+    }
+
+    &-list {
+      table {
+        border-radius: 10px;
+
+        th {
+          background: $bg-light-dark;
+          color: $text-light-gray;
+
+          &:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+
+          &:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+        }
+
+        td {
+          color: $text-light-gray;
+
+          &:nth-child(odd) {
+            background: $bg-light-dark;
+          }
+
+          p {
+            color: $text-light-gray;
+          }
+        }
+      }
+    }
+  }
+
+  .intro__inner-row-wrapper,
+  .introItem__inner {
+    background: $bg-dark;
+  }
+
+  .button.uniq {
+    background: $bg-dark;
+    color: $text-light-gray;
+  }
+
+  @media (max-width: 440px) {
+    .intro__inner-row-wrapper {
+      background: transparent;
+    }
+  }
+
+  @media (min-width: 650px) {
+    table.sm td {
+      background: transparent !important;
+    }
+  }
+
+  @media (max-width: 930px) {
+    .header__inner {
+      background: unset;
+    }
+  }
+}

@@ -1,6 +1,10 @@
 import { ConnectKitButton } from 'connectkit';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../redux/theme/selectors';
 
 const Welcome = () => {
+  const theme = useSelector(selectTheme);
+
   return (
     <section className="intro">
       <div className="auto__container">
@@ -13,9 +17,7 @@ const Welcome = () => {
               <div className="introItem__wrapper">
                 <div className="introItem">
                   <div className="introItem__inner">
-                    <a href="#welcome" className="button uniq">
-                      Welcome
-                    </a>
+                    <div className="button uniq">Welcome</div>
                   </div>
                 </div>
                 <div className="introItem">
@@ -30,10 +32,20 @@ const Welcome = () => {
                 <div className="introItem__inner">
                   <ConnectKitButton
                     customTheme={{
-                      '--ck-connectbutton-background': '#0c00ff',
-                      '--ck-connectbutton-color': 'white',
-                      '--ck-connectbutton-hover-color': '#453cfc',
                       '--ck-font-family': 'Rubik, sans-serif',
+                      '--ck-connectbutton-color':
+                        theme === 'dark' ? '#e5e7eb' : 'white',
+                      '--ck-connectbutton-font-size': '15px',
+                      '--ck-connectbutton-background':
+                        theme === 'dark' ? '#334155' : '#0c00ff',
+                      '--ck-connectbutton-hover-color':
+                        theme === 'dark' ? '#e5e7eb' : '#453cfc',
+                      '--ck-connectbutton-hover-background':
+                        theme === 'dark' ? '#475569' : '',
+                      '--ck-connectbutton-active-color':
+                        theme === 'dark' ? '#e5e7eb' : '#453cfc',
+                      '--ck-connectbutton-active-background':
+                        theme === 'dark' ? '#475569' : '',
                     }}
                   />
                 </div>
