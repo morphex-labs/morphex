@@ -1,0 +1,273 @@
+.sideWrap {
+  &__inner {
+    position: relative;
+    padding-right: calc(28% + 10px);
+  }
+  &__side {
+    width: 28%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__main {
+    width: 100%;
+  }
+}
+.trade {
+  &Side {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: $box;
+      border-radius: 7px;
+      margin-bottom: 20px;
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(33.3% - 5px);
+        color: $gray;
+        border-radius: 7px;
+        background: transparent;
+        svg {
+          width: 12px;
+          height: 12px;
+          margin-right: 4px;
+        }
+        &.active {
+          color: $white;
+          background: $main;
+        }
+      }
+    }
+    &__box {
+      padding: 10px 15px;
+      box-sizing: border-box;
+      background: $mainBg;
+      border: 1px solid $border;
+      box-shadow: -1px 8px 19px rgba(111, 111, 111, 0.04);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    h6.xsm {
+      margin-bottom: 13px;
+      padding: 0 13px;
+    }
+    .button.primary {
+      width: 100%;
+    }
+  }
+  &Item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 13px;
+    border-radius: 7px;
+    &:nth-of-type(even) {
+      background: $box;
+    }
+    h6 {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    p.xsm {
+      margin: 0 !important;
+      padding: 0 !important;
+      color: $textColor;
+    }
+  }
+  &__type {
+    display: flex;
+    align-items: center;
+    &-btn {
+      padding: 9px;
+      color: $gray;
+      @include transition;
+      cursor: pointer;
+      font-size: 10px;
+      line-height: 12px;
+      font-weight: 400;
+      &.active {
+        color: $textColor;
+      }
+    }
+  }
+  &__inputs {
+    position: relative;
+    margin-bottom: 13px;
+    .input__outer {
+      margin: 0;
+      padding: 9px 13px;
+    }
+    .input__number {
+      color: $textColor2;
+    }
+    &-arrow {
+      background: $swap;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      color: $white;
+      justify-content: center;
+      cursor: pointer;
+      margin: -3px auto;
+      position: relative;
+      z-index: 1;
+      svg {
+        width: 8px;
+        height: 7px;
+      }
+    }
+  }
+  &Main {
+    &__header {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      box-sizing: border-box;
+      background: $mainBg;
+      border: 1px solid $border;
+      box-shadow: -1px 8px 19px rgba(111, 111, 111, 0.04);
+      border-radius: 12px;
+      margin-bottom: 18px;
+      .button {
+        padding: 5px 16px;
+        border-radius: 7px;
+        margin-right: 48px;
+      }
+      &-info {
+        margin-right: 48px;
+        h6.xsm {
+          color: $textColor2;
+          margin-bottom: 5px;
+        }
+        p.xsm {
+          color: $gray;
+        }
+      }
+    }
+    &__graph {
+      box-sizing: border-box;
+      background: $mainBg;
+      border: 1px solid $border;
+      box-shadow: -1px 8px 19px rgba(111, 111, 111, 0.04);
+      // border-radius: 12px;
+      margin-bottom: 18px;
+      // padding-bottom: 55%;
+      position: relative;
+      &-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &Other {
+    &__header {
+      display: flex;
+      border-radius: 7px;
+      max-width: 300px;
+      background: $box;
+      width: 100%;
+      justify-content: space-between;
+      .button {
+        width: calc(33.3% - 5px);
+        background: transparent;
+        border-radius: 7px;
+        color: $gray;
+        &.active {
+          color: $white;
+          background: $main;
+        }
+      }
+    }
+    &__box {
+      padding: 16px 26px;
+      box-sizing: border-box;
+      background: $mainBg;
+      border: 1px solid $border;
+      box-shadow: -1px 8px 19px rgba(111, 111, 111, 0.04);
+      border-radius: 12px;
+      margin-top: 12px;
+
+      p.xsm {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+@mixin trade-extra {
+  .sideWrap {
+    &__inner {
+      padding: 0;
+    }
+    &__side {
+      position: static;
+      width: 100%;
+      margin-bottom: 18px;
+    }
+  }
+}
+@mixin trade-sm-md {
+  .trade {
+    &Main {
+      &__header {
+        .button {
+          margin-right: 24px;
+        }
+        &-info {
+          margin-right: 24px;
+        }
+      }
+    }
+  }
+}
+@mixin trade-xsm-sm {
+  .trade {
+    &Main {
+      &__header {
+        overflow-x: auto;
+        justify-content: space-between;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        & {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .button {
+          font-size: 13px;
+          white-space: nowrap;
+          line-height: 15px;
+          margin: 0;
+          padding: 8px;
+        }
+        &-info {
+          white-space: nowrap;
+          margin: 0;
+          &:last-child {
+            display: none;
+          }
+          &:nth-last-child(2) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

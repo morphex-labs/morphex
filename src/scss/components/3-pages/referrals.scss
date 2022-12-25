@@ -1,0 +1,156 @@
+.referrals {
+  &__inner {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  &Tab {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      p.xsm {
+        width: calc(100% - 170px);
+        padding: 8px 12px;
+        box-sizing: border-box;
+        border-radius: 7px;
+        border: 1px solid $border;
+      }
+    }
+    &__body {
+      background: $mainBg;
+      border-radius: 12px;
+      padding: 35px 24px;
+      box-sizing: border-box;
+
+      &-inner {
+        max-width: 372px;
+        margin: 0 auto;
+        text-align: center;
+        h6.xsm {
+          margin-bottom: 8px;
+        }
+        p.xsm {
+          margin-bottom: 10px;
+          color: $gray;
+          height: 24px;
+        }
+        .inputS {
+          margin-bottom: 16px;
+        }
+        .button {
+          width: 100%;
+        }
+      }
+      &-footer {
+        justify-content: space-between;
+        display: flex;
+        .button {
+          &.primary {
+            width: calc(70% - 5px);
+          }
+          &.secondary {
+            width: calc(30% - 5px);
+          }
+        }
+      }
+    }
+    &__btns {
+      width: 154px;
+      display: flex;
+      position: relative;
+      background: $mainBg;
+      border-radius: 7px;
+      overflow: hidden;
+      .button {
+        width: 50%;
+        z-index: 1;
+        color: $gray;
+        background: transparent;
+
+        &.active {
+          border-radius: 7px;
+          background: $main;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+.tier {
+  .button {
+    margin-bottom: 10px;
+  }
+  margin-bottom: 40px;
+  &Item {
+    background: $mainBg;
+    border-radius: 9px;
+    padding: 13px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    &:nth-child(1) {
+      background: url(../../../../public/images/tier/tier-1.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    &:nth-child(2) {
+      background: url(../../../../public/images/tier/tier-2.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    &:nth-child(3) {
+      background: url(../../../../public/images/tier/tier-3.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+    }
+    &__col {
+      width: calc(33.3% - 5px);
+      &:nth-child(1) {
+        text-align: center;
+      }
+      h6,
+      p {
+        color: $textColor3;
+      }
+    }
+  }
+}
+@mixin referrals-md-lg {
+  .referrals {
+    &Tab {
+      &__header {
+        flex-direction: column;
+        align-items: flex-start;
+        p.xsm {
+          width: 100%;
+          padding: 8px 10px;
+        }
+      }
+      &__btns {
+        margin-bottom: 8px;
+      }
+      &__body {
+        padding: 28px 25px;
+      }
+    }
+  }
+  .tier {
+    &Item {
+      &__col {
+        width: calc(40% - 5px);
+        &:nth-child(1) {
+          width: calc(20% - 5px);
+          text-align: left;
+        }
+      }
+    }
+  }
+}

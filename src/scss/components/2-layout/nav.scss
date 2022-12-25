@@ -1,177 +1,91 @@
 .nav {
+  width: 100%;
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 30px;
-    position: relative;
     &-links {
-      margin-left: 100px;
-      a {
-        font-size: 14px;
-        line-height: 17px;
-        margin-right: 50px;
-        &:hover {
-          opacity: 1;
-          color: $black-2;
-        }
-        &.active {
-          font-weight: 600;
-          color: $black-2;
-        }
-        &:last-child {
-          margin-right: 0;
-        }
-        &:first-child {
-          display: none;
-        }
-      }
-      p {
-        display: none;
-      }
-    }
-    &-user {
       display: flex;
       align-items: center;
-      background-color: #f6f6f6;
-      padding-left: 16px;
-      box-shadow: -1px 8px 19px 0px #0000000d;
-      border-radius: 14px;
-      &-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 23px;
-        height: 23px;
-        margin-right: 6px;
-        img {
-          width: 100%;
-        }
+    }
+    &-link {
+      padding: 5px 27px;
+      background: transparent;
+      font-weight: 400;
+      font-size: 14px;
+      display: block;
+      box-sizing: border-box;
+      line-height: 17px;
+      color: $gray;
+      cursor: pointer;
+      @include transition;
+      &:hover {
+        color: $textColor;
       }
-      > p {
-        color: $black;
-        margin-right: 13px;
+      &.active {
+        color: $textColor;
       }
     }
-    &-social {
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: unset;
-      position: absolute;
-      bottom: 50px;
-      left: 58%;
-      transform: translateX(-50%);
-      width: 58%;
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.3s ease;
-        margin-right: 12px;
-        &:last-child {
-          margin-right: 0;
-          svg {
-            max-width: 21px;
-          }
-        }
-        svg {
-          width: 100%;
-          height: 100%;
-          max-width: 16px;
-          max-height: 16px;
-          fill: $gray-2;
-          transition: 0.3s ease;
-        }
-        &:hover {
-          svg {
-            fill: $main;
-          }
-        }
-      }
-    }
-  }
-}
-.burger {
-  display: none;
-  cursor: pointer;
-  @include transition;
-  position: relative;
-  width: 30px;
-  height: 40px;
-  &:hover {
-    opacity: 0.8;
-  }
-  &::before {
-    top: 50%;
-    width: 8px;
-    height: 8px;
-    background-color: $gray-6;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    content: "";
-    position: absolute;
-    left: 0;
-    transform: translateY(-50%);
-  }
-  span {
-    top: 50%;
-    width: 8px;
-    height: 8px;
-    background-color: $gray-6;
-    border-radius: 50%;
+    &-drop {
+      position: relative;
+      z-index: 1;
+      &-content {
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 170px;
+        box-sizing: border-box;
+        background: $mainBg;
 
-    transition: all 0.3s ease;
-    position: absolute;
-    left: 50%;
-    @include transition;
-    @include transform;
-  }
-  &::after {
-    top: 50%;
-    width: 8px;
-    height: 8px;
-    background-color: $gray-6;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    content: "";
-    position: absolute;
-    right: 0;
-    transform: translateY(-50%);
+        border-radius: 0 0 16px 16px;
+        flex-direction: column;
+        .nav__inner-link {
+          margin-bottom: 6px;
+        }
+      }
+
+      &.active {
+        box-shadow: -1px 8px 19px rgba(0, 0, 0, 0.13);
+        @include lightIn {
+          box-shadow: -1px 8px 19px rgba(101, 101, 101, 0.05);
+        }
+        .nav__inner-drop-content {
+          display: block;
+        }
+      }
+    }
   }
 }
-// 1180px
+.dots {
+  display: none;
+}
 @mixin nav-xlg-xxlg {
   .nav {
     &__inner {
-      &-links {
-        a {
-          margin-right: 36px;
+      &-link {
+        padding: 5px 20px;
+      }
+      &-drop {
+        &-content {
+          width: 154px;
+          border-radius: 16px;
         }
       }
     }
   }
 }
-// 1024px
 @mixin nav-lg-xlg {
-  body.active {
-    overflow: hidden;
-  }
   .nav {
     &__inner {
-      &-links {
-       margin-left: 90px;
-        a {
-          margin-right: 20px;
-        }
-        p {
-          display: none;
-        }
+      &-link {
+        padding: 5px 16px;
       }
     }
   }
 }
-// 930px
 @mixin nav-md-lg {
   .nav {
     position: fixed;
@@ -179,64 +93,84 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 100;
+    background: rgba($color: #000000, $alpha: 0.4);
     transform: translateX(100%);
-    z-index: 10;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
     @include transition;
+    &.active {
+      @include transformReset;
+    }
     &__inner {
+      flex-direction: column;
+      -ms-flex-direction: column;
       position: absolute;
+      justify-content: unset;
+      align-items: unset;
+      top: 0;
       right: 0;
-      top: 50%;
       width: 195px;
-      height: calc(100% - 24px);
-      padding: 30px 25px 30px 50px;
-      background: #fffffe;
-      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.02);
-      border-radius: 82px 0px 0px 82px;
-      transform: translateY(-50%);
-      overflow: auto;
+      padding: 0;
+      border-radius: 50px 0 0 50px;
+      z-index: 1;
+      padding: 50px;
+      height: calc(100% - 100px);
+      overflow-y: auto;
+      background: $mainBg;
+      &-link {
+        padding: 20px;
+        width: 100%;
+        text-align: left;
+      }
       &-links {
-        margin: 0;
         flex-direction: column;
-        a {
-          display: block;
-          margin: 0 0 40px;
-          &:first-child {
-            display: block;
+        order: 2;
+      }
+      &-drop {
+        width: 100%;
+        box-shadow: -1px 8px 19px rgba(0, 0, 0, 0.13);
+        border-radius: 16px;
+        @include lightIn {
+          box-shadow: -1px 8px 19px rgba(101, 101, 101, 0.05);
+        }
+        .btnMore {
+          display: none;
+        }
+        &-content {
+          display: block !important;
+          width: 100%;
+          position: static;
+          .nav__inner-link {
+            margin: 0;
           }
         }
-        p {
-          display: block;
-        }
       }
-      &-social {
-        display: flex;
+      .switch {
+        order: 1;
+        margin-bottom: 50px;
       }
-    }
-    &.active {
-      transform: translateX(0);
     }
   }
-  .burger {
-    display: block;
+  body.active {
+    overflow: hidden;
+  }
+  .dots {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    color: $gray;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    svg {
+      width: 20px;
+      height: 5px;
+    }
   }
 }
+// nav start
 
-// 540px
-@mixin nav-xsm-sm {
-  
-  .burger {
-      width: 26px;
-    span {
-      width: 6px;
-      height: 6px;
-    }
-    &::before {
-      width: 6px;
-      height: 6px;
-    }
-    &::after {
-      width: 6px;
-      height: 6px;
-    }
-  }
-}
+// nav end

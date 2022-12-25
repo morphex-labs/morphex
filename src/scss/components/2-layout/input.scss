@@ -1,0 +1,141 @@
+.input {
+  position: relative;
+  &__outer {
+    border: 0.5px solid $border;
+    border-radius: 7px;
+    padding: 10px 23px;
+    margin-bottom: 10px;
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: $mainFont;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 12px;
+      color: $textColor2;
+      margin-bottom: 10px;
+    }
+    p.xsm {
+      margin-bottom: 5px;
+    }
+  }
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 100px 10px 17px;
+    font-family: $mainFont;
+    background: $box;
+    color: $textColor;
+    border-radius: 7px;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 12px;
+    &::placeholder {
+      color: $textColor;
+      opacity: 1;
+    }
+  }
+  &__btns {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    @include transformY;
+    right: 17px;
+  }
+  &__max {
+    background: $main;
+    border-radius: 5px;
+
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 11px;
+    color: $white;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+  &__coin {
+    font-family: $mainFont;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    padding: 4px 8px;
+    color: $textColor;
+  }
+  &__number {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #787878;
+  }
+  &__lqdr {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: $textColor;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border: 0.5px solid $border;
+    border-radius: 7px;
+    img {
+      width: 13px;
+      margin-right: 8px;
+    }
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+  &.reverse {
+    input {
+      padding: 10px 17px 10px 100px;
+      text-align: right;
+      background: $button;
+      color: $buttonColor;
+    }
+    .input__btns {
+      right: unset;
+      left: 17px;
+    }
+  }
+  &S {
+    input {
+      width: 100%;
+      font-family: $mainFont;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 12px;
+      box-sizing: border-box;
+      color: $gray;
+      background: transparent;
+      border-radius: 7px;
+      padding: 10px 20px;
+      border: 1px solid $border;
+      &::placeholder {
+        color: $gray;
+        opacity: 1;
+      }
+    }
+  }
+  &.uniq {
+    input {
+      background: $button;
+      color: $buttonColor;
+    }
+    .button {
+      padding: 3px 8px;
+    }
+  }
+}
+
+@mixin input-xsm-sm {
+  .input {
+    &__outer {
+      padding: 10px 12px;
+    }
+  }
+}

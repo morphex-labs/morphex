@@ -1,799 +1,116 @@
-// 1380px
-@include xxxlg-xxxxlg {
-  @include intro-xxxlg-xxxxlg;
-}
-// 1250px
-@include xlg-xxlg-extra {
-  @include intro-xlg-xxlg-extra;
-}
 // 1180px
 @include xlg-xxlg {
+  // base start
+  @include header-xlg-xxlg;
   @include nav-xlg-xxlg;
+  main {
+    min-height: calc(100vh - 172px);
+    padding-top: 90px;
+  }
+  // base end
+  // idnex page start
   @include intro-xlg-xxlg;
-  @include info-xlg-xxlg;
-  @include borrow-xlg-xxlg;
-  @include staking-xlg-xxlg;
+  @include feature-xlg-xxlg;
+  @include detail-xlg-xxlg;
+  // idnex page end
 }
 // 1024px
 @include lg-xlg {
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  .auto__container {
-    padding: 0 30px;
-  }
-  .popup {
-    right: 20px;
-  }
-  table {
-    &.big {
-      thead {
-        &:first-child {
-          th {
-            padding: 24px 30px 25px;
-            &:first-child {
-              padding-left: 60px;
-            }
-          }
-        }
-        th {
-          padding: 14px 30px;
-          &:first-child {
-            padding-left: 60px;
-          }
-        }
-      }
-      tbody {
-        td {
-          padding: 17px 30px;
-          &:first-child {
-            padding-left: 60px;
-          }
-        }
-      }
-    }
-  }
+  // base start
   @include nav-lg-xlg;
-  @include header-lg-xlg;
+  // base end
+  // index page start
   @include intro-lg-xlg;
-  @include borrow-lg-xlg;
-  @include about-lg-xlg;
-  @include staking-lg-xlg;
+  @include feature-lg-xlg;
+  @include detail-lg-xlg;
+  // index page end
 }
-// 930px
+// 980px
+@include extra {
+  // trade page  start
+  @include trade-extra;
+  // trade page  end
+  // table page  start
+  @include table-extra;
+  // table page  end
+}
+// 900px
 @include md-lg {
-  .main {
-    padding: 90px 0;
-  }
-  .popup {
-    top: calc(100% - 13px);
-    right: 0;
-  }
-  .check {
-    width: 34px;
-    height: 16px;
-    margin-right: 9px;
-    &__box {
-      &::before {
-        width: 12px;
-        height: 12px;
-        left: 2px;
-      }
-    }
-    input {
-      &:checked {
-        & ~ .check__box {
-          &::before {
-            transform: translate(18px, -50%);
-          }
-        }
-      }
-    }
-  }
-  table {
-    &.sm {
-      th {
-        font-size: 14px;
-        line-height: 18px;
-      }
-      td {
-        font-size: 14px;
-        line-height: 18px;
-        &:nth-child(4) {
-          span {
-            font-size: 14px;
-            line-height: 16px;
-            small {
-              font-size: 14px;
-              line-height: 16px;
-            }
-          }
-        }
-        h5 {
-          font-size: 14px;
-          line-height: 18px;
-          span {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      }
-    }
-  }
+  // base start
   @include nav-md-lg;
   @include header-md-lg;
+  .button {
+    &.rad {
+      padding: 8px 16px;
+    }
+  }
+  // base endd
+  // index page start
   @include intro-md-lg;
-  @include info-md-lg;
-  @include borrow-md-lg;
-  @include about-md-lg;
-  @include staking-md-lg;
+  @include feature-md-lg;
+  @include detail-md-lg;
+  // index page endd
+
+  // layout start
+  @include table-md-lg;
+  // layout end
+  // overview page  start
+  @include overview-md-lg;
+  // overview page  end
+  // liquidity page  start
+  @include liquidity-md-lg;
+  // liquidity page  end
+  // referrals page  start
+  @include referrals-md-lg;
+  // referrals page  end
+  // earn page  start
+  @include earn-md-lg;
+  // earn page  end
+  // lqdr page  start
+  @include lqdr-md-lg;
+  // lqdr page  end
 }
-// 840px
-@include md-lg-extra {
-  h4 {
-    &.sm {
-      font-size: 13px;
-      line-height: 15px;
-    }
-  }
-  table {
-    &.big {
-      thead {
-        &:first-child {
-          th {
-            padding: 24px 20px 25px;
-            &:first-child {
-              padding-left: 35px;
-            }
-          }
-        }
-        th {
-          padding: 14px 20px;
-          &:first-child {
-            padding-left: 35px;
-          }
-        }
-      }
-      tbody {
-        td {
-          padding: 17px 20px;
-          &:first-child {
-            padding-left: 35px;
-          }
-        }
-      }
-    }
-    &.sm {
-      th {
-        font-size: 14px;
-        line-height: 18px;
-        padding: 12px 15px;
-        &:first-child {
-          padding-left: 20px;
-        }
-      }
-      td {
-        font-size: 14px;
-        line-height: 18px;
-        padding: 12px 15px;
-        &:first-child {
-          padding-left: 20px;
-        }
-        h5 {
-          font-size: 14px;
-          line-height: 18px;
-          span {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      }
-    }
-  }
-  @include staking-md-lg;
-}
-// 750px
+// 700px
 @include sm-md {
-  .auto__container {
-    padding: 0 20px;
-  }
-  .main {
-    &__bg {
-      // display: none;
-      &-image {
-        display: block;
-        left: 0%;
-        width: 100%;
-        height: 100vh;
-      }
-      &-image.right {
-        display: none;
-      }
-      &.index {
-        display: block;
-      }
-    }
-  }
-  .check {
-    width: 25px;
-    height: 12px;
-    margin-right: 5px;
-    &__box {
-      &::before {
-        width: 10px;
-        height: 10px;
-        left: 2px;
-      }
-    }
-    input {
-      &:checked {
-        & ~ .check__box {
-          &::before {
-            transform: translate(12px, -50%);
-          }
-        }
-      }
-    }
-  }
-  table {
-    border-spacing: 0 10px;
-    th {
-      padding: 12px 30px;
-    }
-    td {
-      padding: 12px 30px;
-    }
-    &.big {
-      thead {
-        &:first-child {
-          th {
-            padding: 24px 20px 25px;
-            h6 {
-              font-size: 13px;
-              line-height: 15px;
-              p {
-                font-size: 13px;
-                line-height: 15px;
-                span {
-                  font-size: 12px;
-                  line-height: 14px;
-                }
-              }
-            }
-            &:first-child {
-              padding-left: 35px;
-            }
-          }
-        }
-        th {
-          padding: 14px 20px;
-          font-size: 13px;
-          line-height: 15px;
-          &:first-child {
-            padding-left: 35px;
-          }
-        }
-      }
-      tbody {
-        td {
-          padding: 17px 20px;
-          font-size: 12px;
-          line-height: 14px;
-          &:first-child {
-            padding-left: 35px;
-          }
-        }
-      }
-    }
-    &.sm {
-      th {
-        font-size: 12px;
-        line-height: 16px;
-        padding: 11px 10px;
-        &:nth-child(5) {
-          svg {
-            width: 11px;
-            height: 11px;
-          }
-        }
-      }
-      td {
-        font-size: 12px;
-        line-height: 16px;
-        padding: 11px 10px;
-        &:nth-child(4) {
-          span {
-            font-size: 12px;
-            line-height: 14px;
-            small {
-              font-size: 12px;
-              line-height: 14px;
-            }
-          }
-        }
-        h5 {
-          font-size: 12px;
-          line-height: 16px;
-          span {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      }
-    }
-  }
-  @include intro-sm-md;
-  @include info-sm-md;
-  @include borrow-sm-md;
-  @include about-sm-md;
-  @include list-sm-md;
-  @include staking-sm-md;
-}
-// 650px
-@include sm-md-extra {
-  .main {
-    &.sm {
-      padding: 90px 0 90px;
-    }
-  }
-  table {
-    border-spacing: 0;
-    thead {
-      display: none;
-    }
-    td {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 15px;
-      p {
-        display: block;
-      }
-      span {
-        small {
-          margin-left: 5px;
-        }
-      }
-      &.head {
-        filter: drop-shadow(-1px 8px 19px rgba(0, 0, 0, 0.05));
-        border-radius: 13px;
-        border: 0.5px solid $violet;
-        padding: 19px 15px;
-        margin-bottom: 14px;
-      }
-    }
-    tbody {
-      tr {
-        display: flex;
-        flex-direction: column;
-        box-shadow: -1px 8px 19px rgba(111, 111, 111, 0.04);
-        border-radius: 16px;
-        background-color: $white;
-        padding: 17px 16px 28px;
-        margin-bottom: 27px;
-      }
-    }
-    &.big {
-      display: flex;
-      flex-direction: column;
-      thead {
-        display: none;
-        &:first-child {
-          display: flex;
-          margin-bottom: 30px;
-          justify-content: center;
-          tr {
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            padding: 23px 15px;
-            filter: drop-shadow(-1px 8px 19px rgba(0, 0, 0, 0.05));
-            border-radius: 13px;
-            border: 1px solid #d3d7ed;
-            max-width: 500px;
-            &:after {
-              display: none;
-            }
-            th {
-              width: 100%;
-              padding: 12px 23px 13px;
-              &:first-child {
-                padding: 12px 23px 13px;
-              }
-              &:nth-child(odd) {
-                background: #f2f2f2;
-                box-shadow: -1px 8px 19px rgba(0, 0, 0, 0.05);
-                border-radius: 13px;
-              }
-              h6 {
-                width: 100%;
-                p {
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                  span {
-                    margin: unset;
-                    &.colored {
-                      color: $blue;
-                      font-weight: 500;
-                      font-size: 13px;
-                      line-height: 16px;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      tbody {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        tr {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          padding: 24px 16px;
-          box-shadow: -1px 8px 19px rgba(111, 111, 111, 0.04);
-          border-radius: 16px;
-          background-color: $white;
-          max-width: 500px;
-          margin-bottom: 20px;
-          &:last-child {
-            margin: unset;
-          }
-        }
-        td {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          &:nth-child(1) {
-            padding: 13px 15px;
-            background-color: $blue;
-            color: $white;
-            box-shadow: -1px 8px 19px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            margin-bottom: 8px;
-
-            p {
-              color: $white;
-            }
-          }
-          &:nth-child(2) {
-            filter: drop-shadow(-1px 8px 19px rgba(0, 0, 0, 0.05));
-            border-radius: 10px;
-            border: 0.5px solid #d3d7ed;
-            padding: 17px 15px;
-            margin-bottom: 8px;
-          }
-          &:nth-child(4) {
-            border: 0.5px solid #ececec;
-            border-radius: 5px;
-            padding: 5px 15px;
-          }
-          padding: 14px 15px;
-          p {
-            display: block;
-            font-size: 13px;
-            line-height: 16px;
-          }
-        }
-      }
-    }
-    &.long {
-      padding-bottom: 20px;
-      margin: unset;
-    }
-
-    &.sm {
-      display: flex;
-      thead {
-        display: none;
-      }
-      tbody {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        tr {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          padding: 0;
-          background: unset;
-          margin-bottom: 0;
-        }
-      }
-      p {
-        display: block;
-        font-size: 13px;
-        line-height: 15px;
-      }
-      td {
-        font-size: 13px;
-        line-height: 16px;
-        padding: 11px 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px 25px;
-        &:nth-child(4) {
-          span {
-            font-size: 13px;
-            line-height: 16px;
-            small {
-              font-size: 13px;
-              line-height: 16px;
-              margin-left: 7px;
-            }
-          }
-        }
-        .bar {
-          display: none;
-        }
-        &:first-child {
-          padding: 16px 25px;
-        }
-        &:nth-child(odd) {
-          background-color: $white;
-          box-shadow: -1px 8px 19px rgba(111, 111, 111, 0.04);
-          border-radius: 12px;
-        }
-        h5 {
-          font-size: 13px;
-          line-height: 16px;
-          span {
-            margin-right: 4px;
-          }
-        }
-      }
-    }
-  }
-  @include intro-sm-md-extra;
-  @include info-sm-md-extra;
-  @include borrow-sm-md-extra;
-  @include about-sm-md-extra;
-  @include list-sm-md-extra;
-  @include staking-sm-md-extra;
+  // lqdr page  start
+  @include lqdr-sm-md;
+  // lqdr page  end
+  // trade page  start
+  @include trade-sm-md;
+  // trade page  end
 }
 // 540px
 @include xsm-sm {
-  .main {
-    padding: 80px 0 90px;
-  }
-  .popup {
-    top: 100%;
-  }
-  .lock {
+  .modal {
     &__inner {
-      margin: 30px auto 90px;
-      width: calc(100% - 40px);
-      max-width: 342px;
-      padding: 20px 16px;
-      h4 {
-        margin-bottom: 12px;
-      }
+      margin: 25px auto;
     }
   }
-  .progress {
-    &__outer {
-      p {
-        color: #d9d9d9;
-      }
-    }
-  }
-
-  @include header-xsm-sm;
-  @include nav-xsm-sm;
+  // indxe page  start
   @include intro-xsm-sm;
-  @include info-xsm-sm;
-  @include borrow-xsm-sm;
-  @include about-xsm-sm;
-  @include list-xsm-sm;
-  @include staking-xsm-sm;
-}
-@include xsm-sm-h {
-  .nav {
-    &__inner {
-      &-links {
-        a {
-          margin-bottom: 30px;
-        }
-      }
-      &-social {
-        bottom: 30px;
-      }
-    }
-  }
-}
-// 440px
-@include xxsm-xsm {
-  .main {
-    &__bg {
-      &-circle {
-        top: -15%;
-      }
-      &.index {
-        display: none;
-      }
-    }
-  }
-  .header {
-    &.index {
-      display: none;
-    }
-  }
-  .popup {
-    padding: 20px;
-    width: 320px;
-  }
-  .check {
-    width: 28px;
-    height: 16px;
-    margin-right: 11px;
-    &__box {
-      &::before {
-        width: 12px;
-        height: 12px;
-        left: 2px;
-      }
-    }
-    input {
-      &:checked {
-        & ~ .check__box {
-          &::before {
-            transform: translate(12px, -50%);
-          }
-        }
-      }
-    }
-  }
-  @include intro-xxsm-xsm;
-  @include info-xxsm-xsm;
-  @include borrow-xxsm-xsm;
-  @include about-xxsm-xsm;
-}
-// 390px
-@include xxxsm-xxsm {
-  @include staking-xxxsm-xxsm;
-}
-// 380px
-@include sm {
-  .lock {
-    &__inner {
-      &-row {
-        a {
-          margin-right: 4px;
-          padding: 3px 6px;
-        }
-      }
-    }
-  }
-  table {
-    tbody {
-      tr {
-        padding: 17px 10px 28px;
-        margin-bottom: 27px;
-      }
-    }
-    td {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 13px;
-      span {
-        small {
-          display: block;
-          margin: 5px 0 0 0;
-        }
-      }
-      &.head {
-        padding: 15px 13px;
-        margin-bottom: 14px;
-      }
-    }
-    &.big {
-      thead {
-        &:first-child {
-          tr {
-            padding: 10px;
-            th {
-              padding: 12px 15px 13px;
-              &:first-child {
-                padding: 12px 15px 13px;
-              }
-              h6 {
-                p {
-                  font-size: 12px;
-                  line-height: 14px;
-                  span {
-                    font-size: 11px;
-                    line-height: 13px;
-                    &.colored {
-                      font-size: 12px;
-                      line-height: 15px;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+  @include feature-xsm-sm;
+  @include detail-xsm-sm;
+  // indxe page  end
+  // trade page start
+  @include trade-xsm-sm;
+  // trade page end
 
-      tbody {
-        tr {
-          padding: 15px;
-        }
-        td {
-          &:nth-child(1) {
-            padding: 13px 15px;
-            background-color: $blue;
-            color: $white;
-            box-shadow: -1px 8px 19px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            margin-bottom: 8px;
-            span {
-              color: $white;
-            }
-          }
-          &:nth-child(2) {
-            filter: drop-shadow(-1px 8px 19px rgba(0, 0, 0, 0.05));
-            border-radius: 10px;
-            border: 0.5px solid #d3d7ed;
-            padding: 17px 15px;
-            margin-bottom: 8px;
-          }
-          &:nth-child(4) {
-            border: 0.5px solid #ececec;
-            border-radius: 5px;
-            padding: 5px 15px;
-          }
-          padding: 14px 15px;
-          p {
-            display: block;
-            font-size: 12px;
-            line-height: 14px;
-          }
-        }
-      }
-    }
-    &.sm {
-      td {
-        font-size: 12px;
-        line-height: 14px;
-        padding: 14px 15px;
-        &:first-child {
-          padding: 14px 15px;
-        }
-        &:nth-child(4) {
-          span {
-            font-size: 12px;
-            line-height: 14px;
-            small {
-              font-size: 12px;
-              line-height: 14px;
-              display: inline-block;
-            }
-          }
-        }
-        p {
-          font-size: 12px;
-          line-height: 14px;
-        }
-        h5 {
-          font-size: 12px;
-          line-height: 14px;
-          span {
-            width: 18px;
-            height: 18px;
-          }
-        }
-      }
-    }
+  // layout  start
+  @include input-xsm-sm;
+  @include sett-xsm-sm;
+  // layout  end
+  // overview page  start
+  @include overview-xsm-sm;
+  // overview page  end
+  // lqdr page  start
+  @include lqdr-xsm-sm;
+  // lqdr page  end
+}
+// 375px
+@include xxsm-xsm {
+  // base start
+  .auto__container {
+    padding: 0 14px;
   }
-  @include list-sm;
-  @include intro-xxxsm-xxsm;
-  @include staking-xxxsm-xxsm;
+  // base end
 }
