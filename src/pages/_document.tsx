@@ -22,13 +22,9 @@ export default function Document() {
         />
         <meta property="og:site_name" content="Morphex" key="og:site_name" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&family=Rubik:wght@300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
         <link
@@ -39,6 +35,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <div id="modals" />
       </body>
     </Html>
   );
