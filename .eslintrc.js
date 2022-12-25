@@ -85,6 +85,30 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
   },
   settings: {
     jsdoc: {
