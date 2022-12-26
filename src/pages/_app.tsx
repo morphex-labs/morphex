@@ -1,11 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { withTRPC } from '@trpc/next';
 import type { AppProps } from 'next/app';
-import { loggerLink } from '@trpc/client/links/loggerLink';
-import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { Provider } from 'react-redux';
-import superjson from 'superjson';
 import { Toaster } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -14,9 +10,9 @@ import { getDefaultClient } from 'connectkit';
 
 import '../scss/main.scss';
 import { URL, ftmChain } from '../constants';
-import { AppRouter } from '../server/route/app.router';
 import { store } from '../redux/store';
 import Layout from '../components/Layout';
+import { trpc } from '../utils/trpc';
 
 // Creating the web3 client in wagmi, using "getDefaultClient" from ConnectKit which simplifies for us.
 const client = createClient(
@@ -50,6 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             success: {
               style: {
                 padding: '8px',
+                fontSize: '12px',
               },
             },
           }}
@@ -62,39 +59,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default withTRPC<AppRouter>({
-  config({ ctx }) {
-    const links = [
-      loggerLink(),
-      httpBatchLink({
-        maxBatchSize: 10,
-        url: URL,
-      }),
-    ];
-
-    return {
-      queryClientConfig: {
-        defaultOptions: {
-          queries: {
-            staleTime: 60,
-          },
-        },
-      },
-      headers() {
-        if (ctx?.req) {
-          return {
-            ...ctx.req.headers,
-            'x-ssr': '1',
-          };
-        }
-        return {};
-      },
-      links,
-      transformer: superjson,
-    };
-  },
-  ssr: false,
-})(
+export default trpc.withTRPC(
   dynamic(() => Promise.resolve(MyApp), {
     ssr: false,
   })
