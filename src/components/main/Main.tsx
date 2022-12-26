@@ -22,7 +22,6 @@ export const ChartComponent = (props: any) => {
 
   useEffect(() => {
     const handleResize = () => {
-      console.log(chartContainerRef.current?.clientHeight);
       chart.applyOptions({
         width: chartContainerRef.current?.clientWidth,
         height: chartContainerRef.current?.clientHeight,
