@@ -154,3 +154,21 @@
     }
   }
 }
+
+.codeError {
+  color: #ff5c5c;
+  font-size: 10px;
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.codeSuccess {
+  color: aquamarine;
+  font-size: 10px;
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.isloading {
+  background: #979797;
+}
