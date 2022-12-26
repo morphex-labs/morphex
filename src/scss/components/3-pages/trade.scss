@@ -160,7 +160,7 @@
       // border-radius: 12px;
       margin-bottom: 18px;
       // padding-bottom: 55%;
-      height: 400px;
+      height: 500px;
       position: relative;
       &-inner {
         position: absolute;
@@ -261,12 +261,12 @@
         &-info {
           white-space: nowrap;
           margin: 0;
-          &:last-child {
-            display: none;
-          }
-          &:nth-last-child(2) {
-            display: none;
-          }
+          // &:last-child {
+          //   display: none;
+          // }
+          // &:nth-last-child(2) {
+          //   display: none;
+          // }
         }
       }
     }
