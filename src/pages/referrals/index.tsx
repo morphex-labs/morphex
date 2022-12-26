@@ -3,9 +3,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import toast from 'react-hot-toast';
-import React, { ChangeEvent, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { DefaultErrorShape } from '@trpc/server';
+import { TRPCClientErrorBase } from '@trpc/client';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+
 import { trpc } from '../../utils/trpc';
+import { ValidateCodeResult } from '../../server/routers/referrals';
 
 const tiers = [
   {
@@ -48,22 +52,21 @@ export default function Referrals() {
 
   const { mutate: validateCode, isLoading } =
     trpc.referrals.validateCode.useMutation({
-      onError: (e) => {
+      onError: (e: TRPCClientErrorBase<DefaultErrorShape>) => {
         setError(e.message);
       },
-      onSuccess: (data) => {
+      onSuccess: (data: ValidateCodeResult) => {
         toast.success(data.message);
         setIsValidationSuccess(true);
       },
     });
 
   const { mutate: sendCode } = trpc.referrals.sendCode.useMutation({
-    onError: (e) => {
+    onError: (e: TRPCClientErrorBase<DefaultErrorShape>) => {
       setError(e.message);
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success('Successfully sent code!');
-      // setIsValidationSuccess(true);
       setIsValidationSuccess(false);
     },
   });
