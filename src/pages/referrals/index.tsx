@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import React, { ChangeEvent, useState } from 'react';
+import toast from 'react-hot-toast';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { trpc } from '../../utils/trpc';
 
@@ -28,17 +32,65 @@ const tiers = [
 export default function Referrals() {
   const [isChecked, setIsChecked] = useState<string>('Referral');
   const [referralCode, setReferralCode] = useState<string>('');
+  const [error, setError] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+  const [isValidationSuccess, setIsValidationSuccess] =
+    useState<boolean>(false);
 
   const handleReferralCodeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setReferralCode(e.target.value);
   };
 
-  const submitReferralCode = () => {
-    // trpc.useQuery(["referral.validate-code"], )
-    console.log(referralCode);
+  const clearMessages = () => {
+    setError('');
+    setMessage('');
   };
 
-  // const { data } = trpc.useQuery();
+  const { mutate: validateCode, isLoading } =
+    trpc.referrals.validateCode.useMutation({
+      onError: (e) => {
+        setError(e.message);
+      },
+      onSuccess: (data) => {
+        toast.success(data.message);
+        setIsValidationSuccess(true);
+      },
+    });
+
+  const { mutate: sendCode } = trpc.referrals.sendCode.useMutation({
+    onError: (e) => {
+      setError(e.message);
+    },
+    onSuccess: (data) => {
+      toast.success('Successfully sent code!');
+      // setIsValidationSuccess(true);
+      setIsValidationSuccess(false);
+    },
+  });
+
+  useEffect(() => {
+    clearMessages();
+    setReferralCode('');
+  }, [isChecked]);
+
+  useEffect(() => {
+    if (isValidationSuccess) {
+      clearMessages();
+      sendCode({ code: referralCode });
+    }
+  }, [isValidationSuccess]);
+
+  const validateReferralCode = async () => {
+    await new Promise((resolve) => {
+      if (referralCode) {
+        setTimeout(() => {
+          clearMessages();
+          validateCode({ code: referralCode });
+        }, 200);
+      }
+      resolve('');
+    });
+  };
 
   return (
     <div className="referrals">
@@ -115,9 +167,20 @@ export default function Referrals() {
                     Create one now and start earning rebates!
                   </p>
                   <div className="inputS">
-                    <input type="text" placeholder="Enter a code" />
+                    <input
+                      type="text"
+                      placeholder="Enter a code"
+                      value={referralCode}
+                      onChange={(e) => handleReferralCodeInput(e)}
+                    />
                   </div>
-                  <button type="button" className="button sm primary">
+                  {error && <p className="codeError">{error}</p>}
+                  {message && <p className="codeSuccess">{message}</p>}
+                  <button
+                    type="button"
+                    className="button sm primary"
+                    onClick={validateReferralCode}
+                  >
                     Enter a code
                   </button>
                 </motion.div>
@@ -142,11 +205,14 @@ export default function Referrals() {
                       onChange={(e) => handleReferralCodeInput(e)}
                     />
                   </div>
+                  {error && <p className="codeError">{error}</p>}
+                  {message && <p className="codeSuccess">{message}</p>}
                   <div className="referralsTab__body-footer">
                     <button
                       type="button"
                       className="button sm primary"
-                      onClick={submitReferralCode}
+                      disabled={isLoading}
+                      onClick={validateReferralCode}
                     >
                       Enter Referral Code
                     </button>

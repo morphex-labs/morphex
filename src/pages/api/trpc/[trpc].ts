@@ -1,7 +1,7 @@
 import * as trpcNext from '@trpc/server/adapters/next';
 import toast from 'react-hot-toast';
 
-import { appRouter } from '../../../server/route/app.router';
+import { appRouter } from '../../../server/routers/_app';
 import { createContext } from '../../../server/createContext';
 
 export default trpcNext.createNextApiHandler({
