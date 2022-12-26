@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 export default function Document() {
   return (
@@ -32,25 +31,6 @@ export default function Document() {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
-        {/* <Script
-          type="text/javascript"
-          src="https://s3.tradingview.com/tv.js"
-          onLoad={() => {
-            new TradingView.widget({
-              autosize: true,
-              symbol: 'BINANCE:BTCUSDT',
-              interval: '240',
-              timezone: 'Etc/UTC',
-              theme: 'light',
-              style: '1',
-              locale: 'en',
-              toolbar_bg: '#f1f3f6',
-              enable_publishing: false,
-              allow_symbol_change: true,
-              container_id: 'tradingview-graph1',
-            });
-          }}
-        /> */}
       </Head>
       <body>
         <Main />
