@@ -2,10 +2,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import TradingViewWidget, { Themes } from 'react-tradingview-widget';
+
 import { selectTheme } from '../../redux/theme/selectors';
 
 export default function Main() {
   const theme = useSelector(selectTheme);
+
   return (
     <div className="tradeMain">
       <div className="tradeMain__header">
@@ -35,6 +37,13 @@ export default function Main() {
           locale="en"
           autosize
           interval="240"
+          toolbar_bg="#f1f3f6"
+          withdateranges
+          hide_side_toolbar
+          allow_symbol_change
+          show_popup_button
+          popup_width="1000"
+          popup_height="650"
         />
       </div>
     </div>
