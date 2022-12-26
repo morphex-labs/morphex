@@ -7,9 +7,12 @@
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/morphex-labs/morphex?color=green">
 <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/MorpheusSwap">
 
+# Morphex
+
 <p align="center">
- <img src="https://user-images.githubusercontent.com/39880364/194701979-0d5b9f06-7dcb-4f5c-b303-78e63051a2dd.png" align="center" alt="GitHub Readme Stats" />
+ <img src="https://user-images.githubusercontent.com/39880364/209525639-487640bb-4014-4bce-961d-2967d73ef991.jpg" align="center" alt="Morphex Logo" />
 </p>
+<br />
 
 # Preview of the Application
 
