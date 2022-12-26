@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { motion } from 'framer-motion';
+import { trpc } from '../../utils/trpc';
 
 const tiers = [
   {
@@ -25,7 +26,19 @@ const tiers = [
 ];
 
 export default function Referrals() {
-  const [isChecked, setIsChecked] = useState('Affiliates');
+  const [isChecked, setIsChecked] = useState<string>('Referral');
+  const [referralCode, setReferralCode] = useState<string>('');
+
+  const handleReferralCodeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setReferralCode(e.target.value);
+  };
+
+  const submitReferralCode = () => {
+    // trpc.useQuery(["referral.validate-code"], )
+    console.log(referralCode);
+  };
+
+  // const { data } = trpc.useQuery();
 
   return (
     <div className="referrals">
@@ -65,9 +78,9 @@ export default function Referrals() {
               <div className="referralsTab__btns">
                 <button
                   type="button"
-                  onClick={() => setIsChecked('Refferal')}
+                  onClick={() => setIsChecked('Referral')}
                   className={`button sm ${
-                    isChecked === 'Refferal' && 'active'
+                    isChecked === 'Referral' && 'active'
                   }`}
                 >
                   Refferal
@@ -109,7 +122,7 @@ export default function Referrals() {
                   </button>
                 </motion.div>
               )}
-              {isChecked === 'Refferal' && (
+              {isChecked === 'Referral' && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -122,10 +135,19 @@ export default function Referrals() {
                     Please input a referral code to benefit from fee discounts
                   </p>
                   <div className="inputS">
-                    <input type="text" placeholder="Enter a code" />
+                    <input
+                      type="text"
+                      placeholder="Enter a code"
+                      value={referralCode}
+                      onChange={(e) => handleReferralCodeInput(e)}
+                    />
                   </div>
                   <div className="referralsTab__body-footer">
-                    <button type="button" className="button sm primary">
+                    <button
+                      type="button"
+                      className="button sm primary"
+                      onClick={submitReferralCode}
+                    >
                       Enter Referral Code
                     </button>
                     <button type="button" className="button sm secondary">

@@ -200,9 +200,14 @@ export default function Header() {
                           >
                             More
                           </button>
-                          <Link href="/" passHref>
-                            <a className="nav__inner-link">Docs</a>
-                          </Link>
+                          <a
+                            href="https://morphex-docs.vercel.app/"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="nav__inner-link"
+                          >
+                            Docs
+                          </a>
                           <Link href="/" passHref>
                             <a className="nav__inner-link">Proof of Reserves</a>
                           </Link>
