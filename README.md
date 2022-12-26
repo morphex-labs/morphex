@@ -33,3 +33,7 @@ npm run dev
 # or
 yarn dev
 ```
+
+# Documentation
+
+### For questions regarding the project read our documentation [@Morphex Docs](http://morphex-docs.vercel.app/).
