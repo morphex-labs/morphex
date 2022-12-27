@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
@@ -5,10 +6,10 @@ import { Toaster } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { WagmiConfig, createClient } from 'wagmi';
+import { fantom, fantomTestnet } from 'wagmi/chains';
 import { getDefaultClient } from 'connectkit';
 
 import '../scss/main.scss';
-import { fantom, fantomTestnet } from 'wagmi/chains';
 import { store } from '../redux/store';
 import Layout from '../components/Layout';
 import { trpc } from '../utils/trpc';
