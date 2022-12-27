@@ -1,4 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../redux/theme/selectors';
 import Modal from './Modal';
 
 interface BtnProps {
@@ -28,7 +30,18 @@ const QueueBatchTrxBtn: React.FC<BtnProps> = ({ setStep }) => {
 };
 
 export default function LqdrEntry({ closeFunc }: { closeFunc: () => void }) {
+  const theme = useSelector(selectTheme);
+
+  useEffect(() => {
+    if (theme === 'light') {
+      setTextColor('#fff');
+    } else {
+      setTextColor('');
+    }
+  }, [theme]);
+
   const first = true;
+  const [textColor, setTextColor] = useState('');
   const [second, setSecond] = useState<boolean>(false);
   const [third, setThird] = useState<boolean>(false);
   const [fourth, setFourth] = useState<boolean>(false);
@@ -39,10 +52,12 @@ export default function LqdrEntry({ closeFunc }: { closeFunc: () => void }) {
       <div className="modal__items">
         <div
           className="modalItem modalItem--list"
-          style={first ? { backgroundColor: '#0029ff' } : {}}
+          style={{ backgroundColor: '#0029ff', color: textColor }}
         >
-          <h6 className="xsm">Step 1:</h6>
-          <p className="xsm">
+          <h6 className="xsm" style={{ color: textColor }}>
+            Step 1:
+          </h6>
+          <p className="xsm" style={{ color: textColor }}>
             Contracts approved (verify that all approvals were successful before
             continuing)
           </p>
@@ -52,8 +67,10 @@ export default function LqdrEntry({ closeFunc }: { closeFunc: () => void }) {
           className="modalItem modalItem--list"
           style={second ? { backgroundColor: '#0029ff' } : {}}
         >
-          <h6 className="xsm">Step 2:</h6>
-          <p className="xsm">
+          <h6 className="xsm" style={second ? { color: textColor } : {}}>
+            Step 2:
+          </h6>
+          <p className="xsm" style={second ? { color: textColor } : {}}>
             Select total LQDR amount to use & mind mLQDR proportionally
           </p>
         </div>
@@ -62,8 +79,12 @@ export default function LqdrEntry({ closeFunc }: { closeFunc: () => void }) {
           className="modalItem modalItem--list"
           style={third ? { backgroundColor: '#0029ff' } : {}}
         >
-          <h6 className="xsm">Step 3:</h6>
-          <p className="xsm">Join mLQDR - LQDR LP</p>
+          <h6 className="xsm" style={third ? { color: textColor } : {}}>
+            Step 3:
+          </h6>
+          <p className="xsm" style={third ? { color: textColor } : {}}>
+            Join mLQDR - LQDR LP
+          </p>
         </div>
         {third && !fourth && <QueueBatchTrxBtn setStep={setFourth} />}
 
@@ -71,8 +92,12 @@ export default function LqdrEntry({ closeFunc }: { closeFunc: () => void }) {
           className="modalItem modalItem--list"
           style={fourth ? { backgroundColor: '#0029ff' } : {}}
         >
-          <h6 className="xsm">Step 4:</h6>
-          <p className="xsm">Stake LP for rewards</p>
+          <h6 className="xsm" style={fourth ? { color: textColor } : {}}>
+            Step 4:
+          </h6>
+          <p className="xsm" style={fourth ? { color: textColor } : {}}>
+            Stake LP for rewards
+          </p>
         </div>
         {fourth && <QueueBatchTrxBtn setStep={setCompleted} />}
       </div>
