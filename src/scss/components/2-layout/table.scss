@@ -101,6 +101,10 @@
       }
     }
     &__text {
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
   &__row {
@@ -116,7 +120,7 @@
   }
   &__text {
     h6.xsm {
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
   }
   &Drop {
