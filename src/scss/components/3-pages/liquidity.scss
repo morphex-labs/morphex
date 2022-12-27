@@ -37,9 +37,9 @@
       }
       p.xsm {
         &.mW {
-          max-width: 240px;
-          font-size: 11px;
-          color: $textColor;
+          font-size: 12px;
+          line-height: 1.2rem;
+          color: $gray;
         }
       }
     }
