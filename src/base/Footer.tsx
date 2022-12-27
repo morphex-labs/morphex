@@ -1,30 +1,29 @@
-import React from 'react';
 import { book, discord, med, telegram, twitter } from './SVG';
 
 const socialItem = [
   {
     id: 'twitter',
-    link: 'google.com',
+    link: 'https://twitter.com/MorpheusSwap',
     icon: twitter,
   },
   {
     id: 'telegram',
-    link: 'google.com',
+    link: 'https://t.me/MorpheusSwapFinance',
     icon: telegram,
   },
   {
     id: 'discord',
-    link: 'google.com',
+    link: 'https://discord.com/invite/TR7zzfT2ru',
     icon: discord,
   },
   {
     id: 'med',
-    link: 'google.com',
+    link: 'https://medium.com/@morpheusswap',
     icon: med,
   },
   {
     id: 'book',
-    link: 'google.com',
+    link: 'https://morphex-docs.vercel.app/',
     icon: book,
   },
 ];
@@ -34,9 +33,15 @@ export default function Footer() {
       <div className="auto__container">
         <div className="footer__inner">
           <div className="social__row">
-            {socialItem.map((item, index) => {
+            {socialItem.map((item) => {
               return (
-                <a href={item.link} className="social" key={item.id}>
+                <a
+                  href={item.link}
+                  className="social"
+                  key={item.id}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {item.icon}
                 </a>
               );
