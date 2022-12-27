@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import { arrowBottom } from '../../../base/SVG';
 import RangeSlider from '../../../base/RangeSlider';
+import GenericBtn from '../../buttons/GenericBtn';
 
 export const longInfo = [
   {
@@ -163,9 +164,11 @@ export default function Long() {
         })}
       </div>
 
-      <button type="button" className="button primary sm">
-        Connect Wallet
-      </button>
+      <GenericBtn
+        btnTextMain="Buy"
+        classNamesMain="button primary sm"
+        classNamesConnect="button primary sm"
+      />
     </div>
   );
 }

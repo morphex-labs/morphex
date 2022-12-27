@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import GenericBtn from '../buttons/GenericBtn';
+
 export default function LiquidityTab() {
   const [state, setState] = useState('mint');
 
@@ -103,9 +105,11 @@ export default function LiquidityTab() {
         </motion.div>
       )}
       <div className="liquidityTab__footer">
-        <button type="button" className="button primary sm">
-          Connect wallet
-        </button>
+        <GenericBtn
+          btnTextMain="Buy"
+          classNamesMain="button primary sm"
+          classNamesConnect="button primary sm"
+        />
       </div>
     </div>
   );

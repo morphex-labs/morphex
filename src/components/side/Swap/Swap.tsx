@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 import { arrowBottom } from '../../../base/SVG';
+import GenericBtn from '../../buttons/GenericBtn';
 
 interface InputProps {
   label: string;
@@ -76,9 +78,11 @@ export default function Swap() {
         )}
       </div>
       <h6 className="xsm">Fees</h6>
-      <button type="button" className="button primary sm">
-        Connect Wallet
-      </button>
+      <GenericBtn
+        btnTextMain="Buy"
+        classNamesMain="button primary sm"
+        classNamesConnect="button primary sm"
+      />
     </div>
   );
 }
