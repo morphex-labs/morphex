@@ -22,7 +22,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       options={{
         embedGoogleFonts: true,
         disclaimer:
-          'Morphex is a fully decentralized stablecoin protocol. No representation or warranty is made concerning any aspect of the Morphex Protocol, including its suitability, quality, availability, accessibility, accuracy or safety. Your access to and use of the Morphex Protocol through this interface is entirely at your own risk and could lead to substantial losses. You take full responsibility for your use of the interface, and acknowledge that you use it on the basis of your own enquiry, without solicitation or inducement by Contributors.',
+          'Morphex is a decentralized perpetual exchange. No representation or warranty is made concerning any aspect of the Morphex Protocol, including its suitability, quality, availability, accessibility, accuracy or safety. Your access to and use of the Morphex Protocol through this interface is entirely at your own risk and could lead to substantial losses. You take full responsibility for your use of the interface, and acknowledge that you use it on the basis of your own enquiry, without solicitation or inducement by Contributors.',
       }}
     >
       <div className={`wrapper ${router.pathname === '/' ? 'index' : ''}`}>

@@ -8,7 +8,7 @@ import { WagmiConfig, createClient } from 'wagmi';
 import { getDefaultClient } from 'connectkit';
 
 import '../scss/main.scss';
-import { ftmChain } from '../constants';
+import { fantom, fantomTestnet } from 'wagmi/chains';
 import { store } from '../redux/store';
 import Layout from '../components/Layout';
 import { trpc } from '../utils/trpc';
@@ -17,13 +17,10 @@ import { trpc } from '../utils/trpc';
 const client = createClient(
   getDefaultClient({
     appName: 'Morphex',
-    chains: [ftmChain],
+    chains: [fantom, fantomTestnet],
   })
 );
 
-// Adding in the wagmi/connectkit providers in MyApp
-// NOTE: Not sure if we need to duplicate the provider from redux if we're adding in the web3 providers,
-// so for now I just wrapped everything with the web3 providers. ConnectKitProvider goes inside WagmiConfig
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
