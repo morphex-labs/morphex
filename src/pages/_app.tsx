@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
@@ -9,7 +8,7 @@ import { WagmiConfig, createClient } from 'wagmi';
 import { getDefaultClient } from 'connectkit';
 
 import '../scss/main.scss';
-import { URL, ftmChain } from '../constants';
+import { ftmChain } from '../constants';
 import { store } from '../redux/store';
 import Layout from '../components/Layout';
 import { trpc } from '../utils/trpc';
