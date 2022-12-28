@@ -21,7 +21,7 @@ const features = [
     title: 'Reduce Liquidation Risks',
     icon: '/images/icons/Shield.svg',
     text: 'An aggregate of high-quality price feeds determine when liquidations occur. This keeps positions safe from temporary wicks.',
-    activeRange: [600, 900],
+    activeRange: [600, 1000],
   },
 ];
 
