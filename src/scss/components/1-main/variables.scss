@@ -3,7 +3,7 @@ $secondary: #d5ac3c;
 
 $gray-0: #b1b1b1;
 
-$titleFont: "Jost";
+$titleFont: 'Jost';
 
 $black: #000;
 $white: #fff;
@@ -22,6 +22,7 @@ $border: var(--border);
 $table: var(--table);
 $gray: var(--gray);
 $gray-100: var(--gray-100);
+$gray-200: var(--gray-200);
 $textColor: var(--textColor);
 $textColor2: var(--textColor2);
 $textColor3: var(--textColor3);
@@ -42,11 +43,12 @@ $swap: var(--swap);
 
   --gray: #56677e;
   --gray-100: #405067;
+  --gray-200: #b5bac1;
   --textColor: #ffffff;
   --textColor2: #ffffff;
   --textColor3: #ffffff;
 }
-[data-theme="light"] {
+[data-theme='light'] {
   --body: #f1f1f1;
   --button: #f1f1f1;
   --buttonColor: #b1b1b1;
@@ -60,9 +62,10 @@ $swap: var(--swap);
   --table: #f5f5f5;
   --swap: #d9d9d9;
   --gray: #b5b5b5;
-  --gray-100: "#787878";
+  --gray-100: '#787878';
+  --gray-200: #b5b5b5;
   --textColor: #2d2d2d;
   --textColor2: #787878;
   --textColor3: #272727;
 }
-$mainFont: "Rubik", sans-serif;
+$mainFont: 'Rubik', sans-serif;
