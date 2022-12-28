@@ -168,7 +168,7 @@ export default function Header() {
                 <Link href="/mlqdr" passHref>
                   <a
                     className={`nav__inner-link ${
-                      pathname === '/mqldr' ? 'active' : ''
+                      pathname === '/mlqdr' ? 'active' : ''
                     }`}
                   >
                     mLQDR
