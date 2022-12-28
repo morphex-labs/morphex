@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { dots, logo, setting, themeIcon } from './SVG';
+
 import {
   toggleMenu,
   toggleMoreTab,
@@ -18,6 +19,8 @@ import {
 } from '../redux/navigation/selectors';
 import { toggleTheme } from '../redux/theme/slice';
 import { selectTheme } from '../redux/theme/selectors';
+
+import Settings from '../components/Settings';
 
 export default function Header() {
   const [checked, setChecked] = useState<boolean>(false);
@@ -34,9 +37,9 @@ export default function Header() {
   const wrapper = useRef<null | HTMLDivElement>(null);
   const navDrop = useRef<null | HTMLDivElement>(null);
 
-  // const navColor = theme === 'light' ? '#ffffff' : '#2d2d2d';
-
-  // menu function start
+  /**
+   * menu function start
+   *  */
   const close = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       dispatch(toggleMenu({ value: false }));
@@ -56,7 +59,9 @@ export default function Header() {
     document.body.classList.remove('active');
   }, [dispatch, pathname]);
 
-  // setting function start
+  /**
+   * setting function start
+   *  */
   const toggleOpenSettings = () => {
     dispatch(toggleSettings({ value: !settingsOpen }));
   };
@@ -88,7 +93,9 @@ export default function Header() {
   }, [dispatch, settingsOpen]);
   // setting function end
 
-  // theme function start
+  /**
+   * theme function start
+   */
   useEffect(() => {
     if (switchCheck.current) {
       document.documentElement.setAttribute('data-theme', theme);
@@ -264,40 +271,7 @@ export default function Header() {
                 {setting}
               </div>
               <AnimatePresence exitBeforeEnter>
-                {settingsOpen ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0, skewX: -30 }}
-                    animate={{ opacity: 1, scale: 1, skewX: 0 }}
-                    transition={{ duration: 0.4 }}
-                    exit={{ opacity: 0, scale: 0, skewX: -30 }}
-                  >
-                    <div className="sett__drop">
-                      <h6>Settings</h6>
-                      <div className="settInput">
-                        <label htmlFor="none">Allowed Slippage</label>
-                        <div className="input">
-                          <input type="text" placeholder="0.0" />
-                          <div className="input__btns">
-                            <div className="input__coin">%</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="settCheck">
-                        <input type="checkbox" />
-                        <label htmlFor="none"> Display PnL after fees</label>
-                      </div>
-                      <div className="settCheck">
-                        <input type="checkbox" />
-                        <label htmlFor="none">
-                          {' '}
-                          Include PnL in leverage display
-                        </label>
-                      </div>
-                    </div>
-                  </motion.div>
-                ) : (
-                  ''
-                )}
+                {settingsOpen ? <Settings /> : ''}
               </AnimatePresence>
             </div>
             <div
