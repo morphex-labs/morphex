@@ -476,3 +476,15 @@
     }
   }
 }
+
+.activeScroll {
+  opacity: 1;
+
+  .featureItem {
+    &__circ {
+      &::before {
+        background: $white;
+      }
+    }
+  }
+}

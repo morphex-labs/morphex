@@ -47,7 +47,7 @@ export default function Intro() {
             >
               <h6>Total Users</h6>
               <div className="introInput">
-                <input type="text" placeholder="$0.00" />
+                <input type="text" placeholder="23721" />
               </div>
             </motion.div>
           </div>
