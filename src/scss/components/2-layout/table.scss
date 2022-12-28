@@ -244,6 +244,10 @@
     &__header {
       margin-bottom: 8px;
       padding: 12px 30px;
+      h6.sm {
+        max-width: 80px;
+        width: 100%;
+      }
     }
     &Coin {
       padding-left: 36px;
