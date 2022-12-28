@@ -14,6 +14,7 @@ export const Messages = {
 export const localStorageKeys = {
   METAMASK_NOT_FOUND: 'x-wallet-integration',
   MORPHEX_THEME: 'x-morphex-theme',
+  MORPHEX_GLOBAL_SETTINGS: 'x-global-settings',
 };
 
 export const dummyChartData = [
