@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import {
   AdvancedRealTimeChart,
@@ -9,7 +9,7 @@ import {
 
 import { selectTheme } from '../../redux/theme/selectors';
 
-export default function Main() {
+const MainChart = memo(() => {
   const theme = useSelector(selectTheme);
 
   const styles: CopyrightStyles = {
@@ -21,23 +21,6 @@ export default function Main() {
   return (
     <div className="tradeMain">
       <div className="tradeMain__header">
-        {/* <div className="button primary">ETH / USD</div>
-        <div className="tradeMain__header-info">
-          <h6 className="xsm">Price</h6>
-          <p className="xsm">$1,630.70</p>
-        </div>
-        <div className="tradeMain__header-info">
-          <h6 className="xsm">24H Chance</h6>
-          <p className="xsm">-0.88%</p>
-        </div>
-        <div className="tradeMain__header-info">
-          <h6 className="xsm">24H High</h6>
-          <p className="xsm">1,666.90</p>
-        </div>
-        <div className="tradeMain__header-info">
-          <h6 className="xsm">24H Low</h6>
-          <p className="xsm">1,623.70</p>
-        </div> */}
         <Ticker
           colorTheme={theme === 'dark' ? 'dark' : 'light'}
           isTransparent
@@ -80,4 +63,6 @@ export default function Main() {
       </div>
     </div>
   );
-}
+});
+
+export default MainChart;
