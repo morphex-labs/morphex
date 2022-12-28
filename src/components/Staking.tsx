@@ -1,7 +1,16 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { shortenAddress } from '../utils/shortenAddress';
+import useCopyToClipboard from '../hooks/useCopyToClipboard';
+
+const address = '0x4E15361FD6b4BB609Fa63C81A2be19d873717870';
 
 export default function Staking() {
+  const shortAddress = useMemo(() => shortenAddress(address), []);
+
+  const [copiedText, copy] = useCopyToClipboard();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -35,7 +44,13 @@ export default function Staking() {
           <div className="staking__inner-col">
             <div className="staking__inner-title">
               <h6 className="xsm">View Contract</h6>
-              <p className="xsm">0xC6c...B77D</p>
+              <p
+                className="xsm"
+                style={{ cursor: 'pointer' }}
+                onClick={() => copy(address)}
+              >
+                {shortAddress}
+              </p>
             </div>
             <div className="stakingItem">
               <div className="stakingItem__row">
