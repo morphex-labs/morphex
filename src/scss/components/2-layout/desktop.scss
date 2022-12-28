@@ -1,0 +1,106 @@
+@media (min-width: 1600px) {
+  .auto__container {
+    max-width: 1300px !important;
+  }
+
+  .nav__inner-drop-content {
+    width: 180px !important;
+  }
+
+  .table td {
+    font-size: 12px !important;
+  }
+
+  .tradeMain__graph {
+    height: 600px !important;
+  }
+
+  .lqdr__inner-row {
+    max-width: 1100px !important;
+  }
+
+  .stakingItem {
+    padding: 16px 20px !important;
+  }
+  .staking__inner {
+    max-width: 1100px !important;
+
+    &-col {
+      padding: 32px 32px !important;
+    }
+  }
+
+  .referrals__inner {
+    max-width: 700px !important;
+  }
+
+  .tierItem {
+    margin-bottom: 15px !important;
+    padding: 15px 10px !important;
+  }
+
+  .inputS input {
+    font-size: 12px !important;
+    padding: 8px 20px !important;
+  }
+
+  .modal__inner {
+    max-width: 400px !important;
+  }
+  .modal .quote {
+    font-size: 10px !important;
+  }
+
+  .mintItem {
+    padding: 16px 12px !important;
+    h6.xsm {
+      margin-bottom: 14px;
+    }
+  }
+  .mint__header h6 {
+    max-width: 200px !important;
+    width: 100% !important;
+  }
+
+  .modalItem {
+    &--list {
+      padding: 12px 10px !important;
+      h6 {
+        width: 45px !important;
+      }
+    }
+  }
+
+  .nav__inner-link {
+    font-size: 15px !important;
+  }
+
+  .overviewItem {
+    padding: 12px 14px !important;
+  }
+
+  .earnItem {
+    padding: 12px 14px !important;
+  }
+
+  .overviewTab__info {
+    margin-bottom: 45px !important;
+  }
+
+  .button.sm {
+    font-size: 11px !important;
+  }
+  h6 {
+    &.sm {
+      font-size: 14px !important;
+    }
+    &.xsm {
+      font-size: 13px !important;
+    }
+  }
+  p {
+    &.xsm {
+      font-size: 12px !important;
+    }
+  }
+}
