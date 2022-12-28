@@ -65,7 +65,7 @@
       .button {
         width: calc(50% - 4px);
         background: $button;
-        color: $buttonColor;
+        color: $gray-200;
         &.active {
           color: $white;
           background: $main;

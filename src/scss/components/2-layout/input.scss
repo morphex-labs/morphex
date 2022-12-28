@@ -95,7 +95,7 @@
       padding: 10px 17px 10px 100px;
       text-align: right;
       background: $button;
-      color: $buttonColor;
+      // color: $buttonColor;
     }
     .input__btns {
       right: unset;
@@ -110,7 +110,7 @@
       font-size: 10px;
       line-height: 12px;
       box-sizing: border-box;
-      color: $gray;
+      color: $textColor;
       background: transparent;
       border-radius: 7px;
       padding: 10px 20px;
@@ -124,7 +124,7 @@
   &.uniq {
     input {
       background: $button;
-      color: $buttonColor;
+      // color: $buttonColor;
     }
     .button {
       padding: 3px 8px;
