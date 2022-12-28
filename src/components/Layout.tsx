@@ -27,6 +27,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     >
       <div className={`wrapper ${router.pathname === '/' ? 'index' : ''}`}>
         <Header />
+        {router.pathname !== '/' && <div className="bgPattern" />}
         <main className="main">
           {/* <MetamaskNotFound isWalletInstalled={isWalletPresent} /> */}
           {children}
