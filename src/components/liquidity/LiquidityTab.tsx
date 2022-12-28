@@ -106,7 +106,7 @@ export default function LiquidityTab() {
       )}
       <div className="liquidityTab__footer">
         <GenericBtn
-          btnTextMain="Buy"
+          btnTextMain="Confirm"
           classNamesMain="button primary sm"
           classNamesConnect="button primary sm"
         />

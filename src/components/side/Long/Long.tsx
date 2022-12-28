@@ -165,7 +165,7 @@ export default function Long() {
       </div>
 
       <GenericBtn
-        btnTextMain="Buy"
+        btnTextMain="Confirm"
         classNamesMain="button primary sm"
         classNamesConnect="button primary sm"
       />

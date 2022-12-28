@@ -79,7 +79,7 @@ export default function Swap() {
       </div>
       <h6 className="xsm">Fees</h6>
       <GenericBtn
-        btnTextMain="Buy"
+        btnTextMain="Confirm"
         classNamesMain="button primary sm"
         classNamesConnect="button primary sm"
       />
