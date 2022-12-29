@@ -1,5 +1,12 @@
 // @import "./fonts/stylesheet.css";
-@tailwind components;
+// @tailwind base;
+// @tailwind components;
+
+// *,
+// ::before,
+// ::after {
+//   box-sizing: content-box;
+// }
 // 1-main components
 @import './components/1-main/variables.scss';
 @import './components/1-main/mixin.scss';

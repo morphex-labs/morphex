@@ -104,7 +104,7 @@
       padding: 9px 13px;
     }
     .input__number {
-      color: $textColor2;
+      color: $textColor4;
     }
     &-arrow {
       background: $swap;
@@ -283,4 +283,29 @@
   color: aquamarine;
   font-size: 11px;
   margin-bottom: 5px;
+}
+
+.spaceDelimeter {
+  height: 10px;
+}
+
+.currencies {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  border-radius: 5px;
+
+  &-item {
+    font-size: 14px;
+    font-weight: 400;
+    color: $textColor3 !important;
+    background: transparent;
+    border: 1px solid $box;
+    border-radius: 10px;
+
+    &:hover {
+      background: #0029FF;
+      color: $textColor4 !important;
+    }
+  }
 }

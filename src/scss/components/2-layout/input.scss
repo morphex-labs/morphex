@@ -23,7 +23,7 @@
   input {
     box-sizing: border-box;
     width: 100%;
-    padding: 10px 100px 10px 17px;
+    padding: 10px 17px 10px 17px;
     font-family: $mainFont;
     background: $box;
     color: $textColor;
@@ -40,9 +40,9 @@
     display: flex;
     align-items: center;
     position: absolute;
+    right: 0px;
     top: 50%;
     @include transformY;
-    right: 17px;
   }
   &__max {
     background: $main;
@@ -66,9 +66,14 @@
   }
   &__number {
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 12px;
-    color: #787878;
+    color: $textColor;
+    background: #2246fe;
+    padding: 7px;
+    border-radius: 8px;
+    position: relative;
+    margin-right: 5px;
   }
   &__lqdr {
     display: flex;
