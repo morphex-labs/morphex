@@ -289,6 +289,10 @@
   height: 10px;
 }
 
+.disabledBtn{
+  background-color: $gray !important;
+}
+
 .currencies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
