@@ -22,7 +22,7 @@ export const payCurrencies = [
   { id: '2', name: 'Ethereum', symbol: 'ETH' },
   { id: '3', name: 'Bitcoin', symbol: 'BTC' },
   { id: '4', name: 'USD Coin', symbol: 'USDC' },
-  { id: '5', name: 'USDT', symbol: 'Tether' },
+  { id: '5', name: 'Tether', symbol: 'USDT' },
   { id: '6', name: 'DAI', symbol: 'DAI' },
 ];
 
