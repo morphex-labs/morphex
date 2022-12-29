@@ -24,9 +24,12 @@ $gray: var(--gray);
 $gray-100: var(--gray-100);
 $gray-200: var(--gray-200);
 $gray-300: var(--gray-300);
+$gray-400: var(--gray-400);
 $textColor: var(--textColor);
 $textColor2: var(--textColor2);
 $textColor3: var(--textColor3);
+$textColor4: var(--textColor4);
+$currencyBtn: var(--currencyBtn);
 $swap: var(--swap);
 :root {
   --body: #1e293b;
@@ -46,9 +49,13 @@ $swap: var(--swap);
   --gray-100: #405067;
   --gray-200: #b5bac1;
   --gray-300: #56677e;
+  --gray-400: #9ca2ac;
   --textColor: #ffffff;
   --textColor2: #ffffff;
   --textColor3: #ffffff;
+  --textColor4: #ffffff;
+
+  --currencyBtn: rgb(30 64 175);
 }
 [data-theme='light'] {
   --body: #f1f1f1;
@@ -67,8 +74,12 @@ $swap: var(--swap);
   --gray-100: '#787878';
   --gray-200: #b5b5b5;
   --gray-300: #d4d4d4;
+  --gray-400: #b5bac1;
   --textColor: #2d2d2d;
   --textColor2: #787878;
   --textColor3: #272727;
+  --textColor4: #ffffff;
+
+  --currencyBtn: rgb(30 64 175);
 }
 $mainFont: 'Rubik', sans-serif;
