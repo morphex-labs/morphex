@@ -44,6 +44,14 @@
     top: 50%;
     @include transformY;
   }
+  &__obtns {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    @include transformY;
+    right: 17px;
+  }
   &__max {
     background: $main;
     border-radius: 5px;
@@ -51,7 +59,7 @@
     font-family: $mainFont;
     font-weight: 500;
     font-size: 9px;
-    line-height: 11px;
+    // line-height: 11px;
     color: $white;
     cursor: pointer;
     padding: 4px 8px;
@@ -64,14 +72,20 @@
     padding: 4px 8px;
     color: $textColor;
   }
-  &__number {
+  &__onumber {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 12px;
-    color: $textColor;
-    background: #2246fe;
-    padding: 7px;
-    border-radius: 8px;
+    color: #787878;
+  }
+  &__number {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 11px;
+    color: $textColor4;
+    background: #0029ff;
+    padding: 4px 8px;
+    border-radius: 5px;
     position: relative;
     margin-right: 5px;
     cursor: pointer;
