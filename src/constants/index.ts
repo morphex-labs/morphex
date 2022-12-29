@@ -17,6 +17,21 @@ export const localStorageKeys = {
   MORPHEX_GLOBAL_SETTINGS: 'x-global-settings',
 };
 
+export const payCurrencies = [
+  { id: '1', name: 'Fantom', symbol: 'FTM' },
+  { id: '2', name: 'Ethereum', symbol: 'ETH' },
+  { id: '3', name: 'Bitcoin', symbol: 'BTC' },
+  { id: '4', name: 'USD Coin', symbol: 'USDC' },
+  { id: '5', name: 'USDT', symbol: 'Tether' },
+  { id: '6', name: 'DAI', symbol: 'DAI' },
+];
+
+export const longShortCurrencies = [
+  { id: '1', name: 'Fantom', symbol: 'FTM' },
+  { id: '2', name: 'Ethereum', symbol: 'ETH' },
+  { id: '3', name: 'Bitcoin', symbol: 'BTC' },
+];
+
 export const dummyChartData = [
   {
     time: '2018-10-19',
