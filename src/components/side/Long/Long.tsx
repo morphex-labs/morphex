@@ -6,7 +6,6 @@ import RangeSlider from '../../../base/RangeSlider';
 import GenericBtn from '../../buttons/GenericBtn';
 import PayInput from '../CurrencyInputs/PayInput';
 import LongShortInput from '../CurrencyInputs/LongShortInput';
-import { selectAllCurrencies } from '../../../redux/currency-selector/selectors';
 import PriceInput from '../CurrencyInputs/PriceInputs';
 import ConfirmLong from '../../../base/modals/ConfirmLong';
 import ConfirmLimit from '../../../base/modals/ConfirmLimit';
