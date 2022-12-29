@@ -9,6 +9,7 @@ import PayInput from '../CurrencyInputs/PayInput';
 import LongShortInput from '../CurrencyInputs/LongShortInput';
 import { mock } from '../../../utils/mockRequest';
 import { selectAllCurrencies } from '../../../redux/currency-selector/selectors';
+import PriceInput from '../CurrencyInputs/PriceInputs';
 
 export const longInfo = [
   {
@@ -39,10 +40,12 @@ export const longInfo = [
 ];
 
 export default function Long() {
-  const [type, setType] = useState('market');
-  const [coin1, setCoin1] = useState('');
-  const [coin2, setCoin2] = useState('');
-  const [leverageValue, setLeverageValue] = useState('2');
+  const [type, setType] = useState<string>('market');
+  const [coin1, setCoin1] = useState<string>('');
+  const [coin2, setCoin2] = useState<string>('');
+  const [price, setPrice] = useState<string>('');
+  const [leverageValue, setLeverageValue] = useState<string>('2');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const {
     longCurrency: { symbol: longSymbol, name: longName },
@@ -51,14 +54,22 @@ export default function Long() {
 
   const handleConfirm = () => {
     // Test function to show all values
+    setLoading(true);
     toast.promise(mock(true, 2000), {
-      success: `Transactions confirmed with values:
-      Type: ${type}
-      Leverage: ${leverageValue}
-      Pay: ${payName} - ${paySymbol} amount $${coin1}
-      Long: ${longName} - ${longSymbol} amount $${coin2}
-    `,
-      error: 'Transaction failed!',
+      success: () => {
+        setLoading(false);
+        return `Transactions confirmed with values:
+        Type: ${type}
+        Leverage: ${leverageValue}
+        Pay: ${payName} - ${paySymbol} amount $${coin1}
+        Long: ${longName} - ${longSymbol} amount $${coin2}
+        Price: ${price}
+      `;
+      },
+      error: () => {
+        setLoading(false);
+        return 'Transaction failed!';
+      },
       loading: 'Confirming your transaction... please wait.',
     });
   };
@@ -88,13 +99,15 @@ export default function Long() {
       </div>
       <div className="trade__inputs">
         <PayInput value={coin1} setValue={setCoin1} leverage="" label="Pay" />
-        <div role="presentation" className="spaceDelimeter" />
+        <div className="spaceDelimeter" />
         <LongShortInput
           value={coin2}
           setValue={setCoin2}
           label="Long"
           leverage={leverageValue}
         />
+        <div className="spaceDelimeter" />
+        <PriceInput value={price} setValue={setPrice} label="Price" />
       </div>
       <RangeSlider
         min="0"
@@ -126,9 +139,10 @@ export default function Long() {
 
       <GenericBtn
         btnTextMain="Confirm"
-        classNamesMain="button primary sm"
+        classNamesMain={`button primary sm ${loading ? 'disabledBtn' : ''}`}
         classNamesConnect="button primary sm"
         onClickFunc={handleConfirm}
+        disabled={loading}
       />
     </div>
   );

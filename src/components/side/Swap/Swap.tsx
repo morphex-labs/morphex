@@ -11,6 +11,7 @@ import { selectAllCurrencies } from '../../../redux/currency-selector/selectors'
 export default function Swap() {
   const [coin1, setCoin1] = useState<string>('');
   const [coin2, setCoin2] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const {
     longCurrency: { symbol: longSymbol, name: longName },
@@ -19,12 +20,19 @@ export default function Swap() {
 
   const handleConfirm = () => {
     // Test function to show all values
+    setLoading(true);
     toast.promise(mock(true, 2000), {
-      success: `Transactions confirmed with values:
+      success: () => {
+        setLoading(false);
+        return `Transactions confirmed with values:
     Pay: ${payName} - ${paySymbol} amount $${coin1}
     Receive: ${longName} - ${longSymbol} amount $${coin2}
-  `,
-      error: 'Transaction failed!',
+  `;
+      },
+      error: () => {
+        setLoading(false);
+        return 'Transaction failed!';
+      },
       loading: 'Confirming your transaction... please wait.',
     });
   };
@@ -39,9 +47,10 @@ export default function Swap() {
       <h6 className="xsm">Fees</h6>
       <GenericBtn
         btnTextMain="Confirm"
-        classNamesMain="button primary sm"
+        classNamesMain={`button primary sm ${loading ? 'disabledBtn' : ''}`}
         classNamesConnect="button primary sm"
         onClickFunc={handleConfirm}
+        disabled={loading}
       />
     </div>
   );
