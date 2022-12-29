@@ -3,12 +3,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import { menuNavigation } from './navigation/slice';
 import { settings } from './settings/slice';
 import { theme } from './theme/slice';
+import { selectCurrency } from './currency-selector/slice';
 
 export const store = configureStore({
   reducer: {
     menuNavigation: menuNavigation.reducer,
     theme: theme.reducer,
     settings: settings.reducer,
+    selectCurrency: selectCurrency.reducer,
   },
 });
 
