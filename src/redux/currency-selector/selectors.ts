@@ -9,4 +9,6 @@ export const selectLong = (state: RootState) =>
 export const selectShort = (state: RootState) =>
   state.selectCurrency.shortCurrency;
 
+export const selectPay = (state: RootState) => state.selectCurrency.payCurrency;
+
 export const selectAllCurrencies = (state: RootState) => state.selectCurrency;
