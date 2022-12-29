@@ -55,7 +55,10 @@ export default function Mint() {
           <div className="input uniq">
             <input type="text" placeholder="0.0" />
             <div className="input__btns">
-              <div className="primary button sm">
+              <div
+                className="primary button sm"
+                style={{ marginRight: '10px' }}
+              >
                 <span>50%</span> <span>MAX</span>
               </div>
             </div>

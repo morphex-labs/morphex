@@ -50,7 +50,7 @@ const Input = ({
           onChange={(e) => setValue(e.target.value)}
         />
         <div className="input__btns">
-          <div className="input__number">Balance</div>
+          <div className="input__onumber">Balance</div>
         </div>
       </div>
     </div>
