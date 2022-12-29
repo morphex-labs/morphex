@@ -4,6 +4,7 @@ import { menuNavigation } from './navigation/slice';
 import { settings } from './settings/slice';
 import { theme } from './theme/slice';
 import { selectCurrency } from './currency-selector/slice';
+import { orderDisclaimer } from './orders-disclaimer/slice';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     theme: theme.reducer,
     settings: settings.reducer,
     selectCurrency: selectCurrency.reducer,
+    orderDisclaimer: orderDisclaimer.reducer,
   },
 });
 
