@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+
 import Modal from './Modal';
+import GenericBtn from '../../components/buttons/GenericBtn';
+import { saveIsDisclaimerAccepted } from '../../redux/orders-disclaimer/slice';
 
 export default function EnableOrders({ closeFunc }: { closeFunc: () => void }) {
+  const dispatch = useDispatch();
+  const [isAccepted, setIsAccepted] = useState(false);
+
+  const handleAcceptDisclaimer = () => {
+    if (isAccepted) {
+      dispatch(
+        saveIsDisclaimerAccepted({ isOrderDisclaimerShown: isAccepted })
+      );
+      closeFunc();
+      toast.success('Disclaimer has been accepted');
+    }
+  };
+
   return (
     <Modal title="Enable orders" closeFunc={closeFunc}>
       <div className="modalNote">
@@ -30,7 +48,11 @@ export default function EnableOrders({ closeFunc }: { closeFunc: () => void }) {
           to settle at the trigger price.
         </p>
         <div className="modalCheck">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={isAccepted}
+            onChange={() => setIsAccepted(!isAccepted)}
+          />
           <label htmlFor="none">
             Accept that orders are not guaranteed to execute and trigger orders
             may not settle 0 at the trigger price{' '}
@@ -39,9 +61,15 @@ export default function EnableOrders({ closeFunc }: { closeFunc: () => void }) {
       </div>
 
       <div className="modal__btn">
-        <button type="button" className="button primary sm">
-          Accept terms to enable orders
-        </button>
+        <GenericBtn
+          btnTextMain="Accept terms to enable orders"
+          classNamesMain={`button primary sm ${
+            !isAccepted ? 'disabledBtn' : ''
+          }`}
+          classNamesConnect="button primary sm"
+          onClickFunc={handleAcceptDisclaimer}
+          disabled={!isAccepted}
+        />
       </div>
     </Modal>
   );
