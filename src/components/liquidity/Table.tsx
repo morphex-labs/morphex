@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+
 import { saveFees } from '../../base/Moduls';
 
 export default function Table() {
@@ -30,7 +32,12 @@ export default function Table() {
                 <td>
                   <div className="tableCoin">
                     <div className="tableCoin__icon">
-                      <img src={item.icon} alt={item.id} />
+                      <Image
+                        src={item.icon}
+                        alt={item.id}
+                        width={27}
+                        height={27}
+                      />
                     </div>
                     <div className="tableCoin__text">
                       <h6 className="xsm med">{item.name}</h6>
