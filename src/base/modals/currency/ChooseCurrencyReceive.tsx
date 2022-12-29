@@ -6,8 +6,9 @@ import Modal from '../Modal';
 import { RootState } from '../../../redux/store';
 import { payCurrencies } from '../../../constants';
 import { setSwapCurrency } from '../../../redux/currency-selector/slice';
+import { selectAllCurrencies } from '../../../redux/currency-selector/selectors';
 
-export default function ChooseCurrencyLongShort({
+export default function ChooseCurrencyReceive({
   closeFunc,
   actionName,
 }: {
@@ -15,9 +16,10 @@ export default function ChooseCurrencyLongShort({
   actionName: string;
 }) {
   const dispatch = useDispatch();
-  const selectedCurrency = useSelector(
-    (state: RootState) => state.selectCurrency.swapCurrency
-  );
+  const {
+    swapCurrency: { symbol: swapSymbol },
+    payCurrency: { symbol: paySymbol },
+  } = useSelector(selectAllCurrencies);
 
   const handleChangeCurrency = (symbol: string, name: string) => {
     closeFunc();
@@ -25,12 +27,12 @@ export default function ChooseCurrencyLongShort({
       dispatch(setSwapCurrency({ name, symbol }));
     }, 200);
   };
-
+  // TODO: if pay currency is the same as receive currency, change them
   return (
     <Modal title={`Choose Currency - ${actionName}`} closeFunc={closeFunc}>
       <div className="currencies">
         {payCurrencies
-          .filter((v) => v.symbol !== selectedCurrency.symbol)
+          .filter((v) => v.symbol !== swapSymbol && v.symbol !== paySymbol)
           .map((currency) => {
             return (
               <button
