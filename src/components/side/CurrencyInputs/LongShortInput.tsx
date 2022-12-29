@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
@@ -27,7 +27,9 @@ const LongShortInput = ({ label, value, setValue, leverage }: InputProps) => {
           type="number"
           placeholder="0.0"
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setValue(e.target.value)
+          }
         />
         <div className="input__btns">
           <div

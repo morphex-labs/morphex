@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { InputProps } from './Input';
 
 const PriceInput = ({ label, value, setValue }: InputProps) => {
@@ -14,7 +16,9 @@ const PriceInput = ({ label, value, setValue }: InputProps) => {
           type="number"
           placeholder="0.0"
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setValue(e.target.value)
+          }
         />
       </div>
     </div>
