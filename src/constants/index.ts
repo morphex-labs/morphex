@@ -15,6 +15,7 @@ export const localStorageKeys = {
   METAMASK_NOT_FOUND: 'x-wallet-integration',
   MORPHEX_THEME: 'x-morphex-theme',
   MORPHEX_GLOBAL_SETTINGS: 'x-global-settings',
+  MORPHEX_ORDER_DISCLAIMER_ACCEPTED: 'x-order-disclaimer-accepted',
 };
 
 export const payCurrencies = [
