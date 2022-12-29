@@ -1,5 +1,4 @@
-import toast from 'react-hot-toast';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 
@@ -7,9 +6,12 @@ import RangeSlider from '../../../base/RangeSlider';
 import GenericBtn from '../../buttons/GenericBtn';
 import PayInput from '../CurrencyInputs/PayInput';
 import LongShortInput from '../CurrencyInputs/LongShortInput';
-import { mock } from '../../../utils/mockRequest';
 import { selectAllCurrencies } from '../../../redux/currency-selector/selectors';
 import PriceInput from '../CurrencyInputs/PriceInputs';
+import ConfirmLong from '../../../base/modals/ConfirmLong';
+import ConfirmLimit from '../../../base/modals/ConfirmLimit';
+import { selectOrderDisclaimer } from '../../../redux/orders-disclaimer/selectors';
+import EnableOrders from '../../../base/modals/EnableOrders';
 
 export const longInfo = [
   {
@@ -45,33 +47,21 @@ export default function Long() {
   const [coin2, setCoin2] = useState<string>('');
   const [price, setPrice] = useState<string>('');
   const [leverageValue, setLeverageValue] = useState<string>('2');
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false);
+  const [isConfirmLimitOpen, setIsConfirmLimitOpen] = useState<boolean>(false);
+  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState<boolean>(false);
 
-  const {
-    longCurrency: { symbol: longSymbol, name: longName },
-    payCurrency: { symbol: paySymbol, name: payName },
-  } = useSelector(selectAllCurrencies);
+  const isOrderDisclaimerShown = useSelector(selectOrderDisclaimer);
 
-  const handleConfirm = () => {
-    // Test function to show all values
-    setLoading(true);
-    toast.promise(mock(true, 2000), {
-      success: () => {
-        setLoading(false);
-        return `Transactions confirmed with values:
-        Type: ${type}
-        Leverage: ${leverageValue}
-        Pay: ${payName} - ${paySymbol} amount $${coin1}
-        Long: ${longName} - ${longSymbol} amount $${coin2}
-        Price: ${price}
-      `;
-      },
-      error: () => {
-        setLoading(false);
-        return 'Transaction failed!';
-      },
-      loading: 'Confirming your transaction... please wait.',
-    });
+  const handleConfirmOpen = () => {
+    if (type === 'limit' && !isOrderDisclaimerShown) {
+      setIsDisclaimerOpen(!isDisclaimerOpen);
+      return;
+    }
+
+    type === 'market'
+      ? setIsConfirmOpen(!isConfirmOpen)
+      : setIsConfirmLimitOpen(!isConfirmLimitOpen);
   };
 
   useEffect(() => {
@@ -136,13 +126,53 @@ export default function Long() {
           );
         })}
       </div>
-
+      {type === 'market' && (
+        <AnimatePresence exitBeforeEnter>
+          {isConfirmOpen ? (
+            <ConfirmLong
+              closeFunc={() => setIsConfirmOpen(false)}
+              leverage={leverageValue}
+              price={price}
+              pay={coin1}
+              long={coin2}
+              type={type}
+            />
+          ) : (
+            ''
+          )}
+        </AnimatePresence>
+      )}{' '}
+      {type === 'limit' && isOrderDisclaimerShown && (
+        <AnimatePresence exitBeforeEnter>
+          {isConfirmLimitOpen ? (
+            <ConfirmLimit
+              closeFunc={() => setIsConfirmLimitOpen(false)}
+              leverage={leverageValue}
+              price={price}
+              pay={coin1}
+              label={coin2}
+              type={type}
+              actionName="Long"
+            />
+          ) : (
+            ''
+          )}
+        </AnimatePresence>
+      )}
+      {type === 'limit' && !isOrderDisclaimerShown && (
+        <AnimatePresence exitBeforeEnter>
+          {isDisclaimerOpen ? (
+            <EnableOrders closeFunc={() => setIsDisclaimerOpen(false)} />
+          ) : (
+            ''
+          )}
+        </AnimatePresence>
+      )}
       <GenericBtn
         btnTextMain="Confirm"
-        classNamesMain={`button primary sm ${loading ? 'disabledBtn' : ''}`}
+        classNamesMain="button primary sm"
         classNamesConnect="button primary sm"
-        onClickFunc={handleConfirm}
-        disabled={loading}
+        onClickFunc={handleConfirmOpen}
       />
     </div>
   );
