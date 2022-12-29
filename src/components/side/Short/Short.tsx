@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
-import { arrowBottom } from '../../../base/SVG';
 import RangeSlider from '../../../base/RangeSlider';
 import GenericBtn from '../../buttons/GenericBtn';
+import PayInput from '../CurrencyInputs/PayInput';
+import LongShortInput from '../CurrencyInputs/LongShortInput';
+import { mock } from '../../../utils/mockRequest';
+import { selectAllCurrencies } from '../../../redux/currency-selector/selectors';
 
 export const shortInfo = [
   {
@@ -33,42 +38,30 @@ export const shortInfo = [
   },
 ];
 
-interface InputProps {
-  label: string;
-  value: string;
-  setValue: (prop: string) => void;
-  currencry: string;
-  leverage?: string;
-}
-
-const Input = ({ label, value, setValue, currencry, leverage }: InputProps) => {
-  return (
-    <div className="input__outer">
-      <p className="xsm" />
-      <label htmlFor="none">
-        {label} <span>{leverage ? <>Leverage: {leverage}.00x</> : ''}</span>
-      </label>
-      <div className="input ">
-        <input
-          type="text"
-          placeholder="0.0"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <div className="input__btns">
-          <div className="input__number">{currencry}</div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 export default function Short() {
-  const [swap, setSwap] = useState(false);
   const [type, setType] = useState('market');
   const [coin1, setCoin1] = useState('');
   const [coin2, setCoin2] = useState('');
   const [leverageValue, setLeverageValue] = useState('2');
+
+  const {
+    longCurrency: { symbol: longSymbol, name: longName },
+    payCurrency: { symbol: paySymbol, name: payName },
+  } = useSelector(selectAllCurrencies);
+
+  const handleConfirm = () => {
+    // Test function to show all values
+    toast.promise(mock(true, 2000), {
+      success: `Transactions confirmed with values:
+      Type: ${type}
+      Leverage: ${leverageValue}
+      Pay: ${payName} - ${paySymbol} amount $${coin1}
+      Short: ${longName} - ${longSymbol} amount $${coin2}
+    `,
+      error: 'Transaction failed!',
+      loading: 'Confirming your transaction... please wait.',
+    });
+  };
 
   useEffect(() => {
     if (leverageValue === '0') setLeverageValue('2');
@@ -94,45 +87,14 @@ export default function Short() {
         </div>
       </div>
       <div className="trade__inputs">
-        {!swap ? (
-          <Input
-            value={coin1}
-            setValue={setCoin1}
-            label="Pay"
-            currencry="ETH"
-          />
-        ) : (
-          <Input
-            value={coin1}
-            setValue={setCoin1}
-            label="Short"
-            leverage={leverageValue}
-            currencry="ETH"
-          />
-        )}
-        <div
-          role="presentation"
-          className="trade__inputs-arrow"
-          onClick={() => setSwap(!swap)}
-        >
-          {arrowBottom}
-        </div>
-        {swap ? (
-          <Input
-            value={coin2}
-            setValue={setCoin2}
-            label="Pay"
-            currencry="ETH"
-          />
-        ) : (
-          <Input
-            value={coin2}
-            setValue={setCoin2}
-            label="Short"
-            leverage={leverageValue}
-            currencry="ETH"
-          />
-        )}
+        <PayInput value={coin1} setValue={setCoin1} label="Pay" />
+        <div className="spaceDelimeter" />
+        <LongShortInput
+          value={coin2}
+          setValue={setCoin2}
+          label="Short"
+          leverage={leverageValue}
+        />
       </div>
       <RangeSlider
         min="0"
@@ -166,6 +128,7 @@ export default function Short() {
         btnTextMain="Confirm"
         classNamesMain="button primary sm"
         classNamesConnect="button primary sm"
+        onClickFunc={handleConfirm}
       />
     </div>
   );
