@@ -7,6 +7,7 @@ export interface GenericBtnProps {
   btnTextMain: string;
   classNamesConnect: string;
   classNamesMain: string;
+  disabled?: boolean;
   onClickFunc?: () => void;
 }
 
@@ -15,13 +16,19 @@ const GenericBtn: React.FC<GenericBtnProps> = ({
   classNamesConnect,
   classNamesMain,
   onClickFunc,
+  disabled,
 }) => {
   const { isConnected } = useAccount();
 
   if (!isConnected) return <ConnectWalletBtn classNames={classNamesConnect} />;
 
   return (
-    <button type="button" className={classNamesMain} onClick={onClickFunc}>
+    <button
+      disabled={disabled || false}
+      type="button"
+      className={classNamesMain}
+      onClick={onClickFunc}
+    >
       {btnTextMain}
     </button>
   );
