@@ -8,7 +8,7 @@ import useDebounce from '../hooks/input/useDebounce';
 import { saveSettings } from '../redux/settings/slice';
 
 const Settings: React.FC = () => {
-  const maxAllowedSlippage = 10;
+  const maxAllowedSlippage = 5;
 
   const dispatch = useDispatch();
   const settings = useSelector((state: RootState) => state.settings);
@@ -47,10 +47,10 @@ const Settings: React.FC = () => {
     setError('');
     if (dbValue.includes('.')) {
       const valueParts = dbValue.split('.');
-      if (parseInt(valueParts[0], 10) > 10) {
+      if (parseInt(valueParts[0], 10) >= maxAllowedSlippage) {
         setError(`Allowed Slippage cannot be more than ${maxAllowedSlippage}%`);
       }
-    } else if (parseInt(dbValue, 10) > 10) {
+    } else if (parseInt(dbValue, 10) > maxAllowedSlippage) {
       setError(`Allowed Slippage cannot be more than ${maxAllowedSlippage}%`);
     }
   };
