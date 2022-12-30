@@ -35,7 +35,7 @@ export default function ConfirmLimit({
     payCurrency: { symbol: paySymbol, name: payName },
   } = useSelector(selectAllCurrencies);
 
-  const handleConfirmOpen = () => {
+  const handleConfirm = () => {
     // Test function to show all values
     closeFunc();
     setLoading(true);
@@ -125,7 +125,7 @@ export default function ConfirmLimit({
           btnTextMain="Create Order"
           classNamesMain={`button primary sm ${loading ? 'disabledBtn' : ''}`}
           classNamesConnect="button primary sm"
-          onClickFunc={handleConfirmOpen}
+          onClickFunc={handleConfirm}
           disabled={loading}
         />
       </div>

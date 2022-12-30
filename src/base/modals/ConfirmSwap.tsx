@@ -28,7 +28,7 @@ export default function ConfirmSwap({
     payCurrency: { symbol: paySymbol, name: payName },
   } = useSelector(selectAllCurrencies);
 
-  const handleConfirmOpen = () => {
+  const handleConfirm = () => {
     // Test function to show all values
     closeFunc();
     setLoading(true);
@@ -95,7 +95,7 @@ export default function ConfirmSwap({
           btnTextMain="Confirm Swap"
           classNamesMain={`button primary sm ${loading ? 'disabledBtn' : ''}`}
           classNamesConnect="button primary sm"
-          onClickFunc={handleConfirmOpen}
+          onClickFunc={handleConfirm}
           disabled={loading}
         />
       </div>
