@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
@@ -38,7 +37,7 @@ export default function Orders() {
               return (
                 <OrderItem
                   {...item}
-                  key={index}
+                  key={item.id}
                   checkedState={checked}
                   index={index}
                 />
