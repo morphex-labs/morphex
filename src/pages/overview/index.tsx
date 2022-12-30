@@ -181,11 +181,10 @@ export default function Overview() {
                     </div>
                   </div>
                   <div className="overviewTab__footer">
-                    <Link href="#mint" passHref>
-                      <a className="button sm primary">Mint</a>
-                    </Link>
-                    <Link href="#redeem" passHref>
-                      <a className="button sm secondary">Redeem</a>
+                    <Link href="/liquidity" passHref>
+                      <a className="button sm primary" style={{ width: '50%' }}>
+                        Manage Liquidity
+                      </a>
                     </Link>
                   </div>
                 </motion.div>
@@ -230,6 +229,17 @@ export default function Overview() {
                         <h6 className="xsm">Distribution</h6>
                       </CircularProgressbarWithChildren>
                     </div>
+                  </div>
+                  <div className="overviewTab__footer">
+                    <a
+                      href="#link-to-external"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="button sm primary"
+                      style={{ width: '50%' }}
+                    >
+                      Buy
+                    </a>
                   </div>
                 </motion.div>
               )}
