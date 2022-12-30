@@ -41,6 +41,27 @@ const LiquidityRedeemInput: React.FC<LiquidityInputProps> = ({
           <input
             type="number"
             placeholder="0.0"
+            value={value2}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setValue2(e.target.value)
+            }
+          />
+          <div className="input__btns">
+            <button type="button" className="input__max">
+              MAX
+            </button>
+            <div className="input__coin">MLP</div>
+          </div>
+        </div>
+      </div>
+      <div className="input__outer">
+        <label htmlFor="receive-id">
+          <span id="receive-id">Receive: $0.00</span> <span>Balance: 0.00</span>
+        </label>
+        <div className="input">
+          <input
+            type="number"
+            placeholder="0.0"
             value={value}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setValue(e.target.value)
@@ -70,27 +91,6 @@ const LiquidityRedeemInput: React.FC<LiquidityInputProps> = ({
                 )}
               </AnimatePresence>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="input__outer">
-        <label htmlFor="receive-id">
-          <span id="receive-id">Receive: $0.00</span> <span>Balance: 0.00</span>
-        </label>
-        <div className="input">
-          <input
-            type="number"
-            placeholder="0.0"
-            value={value2}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setValue2(e.target.value)
-            }
-          />
-          <div className="input__btns">
-            <button type="button" className="input__max">
-              MAX
-            </button>
-            <div className="input__coin">MLP</div>
           </div>
         </div>
       </div>
