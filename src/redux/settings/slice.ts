@@ -9,7 +9,7 @@ export interface ISettings {
 }
 
 const initialState: ISettings = {
-  allowedSlippage: '0.0',
+  allowedSlippage: '0.5',
   displayPnl: false,
   includePnl: false,
 };
