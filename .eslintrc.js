@@ -39,6 +39,7 @@ module.exports = {
     '@typescript-eslint/prefer-for-of': 'warn',
     '@typescript-eslint/triple-slash-reference': 'error',
     '@typescript-eslint/unified-signatures': 'warn',
+    '@typescript-eslint/ban-ts-comment': 'warn',
     'import/no-default-export': 'off',
     'comma-dangle': 'off',
     'constructor-super': 'error',
