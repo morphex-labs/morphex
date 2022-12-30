@@ -3,16 +3,16 @@ import Modal from './Modal';
 import RangeSlider from '../RangeSlider';
 
 export default function RemoveLiquid({ closeFunc }: { closeFunc: () => void }) {
-  const [leverageValue, setLeverageValue] = useState('1');
+  const [leverageValue, setLeverageValue] = useState('0');
 
   return (
     <Modal title="Remove Liquidity" closeFunc={closeFunc}>
       <div className="modalAmount">
         <h6 className="xsm">Amount</h6>
-        <h6>{(Number(leverageValue) * 100) / 4}%</h6>
+        <h6>{Number(leverageValue)}%</h6>
         <RangeSlider
-          min="1"
-          max="4"
+          min="0"
+          max="100"
           type2="type2"
           value="0"
           onChange={(e) => {
