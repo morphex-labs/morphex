@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -232,7 +234,7 @@ const EMRXEarn = [
 ];
 
 export default function Earn() {
-  const [tab, setTab] = useState('MRX');
+  const [tab, setTab] = useState('MLP');
   const [unStakeMlp, setUnStakeMlp] = useState(false);
   const [stakeMlp, setStakeMlp] = useState(false);
   const [claimReward, setClaimReward] = useState(false);
@@ -255,7 +257,7 @@ export default function Earn() {
             </div>
             <div className="earn__inner-row">
               <div className="earn__inner-btns btn1">
-                <div
+                {/* <div
                   role="presentation"
                   onClick={() => setTab('MRX')}
                   className={`earnTab__btn ${tab === 'MRX' ? 'active' : ''}`}
@@ -268,7 +270,7 @@ export default function Earn() {
                   className={`earnTab__btn ${tab === 'EMRX' ? 'active' : ''}`}
                 >
                   Escrowed MRX
-                </div>
+                </div> */}
                 <div
                   role="presentation"
                   onClick={() => setTab('MLP')}
@@ -281,7 +283,7 @@ export default function Earn() {
                 <h6 className="sm">Total Rewards</h6>
               </div>
               <div className="earn__inner-box">
-                {tab === 'MRX' && (
+                {/* {tab === 'MRX' && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -332,7 +334,7 @@ export default function Earn() {
                       </button>
                     </div>
                   </motion.div>
-                )}
+                )} */}
                 {tab === 'MLP' && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -365,17 +367,21 @@ export default function Earn() {
                       </div>
                     </div>
                     <div className="earnTab__footer">
-                      <button type="button" className="button sm primary">
-                        Buy
-                      </button>
+                      <Link href="/liquidity">
+                        <button type="button" className="button sm primary">
+                          Buy
+                        </button>
+                      </Link>
 
-                      <button type="button" className="button sm secondary">
-                        Sell
-                      </button>
+                      <Link href="/liquidity">
+                        <button type="button" className="button sm secondary">
+                          Sell
+                        </button>
+                      </Link>
                     </div>
                   </motion.div>
                 )}
-                {tab === 'EMRX' && (
+                {/* {tab === 'EMRX' && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -415,7 +421,7 @@ export default function Earn() {
                       </button>
                     </div>
                   </motion.div>
-                )}
+                )} */}
               </div>
               <div className="earn__inner-box">
                 <div className="earn__items">
@@ -453,7 +459,7 @@ export default function Earn() {
                 </div>
               </div>
             </div>
-            <div className="earn__header">
+            {/* <div className="earn__header">
               <button type="button" className="button primary">
                 Vest
               </button>
@@ -537,7 +543,7 @@ export default function Earn() {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
