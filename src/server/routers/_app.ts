@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { router } from '../trpc';
+import { overviewRouter } from './overview';
 import { referralsRouter } from './referrals';
 
 export const appRouter = router({
   referrals: referralsRouter,
+  overview: overviewRouter,
 });
 
 // export type definition of API
