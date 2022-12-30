@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
+import { useLazyQuery } from '@apollo/client';
 import 'react-circular-progressbar/dist/styles.css';
 import {
   buildStyles,
@@ -9,10 +9,10 @@ import {
 } from 'react-circular-progressbar';
 
 import Table from '../../components/Table';
-import { FEED_ID_MAP } from '../../subgraph/feeds';
 import {
+  getGqlQueryBySymbol,
   getMinMaxPrice,
-  getPriceAndTimestamp,
+  getPrice,
   PriceFeedQuery,
 } from '../../subgraph/price-feeds/priceFeedUtil';
 
@@ -82,32 +82,24 @@ export default function Overview() {
   const pool = 66;
   const distribution = 88;
 
+  const [loadPrices, { called, data }] = useLazyQuery(
+    getGqlQueryBySymbol('BTC')
+  );
+
   // START TEST SUBGRAPH for CHAINLINK PRICE FEEDS
-  const GET_ROUNDS_BTC = gql`
-    {
-      rounds(
-        first: 20
-        skip: 1000
-        orderBy: unixTimestamp
-        orderDirection: desc
-        where: { feed: "${FEED_ID_MAP.ETH_USD}" }
-      ) {
-        unixTimestamp
-        value
+  useEffect(() => {
+    const id = setInterval(() => {
+      // const data = getPriceFeedData();
+      loadPrices();
+      if (called) {
+        const prices = getPrice(data as PriceFeedQuery);
+        const { min, max } = getMinMaxPrice(prices);
+        console.log(`Min: ${min}, Max: ${max}`);
       }
-    }
-  `;
+    }, 10000);
 
-  const { loading, error, data } = useQuery(GET_ROUNDS_BTC);
-
-  if (data) {
-    const { prices, pricesWTimestamp } = getPriceAndTimestamp(
-      data as PriceFeedQuery
-    );
-    const { min, max } = getMinMaxPrice(prices);
-
-    console.log(min, max);
-  }
+    return () => clearInterval(id);
+  });
 
   return (
     <div className="overview">

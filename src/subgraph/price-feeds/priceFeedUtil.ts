@@ -1,3 +1,7 @@
+import { DocumentNode, gql } from '@apollo/client';
+
+import { FEED_ID_MAP } from '../feeds';
+
 export type PriceFeedQuery = {
   rounds: [
     {
@@ -14,11 +18,37 @@ type PriceAndTimestamp<T> = {
 
 type Prices = number[];
 
+export const mapSymbolToFeedId = (symbol: string) => {
+  return Object.entries(FEED_ID_MAP).find((v) =>
+    v[0].toLowerCase().includes(symbol.toLowerCase())
+  );
+};
+
+export const getGqlQueryBySymbol = (symbol: string): DocumentNode => {
+  const chainLinkAggregatorContract = mapSymbolToFeedId(symbol)?.[1];
+
+  const GET_ROUNDS = gql`
+    {
+      rounds(
+        first: 100
+        skip: 1000
+        orderBy: unixTimestamp
+        orderDirection: desc
+        where: { feed: "${chainLinkAggregatorContract}" }
+      ) {
+        unixTimestamp
+        value
+      }
+    }
+  `;
+
+  return GET_ROUNDS;
+};
+
 export const getPriceAndTimestamp = (
   data: PriceFeedQuery
-): { pricesWTimestamp: PriceAndTimestamp<number>[]; prices: Prices } => {
+): PriceAndTimestamp<number>[] => {
   const pricesWTimestamp: PriceAndTimestamp<number>[] = [];
-  const prices: Prices = [];
   const uniqTs = new Set();
   data.rounds.forEach((item) => {
     const { unixTimestamp, value } = item;
@@ -29,15 +59,31 @@ export const getPriceAndTimestamp = (
     uniqTs.add(item.unixTimestamp);
     const price = Number(value) / 1e8;
     pricesWTimestamp.push([unixTimestamp, price]);
+  });
+
+  // @ts-ignore
+  pricesWTimestamp.sort((a, b) => a - b);
+
+  return pricesWTimestamp;
+};
+
+export const getPrice = (data: PriceFeedQuery): Prices => {
+  const prices: Prices = [];
+  const uniqTs = new Set();
+  data.rounds.forEach((item) => {
+    const { unixTimestamp, value } = item;
+    if (uniqTs.has(unixTimestamp)) {
+      return;
+    }
+
+    uniqTs.add(item.unixTimestamp);
+    const price = Number(value) / 1e8;
     prices.push(price);
   });
 
-  pricesWTimestamp.sort((a, b) => a - b);
+  prices.sort((a, b) => a - b);
 
-  return {
-    pricesWTimestamp,
-    prices,
-  };
+  return prices;
 };
 
 export const getMinMaxPrice = (data: Prices) => {
