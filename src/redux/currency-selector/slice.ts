@@ -5,7 +5,10 @@ interface Currency {
   name: string;
 }
 
+type ConfirmType = 'market' | 'limit';
+
 export interface ISelectCurrency {
+  confirmType: ConfirmType;
   payCurrency: Currency;
   longCurrency: Currency;
   shortCurrency: Currency;
@@ -13,6 +16,7 @@ export interface ISelectCurrency {
 }
 
 const initialState: ISelectCurrency = {
+  confirmType: 'market',
   payCurrency: {
     name: 'Fantom',
     symbol: 'FTM',
@@ -56,11 +60,23 @@ export const selectCurrency = createSlice({
       state.swapCurrency.symbol = payload.symbol;
       state.swapCurrency.name = payload.name;
     },
+    setConfirmType: (
+      state,
+      action: PayloadAction<{ confirmType: ConfirmType }>
+    ) => {
+      const { payload } = action;
+
+      state.confirmType = payload.confirmType;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setPayCurrency, setLongShortCurrency, setSwapCurrency } =
-  selectCurrency.actions;
+export const {
+  setPayCurrency,
+  setLongShortCurrency,
+  setSwapCurrency,
+  setConfirmType,
+} = selectCurrency.actions;
 
 export default selectCurrency.reducer;

@@ -11,4 +11,7 @@ export const selectShort = (state: RootState) =>
 
 export const selectPay = (state: RootState) => state.selectCurrency.payCurrency;
 
+export const selectConfirmType = (state: RootState) =>
+  state.selectCurrency.confirmType;
+
 export const selectAllCurrencies = (state: RootState) => state.selectCurrency;
