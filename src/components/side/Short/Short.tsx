@@ -1,16 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import RangeSlider from '../../../base/RangeSlider';
 import GenericBtn from '../../buttons/GenericBtn';
 import PayInput from '../CurrencyInputs/PayInput';
-import LongShortInput from '../CurrencyInputs/LongShortInput';
 import PriceInput from '../CurrencyInputs/PriceInputs';
-import { selectOrderDisclaimer } from '../../../redux/orders-disclaimer/selectors';
+import LongShortInput from '../CurrencyInputs/LongShortInput';
+
+import RangeSlider from '../../../base/RangeSlider';
 import ConfirmLimit from '../../../base/modals/ConfirmLimit';
 import ConfirmShort from '../../../base/modals/ConfirmShort';
 import EnableOrders from '../../../base/modals/EnableOrders';
+
+import { setConfirmType } from '../../../redux/currency-selector/slice';
+import { selectConfirmType } from '../../../redux/currency-selector/selectors';
+import { selectOrderDisclaimer } from '../../../redux/orders-disclaimer/selectors';
 
 export const shortInfo = [
   {
@@ -41,16 +45,20 @@ export const shortInfo = [
 ];
 
 export default function Short() {
-  const [type, setType] = useState<string>('market');
+  const dispatch = useDispatch();
+
   const [coin1, setCoin1] = useState<string>('');
   const [coin2, setCoin2] = useState<string>('');
   const [price, setPrice] = useState<string>('');
   const [leverageValue, setLeverageValue] = useState<string>('2');
+
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false);
   const [isConfirmLimitOpen, setIsConfirmLimitOpen] = useState<boolean>(false);
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState<boolean>(false);
 
   const isOrderDisclaimerShown = useSelector(selectOrderDisclaimer);
+  const type = useSelector(selectConfirmType);
 
   const handleConfirmOpen = () => {
     if (type === 'limit' && !isOrderDisclaimerShown) {
@@ -64,6 +72,14 @@ export default function Short() {
   };
 
   useEffect(() => {
+    if (coin1.length > 0 && coin2.length > 0 && price.length > 0) {
+      setIsDisabled(false);
+    } else if (!coin1 || !coin2 || !price) {
+      setIsDisabled(true);
+    }
+  }, [coin1, coin2, price]);
+
+  useEffect(() => {
     if (leverageValue === '0') setLeverageValue('2');
     else if (leverageValue === '1') setLeverageValue('2');
   }, [leverageValue]);
@@ -73,14 +89,14 @@ export default function Short() {
       <div className="trade__type">
         <div
           role="presentation"
-          onClick={() => setType('market')}
+          onClick={() => dispatch(setConfirmType({ confirmType: 'market' }))}
           className={`trade__type-btn ${type === 'market' ? 'active' : ''}`}
         >
           Market
         </div>
         <div
           role="presentation"
-          onClick={() => setType('limit')}
+          onClick={() => dispatch(setConfirmType({ confirmType: 'limit' }))}
           className={`trade__type-btn ${type === 'limit' ? 'active' : ''}`}
         >
           Limit
@@ -169,9 +185,10 @@ export default function Short() {
       )}
       <GenericBtn
         btnTextMain="Confirm"
-        classNamesMain="button primary sm"
+        classNamesMain={`button primary sm ${isDisabled ? 'disabledBtn' : ''}`}
         classNamesConnect="button primary sm"
         onClickFunc={handleConfirmOpen}
+        disabled={isDisabled}
       />
     </div>
   );

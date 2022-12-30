@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
 import GenericBtn from '../../buttons/GenericBtn';
 import PayInput from '../CurrencyInputs/PayInput';
 import ReceiveInput from '../CurrencyInputs/ReceiveInput';
-import { selectOrderDisclaimer } from '../../../redux/orders-disclaimer/selectors';
-import EnableOrders from '../../../base/modals/EnableOrders';
+
 import ConfirmSwap from '../../../base/modals/ConfirmSwap';
+import EnableOrders from '../../../base/modals/EnableOrders';
+
+import { setConfirmType } from '../../../redux/currency-selector/slice';
+import { selectConfirmType } from '../../../redux/currency-selector/selectors';
+import { selectOrderDisclaimer } from '../../../redux/orders-disclaimer/selectors';
 
 export default function Swap() {
+  const dispatch = useDispatch();
+
   const [coin1, setCoin1] = useState<string>('');
   const [coin2, setCoin2] = useState<string>('');
-  const [type, setType] = useState<string>('market');
+
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false);
   const [isConfirmLimitOpen, setIsConfirmLimitOpen] = useState<boolean>(false);
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState<boolean>(false);
 
   const isOrderDisclaimerShown = useSelector(selectOrderDisclaimer);
+  const type = useSelector(selectConfirmType);
 
   const handleConfirmOpen = () => {
     if (type === 'limit' && !isOrderDisclaimerShown) {
@@ -30,19 +38,27 @@ export default function Swap() {
       : setIsConfirmLimitOpen(!isConfirmLimitOpen);
   };
 
+  useEffect(() => {
+    if (coin1.length > 0 && coin2.length > 0) {
+      setIsDisabled(false);
+    } else if (!coin1 || !coin2) {
+      setIsDisabled(true);
+    }
+  }, [coin1, coin2]);
+
   return (
     <div className="trade">
       <div className="trade__type">
         <div
           role="presentation"
-          onClick={() => setType('market')}
+          onClick={() => dispatch(setConfirmType({ confirmType: 'market' }))}
           className={`trade__type-btn ${type === 'market' ? 'active' : ''}`}
         >
           Market
         </div>
         <div
           role="presentation"
-          onClick={() => setType('limit')}
+          onClick={() => dispatch(setConfirmType({ confirmType: 'limit' }))}
           className={`trade__type-btn ${type === 'limit' ? 'active' : ''}`}
         >
           Limit
@@ -94,9 +110,10 @@ export default function Swap() {
 
       <GenericBtn
         btnTextMain="Confirm"
-        classNamesMain="button primary sm"
+        classNamesMain={`button primary sm ${isDisabled ? 'disabledBtn' : ''}`}
         classNamesConnect="button primary sm"
         onClickFunc={handleConfirmOpen}
+        disabled={isDisabled}
       />
     </div>
   );
