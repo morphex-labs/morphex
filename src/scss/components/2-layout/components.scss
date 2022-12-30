@@ -53,10 +53,19 @@ p {
   &.primary {
     color: $white;
     background: $main;
+
+    &:hover {
+      background-color: #1a40fe;
+    }
   }
   &.secondary {
     background: $button;
     color: $gray-0;
+
+    &:hover {
+      background-color: #0029ff;
+      color: $white;
+    }
   }
   &.rad {
     border-radius: 50px;
