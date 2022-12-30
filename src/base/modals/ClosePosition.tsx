@@ -96,7 +96,7 @@ export default function ClosePosition({
           </div>
           <div className="modalTable">
             <div className="modalTable__row">
-              <h6 className="xsm">Collateral (ETH)</h6>
+              <h6 className="xsm">Receive (ETH)</h6>
               <p className="xsm">
                 0.00 ETH <span>($0.00)</span>
               </p>
@@ -104,7 +104,7 @@ export default function ClosePosition({
           </div>
           <div className="modal__btn">
             <button type="button" className="button primary sm">
-              Enter an amount
+              Confirm
             </button>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default function ClosePosition({
           </div>
           <div className="modal__btn">
             <button type="button" className="button primary sm">
-              Enter an amount
+              Confirm
             </button>
           </div>
         </div>
