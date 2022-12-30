@@ -48,6 +48,7 @@ export default function RangeSlider({
         )}
         {type2 ? (
           <div className="rangeSlider__numbers">
+            <span>0%</span>
             <span>25%</span>
             <span>50%</span>
             <span>75%</span>
