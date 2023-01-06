@@ -1,12 +1,19 @@
 import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 
-import Side from '../../components/side/Side';
-import Positions from '../../components/other/Positions';
-import Orders from '../../components/other/Orders';
-import Trades from '../../components/other/Trades';
-
 const MainChart = dynamic(() => import('../../components/main/Main'), {
+  ssr: false,
+});
+const Side = dynamic(() => import('../../components/side/Side'), {
+  ssr: false,
+});
+const Orders = dynamic(() => import('../../components/other/Orders'), {
+  ssr: false,
+});
+const Trades = dynamic(() => import('../../components/other/Trades'), {
+  ssr: false,
+});
+const Positions = dynamic(() => import('../../components/other/Positions'), {
   ssr: false,
 });
 

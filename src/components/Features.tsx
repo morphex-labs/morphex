@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const features = [
   {
@@ -58,7 +59,7 @@ export default function Features() {
                 <div className="featureItem__circ" />
                 <div className="featureItem">
                   <div className="featureItem__icon">
-                    <img src={item.icon} alt="icon" />
+                    <Image src={item.icon} alt="icon" width={80} height={90} />
                   </div>
                   <div className="featureItem__content">
                     <h6>{item.title}</h6>

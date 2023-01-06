@@ -81,7 +81,7 @@ export default function OrderItem({
         </td>
       </motion.tr>
 
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {edit ? <EdtiOrder closeFunc={() => setEdit(false)} /> : ''}
       </AnimatePresence>
     </>

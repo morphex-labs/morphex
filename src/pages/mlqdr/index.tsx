@@ -1,9 +1,10 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 
-import Swap from '../../components/Swap';
-import Mint from '../../components/Mint';
-import Staking from '../../components/Staking';
+const Swap = dynamic(() => import('../../components/Swap'));
+const Mint = dynamic(() => import('../../components/Mint'));
+const Staking = dynamic(() => import('../../components/Staking'));
 
 export default function LQDR() {
   return (

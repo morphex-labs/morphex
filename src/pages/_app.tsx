@@ -14,7 +14,7 @@ import { trpc } from '../utils/trpc';
 import { store } from '../redux/store';
 import web3Client from '../wagmi/client';
 import Layout from '../components/Layout';
-import { avalancheGraphClient, chainlinkClient } from '../subgraph/clients';
+import { chainlinkClient } from '../subgraph/clients';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -23,7 +23,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <WagmiConfig client={web3Client}>
           <Head>
             <title>Morphex</title>
-            <meta name="description" content="Morphex Swap - Lend & Borrow" />
+            <meta
+              name="description"
+              content="Morphex Swap - Lend & Borrow. A decentralized perpetual exchange."
+            />
             <meta
               name="viewport"
               content="initial-scale=1.0, width=device-width"

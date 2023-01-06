@@ -185,10 +185,12 @@ export default function Overview() {
                     </div>
                   </div>
                   <div className="overviewTab__footer">
-                    <Link href="/liquidity" passHref>
-                      <a className="button sm primary" style={{ width: '50%' }}>
-                        Manage Liquidity
-                      </a>
+                    <Link
+                      href="/liquidity"
+                      className="button sm primary"
+                      style={{ width: '50%' }}
+                    >
+                      Manage Liquidity
                     </Link>
                   </div>
                 </motion.div>

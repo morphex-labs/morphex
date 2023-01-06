@@ -68,7 +68,7 @@ export default function Mint() {
           </button>
         </div>
       </div>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {lqdrEntry ? <LqdrEntry closeFunc={() => setLqdrEntry(false)} /> : ''}
       </AnimatePresence>
     </>

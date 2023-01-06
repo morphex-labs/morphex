@@ -143,7 +143,7 @@ export default function Swap() {
           </button>
         </div>
       </div>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {manageLiquid ? (
           <ManageLiquid
             setAddLiquid={setAddLiquid}
@@ -154,10 +154,10 @@ export default function Swap() {
           ''
         )}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {addLiquid ? <AddLiquid closeFunc={() => setAddLiquid(false)} /> : ''}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {removeLiquid ? (
           <RemoveLiquid closeFunc={() => setRemoveLiquid(false)} />
         ) : (

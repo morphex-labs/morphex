@@ -1,11 +1,13 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { ConnectKitProvider } from 'connectkit';
 
-import Footer from '../base/Footer';
 import Header from '../base/Header';
 import { selectTheme } from '../redux/theme/selectors';
+
+const Footer = dynamic(() => import('../base/Footer'));
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
