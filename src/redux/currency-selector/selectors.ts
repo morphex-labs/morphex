@@ -3,11 +3,8 @@ import { RootState } from '../store';
 export const selectSwap = (state: RootState) =>
   state.selectCurrency.swapCurrency;
 
-export const selectLong = (state: RootState) =>
-  state.selectCurrency.longCurrency;
-
-export const selectShort = (state: RootState) =>
-  state.selectCurrency.shortCurrency;
+export const selectLongShort = (state: RootState) =>
+  state.selectCurrency.longShortCurrency;
 
 export const selectPay = (state: RootState) => state.selectCurrency.payCurrency;
 
