@@ -7,9 +7,11 @@ import LongDetail from './Long/LongDetail';
 import ShortDetail from './Short/ShortDetail';
 import Long from './Long/Long';
 import Short from './Short/Short';
+import Timeline from '../widgets/Timeline';
 
 export default function Side() {
   const [tab, seTtab] = useState('long');
+
   return (
     <div className="tradeSide">
       <div className="tradeSide__box">
@@ -46,6 +48,10 @@ export default function Side() {
         {tab === 'long' && <LongDetail />}
         {tab === 'short' && <ShortDetail />}
         {tab === 'swap' && <SwapDetail />}
+      </div>
+
+      <div className="tradeSide__box">
+        <Timeline />
       </div>
     </div>
   );
