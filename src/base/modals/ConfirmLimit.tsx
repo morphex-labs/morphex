@@ -31,7 +31,7 @@ export default function ConfirmLimit({
   const [loading, setLoading] = useState<boolean>(false);
 
   const {
-    longCurrency: { symbol: longSymbol, name: longName },
+    longShortCurrency: { symbol: longSymbol, name: longName },
     payCurrency: { symbol: paySymbol, name: payName },
   } = useSelector(selectAllCurrencies);
 

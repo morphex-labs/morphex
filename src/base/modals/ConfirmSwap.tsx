@@ -24,7 +24,7 @@ export default function ConfirmSwap({
   const [loading, setLoading] = useState<boolean>(false);
 
   const {
-    shortCurrency: { symbol: shortSymbol, name: shortName },
+    longShortCurrency: { symbol: shortSymbol, name: shortName },
     payCurrency: { symbol: paySymbol, name: payName },
   } = useSelector(selectAllCurrencies);
 
