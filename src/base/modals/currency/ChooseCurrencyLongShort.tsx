@@ -16,7 +16,7 @@ export default function ChooseCurrencyLongShort({
 }) {
   const dispatch = useDispatch();
   const selectedCurrency = useSelector(
-    (state: RootState) => state.selectCurrency.longCurrency
+    (state: RootState) => state.selectCurrency.longShortCurrency
   );
 
   const handleChangeCurrency = (symbol: string, name: string) => {
@@ -34,6 +34,7 @@ export default function ChooseCurrencyLongShort({
           .map((currency) => {
             return (
               <button
+                key={currency.id}
                 type="button"
                 className="button secondary currencies-item"
                 onClick={() =>

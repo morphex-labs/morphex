@@ -30,7 +30,7 @@ export default function ConfirmLong({
   const [allowSlippage, setAllowSlippage] = useState<boolean>(false);
 
   const {
-    longCurrency: { symbol: longSymbol, name: longName },
+    longShortCurrency: { symbol: longSymbol, name: longName },
     payCurrency: { symbol: paySymbol, name: payName },
   } = useSelector(selectAllCurrencies);
 

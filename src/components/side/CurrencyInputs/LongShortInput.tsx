@@ -9,7 +9,7 @@ import ChooseCurrencyLongShort from '../../../base/modals/currency/ChooseCurrenc
 const LongShortInput = ({ label, value, setValue, leverage }: InputProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const symbol = useSelector(
-    (state: RootState) => state.selectCurrency.longCurrency.symbol
+    (state: RootState) => state.selectCurrency.longShortCurrency.symbol
   );
 
   const openDropdown = () => {
