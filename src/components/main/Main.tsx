@@ -4,13 +4,16 @@ import { useSelector } from 'react-redux';
 import {
   AdvancedRealTimeChart,
   CopyrightStyles,
-  Ticker,
 } from 'react-ts-tradingview-widgets';
+import { selectAllCurrencies } from '../../redux/currency-selector/selectors';
 
 import { selectTheme } from '../../redux/theme/selectors';
+import TwTickerTape from '../widgets/TickerTape';
+import TradeHeader from './TradeHeader';
 
 const MainChart = memo(() => {
   const theme = useSelector(selectTheme);
+  const { symbol } = useSelector(selectAllCurrencies).longShortCurrency;
 
   const styles: CopyrightStyles = {
     parent: {
@@ -20,36 +23,17 @@ const MainChart = memo(() => {
 
   return (
     <div className="tradeMain">
-      <div className="tradeMain__header">
-        <Ticker
-          colorTheme={theme === 'dark' ? 'dark' : 'light'}
-          isTransparent
-          showSymbolLogo
-          locale="en"
-          symbols={[
-            {
-              proName: 'BINANCE:FTMUSD',
-              title: 'Fantom',
-            },
-            {
-              proName: 'BITSTAMP:BTCUSD',
-              title: 'Bitcoin',
-            },
-            {
-              proName: 'BITSTAMP:ETHUSD',
-              title: 'Ethereum',
-            },
-          ]}
-          copyrightStyles={styles}
-        />
+      <div style={{ height: '50px' }}>
+        <TwTickerTape />
       </div>
+      <TradeHeader />
       {/* <ChartComponent /> */}
       <div id="tradingview-graph1" className="tradeMain__graph">
         <AdvancedRealTimeChart
           theme={theme === 'dark' ? 'dark' : 'light'}
           locale="en"
           autosize
-          symbol="BINANCE:FTMUSD"
+          symbol={`BINANCE:${symbol}USD`}
           interval="240"
           toolbar_bg="#f1f3f6"
           withdateranges
