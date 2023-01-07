@@ -32,6 +32,7 @@ export default function ChooseCurrencyPay({
           .map((currency) => {
             return (
               <button
+                key={currency.id}
                 type="button"
                 className="button secondary currencies-item"
                 onClick={() =>

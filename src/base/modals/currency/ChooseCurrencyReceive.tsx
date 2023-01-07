@@ -36,6 +36,7 @@ export default function ChooseCurrencyReceive({
           .map((currency) => {
             return (
               <button
+                key={currency.id}
                 type="button"
                 className="button secondary currencies-item"
                 onClick={() =>
