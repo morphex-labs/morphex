@@ -302,21 +302,29 @@
 }
 
 .currencies {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-size: 14px;
     font-weight: 400;
     color: $textColor3 !important;
-    background: transparent;
-    border: 1px solid $box;
+    background: transparent !important;
+    border: 1.5px solid $box;
     border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 6px 13px;
+
+    span {
+      margin-left: 10px;
+    }
 
     &:hover {
-      background: #0029ff;
+      background: #0029ff !important;
       color: $textColor4 !important;
     }
   }
