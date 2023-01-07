@@ -1,20 +1,23 @@
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
-import {
-  buildStyles,
-  CircularProgressbarWithChildren,
-} from 'react-circular-progressbar';
 
-import Table from '../../components/Table';
 import {
   getGqlQueryBySymbol,
   getMinMaxPrice,
   getPrice,
   PriceFeedQuery,
 } from '../../subgraph/price-feeds/priceFeedUtil';
+
+const Table = dynamic(() => import('../../components/Table'));
+const OverviewMLP = dynamic(
+  () => import('../../components/overview-stats/OverviewMLP')
+);
+const OverviewMPX = dynamic(
+  () => import('../../components/overview-stats/OverviewMPX')
+);
 
 const stats = [
   {
@@ -54,33 +57,8 @@ const stats = [
   },
 ];
 
-const MLP = [
-  {
-    id: '1',
-    title: 'Price',
-    price: '$0.00',
-  },
-  {
-    id: '2',
-    title: 'Supply',
-    price: '$0.00',
-  },
-  {
-    id: '3',
-    title: 'Market Cap / Total Staked',
-    price: '$0.00',
-  },
-  {
-    id: '4',
-    title: 'Stablecoin Percentage',
-    price: '46.43%',
-  },
-];
-
 export default function Overview() {
   const [tab, setTab] = useState('MLP');
-  const pool = 66;
-  const distribution = 88;
 
   const [loadPrices, { called, data }] = useLazyQuery(
     getGqlQueryBySymbol('BTC')
@@ -143,112 +121,8 @@ export default function Overview() {
               })}
             </div>
             <div className="overview__inner-box">
-              {tab === 'MLP' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="overviewTab"
-                >
-                  <div className="overviewTab__info">
-                    <div className="overviewTab__info-table">
-                      {MLP.map((item, index) => {
-                        return (
-                          <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4 * index }}
-                            exit={{ opacity: 0, x: -20 }}
-                            className="overviewItem"
-                            key={item.id}
-                          >
-                            <h6 className="xsm">{item.title}</h6>
-                            <p className="xsm">{item.price}</p>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
-                    <div className="overviewTab__info-progress">
-                      <CircularProgressbarWithChildren
-                        value={pool}
-                        strokeWidth={12}
-                        styles={buildStyles({
-                          pathColor: '#0C00FF',
-                          strokeLinecap: 'butt',
-                          trailColor: '#B2AEFF',
-                          pathTransitionDuration: 0.15,
-                        })}
-                      >
-                        <h6 className="xsm">MLP Pool</h6>
-                      </CircularProgressbarWithChildren>
-                    </div>
-                  </div>
-                  <div className="overviewTab__footer">
-                    <Link
-                      href="/liquidity"
-                      className="button sm primary"
-                      style={{ width: '50%' }}
-                    >
-                      Manage Liquidity
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-              {tab === 'MPX' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="overviewTab__content"
-                >
-                  <div className="overviewTab__info">
-                    <div className="overviewTab__info-table">
-                      {MLP.map((item, index) => {
-                        return (
-                          <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4 * index }}
-                            exit={{ opacity: 0, x: -20 }}
-                            className="overviewItem"
-                            key={item.id}
-                          >
-                            <h6 className="xsm">{item.title}</h6>
-                            <p className="xsm">{item.price}</p>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
-                    <div className="overviewTab__info-progress">
-                      <CircularProgressbarWithChildren
-                        value={distribution}
-                        strokeWidth={12}
-                        styles={buildStyles({
-                          pathColor: '#0C00FF',
-                          strokeLinecap: 'butt',
-                          trailColor: '#B2AEFF',
-                          pathTransitionDuration: 0.15,
-                        })}
-                      >
-                        <h6 className="xsm">Distribution</h6>
-                      </CircularProgressbarWithChildren>
-                    </div>
-                  </div>
-                  <div className="overviewTab__footer">
-                    <a
-                      href="#link-to-external"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="button sm primary"
-                      style={{ width: '50%' }}
-                    >
-                      Buy
-                    </a>
-                  </div>
-                </motion.div>
-              )}
+              {tab === 'MLP' && <OverviewMLP />}
+              {tab === 'MPX' && <OverviewMPX />}
             </div>
           </div>
           <div className="table__outer">
