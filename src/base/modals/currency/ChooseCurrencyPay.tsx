@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import Image from 'next/image';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -31,16 +32,24 @@ export default function ChooseCurrencyPay({
           .filter((v) => v.symbol !== selectedCurrency.symbol)
           .map((currency) => {
             return (
-              <button
+              <div
                 key={currency.id}
-                type="button"
-                className="button secondary currencies-item"
+                role="presentation"
+                className="currencies-item"
                 onClick={() =>
                   handleChangeCurrency(currency.symbol, currency.name)
                 }
               >
-                {currency.symbol} - {currency.name}
-              </button>
+                <Image
+                  alt={currency.name}
+                  src={currency.image}
+                  width={20}
+                  height={20}
+                />
+                <span>
+                  {currency.name} ({currency.symbol})
+                </span>
+              </div>
             );
           })}
       </div>

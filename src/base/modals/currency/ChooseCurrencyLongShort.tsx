@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Modal from '../Modal';
@@ -33,16 +34,24 @@ export default function ChooseCurrencyLongShort({
           .filter((v) => v.symbol !== selectedCurrency.symbol)
           .map((currency) => {
             return (
-              <button
+              <div
                 key={currency.id}
-                type="button"
+                role="presentation"
                 className="button secondary currencies-item"
                 onClick={() =>
                   handleChangeCurrency(currency.symbol, currency.name)
                 }
               >
-                {currency.symbol} - {currency.name}
-              </button>
+                <Image
+                  alt={currency.name}
+                  src={currency.image}
+                  width={18}
+                  height={18}
+                />
+                <span>
+                  {currency.name} ({currency.symbol})
+                </span>
+              </div>
             );
           })}
       </div>

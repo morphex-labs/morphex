@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Modal from '../Modal';
-import { RootState } from '../../../redux/store';
 import { payCurrencies } from '../../../constants';
 import { setSwapCurrency } from '../../../redux/currency-selector/slice';
 import { selectAllCurrencies } from '../../../redux/currency-selector/selectors';
@@ -35,16 +35,24 @@ export default function ChooseCurrencyReceive({
           .filter((v) => v.symbol !== swapSymbol && v.symbol !== paySymbol)
           .map((currency) => {
             return (
-              <button
+              <div
                 key={currency.id}
-                type="button"
+                role="presentation"
                 className="button secondary currencies-item"
                 onClick={() =>
                   handleChangeCurrency(currency.symbol, currency.name)
                 }
               >
-                {currency.symbol} - {currency.name}
-              </button>
+                <Image
+                  alt={currency.name}
+                  src={currency.image}
+                  width={18}
+                  height={18}
+                />
+                <span>
+                  {currency.name} ({currency.symbol})
+                </span>
+              </div>
             );
           })}
       </div>
