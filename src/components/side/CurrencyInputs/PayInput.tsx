@@ -8,6 +8,7 @@ import ChooseCurrencyPay from '../../../base/modals/currency/ChooseCurrencyPay';
 
 const PayInput = ({ label, value, setValue, leverage }: InputProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const symbol = useSelector(
     (state: RootState) => state.selectCurrency.payCurrency.symbol
   );

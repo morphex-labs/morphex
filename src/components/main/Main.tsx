@@ -5,7 +5,7 @@ import {
   AdvancedRealTimeChart,
   CopyrightStyles,
 } from 'react-ts-tradingview-widgets';
-import { selectAllCurrencies } from '../../redux/currency-selector/selectors';
+import { selectLongShort } from '../../redux/currency-selector/selectors';
 
 import { selectTheme } from '../../redux/theme/selectors';
 import TwTickerTape from '../widgets/TickerTape';
@@ -13,7 +13,8 @@ import TradeHeader from './TradeHeader';
 
 const MainChart = memo(() => {
   const theme = useSelector(selectTheme);
-  const { symbol } = useSelector(selectAllCurrencies).longShortCurrency;
+
+  const { symbol } = useSelector(selectLongShort);
 
   const styles: CopyrightStyles = {
     parent: {

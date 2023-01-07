@@ -19,18 +19,48 @@ export const localStorageKeys = {
 };
 
 export const payCurrencies = [
-  { id: '1', name: 'Fantom', symbol: 'FTM' },
-  { id: '2', name: 'Ethereum', symbol: 'ETH' },
-  { id: '3', name: 'Bitcoin', symbol: 'BTC' },
-  { id: '4', name: 'USD Coin', symbol: 'USDC' },
-  { id: '5', name: 'Tether', symbol: 'USDT' },
-  { id: '6', name: 'DAI', symbol: 'DAI' },
+  { id: '1', name: 'Fantom', symbol: 'FTM', image: '/images/coins/fantom.png' },
+  {
+    id: '2',
+    name: 'Ethereum',
+    symbol: 'ETH',
+    image: '/images/coins/ether.png',
+  },
+  {
+    id: '3',
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    image: '/images/coins/bitcoin.png',
+  },
+  {
+    id: '4',
+    name: 'USD Coin',
+    symbol: 'USDC',
+    image: '/images/coins/usdc.png',
+  },
+  {
+    id: '5',
+    name: 'Tether',
+    symbol: 'USDT',
+    image: '/images/coins/tether.png',
+  },
+  { id: '6', name: 'DAI', symbol: 'DAI', image: '/images/coins/dai.png' },
 ];
 
 export const longShortCurrencies = [
-  { id: '1', name: 'Fantom', symbol: 'FTM' },
-  { id: '2', name: 'Ethereum', symbol: 'ETH' },
-  { id: '3', name: 'Bitcoin', symbol: 'BTC' },
+  { id: '1', name: 'Fantom', symbol: 'FTM', image: '/images/coins/fantom.png' },
+  {
+    id: '2',
+    name: 'Ethereum',
+    symbol: 'ETH',
+    image: '/images/coins/ether.png',
+  },
+  {
+    id: '3',
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    image: '/images/coins/bitcoin.png',
+  },
 ];
 
 export const dummyChartData = [
