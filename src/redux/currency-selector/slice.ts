@@ -10,8 +10,7 @@ type ConfirmType = 'market' | 'limit';
 export interface ISelectCurrency {
   confirmType: ConfirmType;
   payCurrency: Currency;
-  longCurrency: Currency;
-  shortCurrency: Currency;
+  longShortCurrency: Currency;
   swapCurrency: Currency;
 }
 
@@ -21,11 +20,7 @@ const initialState: ISelectCurrency = {
     name: 'Fantom',
     symbol: 'FTM',
   },
-  longCurrency: {
-    name: 'Fantom',
-    symbol: 'ETH',
-  },
-  shortCurrency: {
+  longShortCurrency: {
     name: 'Fantom',
     symbol: 'ETH',
   },
@@ -48,11 +43,8 @@ export const selectCurrency = createSlice({
     setLongShortCurrency: (state, action: PayloadAction<Currency>) => {
       const { payload } = action;
 
-      state.longCurrency.symbol = payload.symbol;
-      state.longCurrency.name = payload.name;
-
-      state.shortCurrency.symbol = payload.symbol;
-      state.shortCurrency.name = payload.name;
+      state.longShortCurrency.symbol = payload.symbol;
+      state.longShortCurrency.name = payload.name;
     },
     setSwapCurrency: (state, action: PayloadAction<Currency>) => {
       const { payload } = action;
