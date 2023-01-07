@@ -37,7 +37,7 @@ const ReceiveInput = ({ label, value, setValue }: InputProps) => {
           >
             {symbol}
           </div>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode="wait">
             {isOpen ? (
               <ChooseCurrencyReceive
                 closeFunc={() => setIsOpen(false)}

@@ -62,7 +62,7 @@ const LiquidityMintInput: React.FC<LiquidityInputProps> = ({
               >
                 {symbol}
               </div>
-              <AnimatePresence exitBeforeEnter>
+              <AnimatePresence mode="wait">
                 {isOpen ? (
                   <ChooseCurrencyPay closeFunc={() => setIsOpen(false)} />
                 ) : (

@@ -12,51 +12,51 @@ import MpxVault from '../../base/modals/MpxVault';
 import MlpWith from '../../base/modals/MlpWith';
 import MpxWith from '../../base/modals/MpxWith';
 
-const MPX = [
-  {
-    id: '59a4a772-845b',
-    title: 'Staked Tokens',
-    number: '0.00',
-  },
-  {
-    id: '59a4a9e8-845b',
-    title: 'Reserved for Vesting',
-    number: '0.00 / 0.00',
-  },
-  {
-    id: '59a4ab32-845b',
-    title: 'Vesting Status',
-    number: '0.0000 / 0.0000',
-  },
-  {
-    id: '59a4af4c-845b',
-    title: 'Claimable',
-    number: '0.0000 MPX',
-  },
-];
+// const MPX = [
+//   {
+//     id: '59a4a772-845b',
+//     title: 'Staked Tokens',
+//     number: '0.00',
+//   },
+//   {
+//     id: '59a4a9e8-845b',
+//     title: 'Reserved for Vesting',
+//     number: '0.00 / 0.00',
+//   },
+//   {
+//     id: '59a4ab32-845b',
+//     title: 'Vesting Status',
+//     number: '0.0000 / 0.0000',
+//   },
+//   {
+//     id: '59a4af4c-845b',
+//     title: 'Claimable',
+//     number: '0.0000 MPX',
+//   },
+// ];
 
-const MLP = [
-  {
-    id: '59a4b10e-845b',
-    title: 'Staked Tokens',
-    number: '0.00',
-  },
-  {
-    id: '2',
-    title: 'Reserved for Vesting',
-    number: '0.00 / 0.00',
-  },
-  {
-    id: '3',
-    title: 'Vesting Status',
-    number: '0.0000 / 0.0000',
-  },
-  {
-    id: '4',
-    title: 'Claimable',
-    number: '0.0000 MLP',
-  },
-];
+// const MLP = [
+//   {
+//     id: '59a4b10e-845b',
+//     title: 'Staked Tokens',
+//     number: '0.00',
+//   },
+//   {
+//     id: '2',
+//     title: 'Reserved for Vesting',
+//     number: '0.00 / 0.00',
+//   },
+//   {
+//     id: '3',
+//     title: 'Vesting Status',
+//     number: '0.0000 / 0.0000',
+//   },
+//   {
+//     id: '4',
+//     title: 'Claimable',
+//     number: '0.0000 MLP',
+//   },
+// ];
 const rewards = [
   {
     id: '1',
@@ -96,61 +96,61 @@ const rewards = [
   },
 ];
 
-const MRXEarn = [
-  {
-    id: '9be43710-845b',
-    title: 'Price',
-    number: '$84.31',
-  },
-  {
-    id: '9be43986-845b',
-    title: 'Wallet',
-    number: '0.00 MRX ($0.00)',
-  },
-  {
-    id: '9be43ab2-845b',
-    title: 'Staked',
-    number: '0.00 MRX ($0.00)',
-  },
-  {
-    id: '9be43bb6-845b',
-    space: true,
-  },
-  {
-    id: '9be43cb0-845b',
-    title: 'APR',
-    number: '14.22%',
-  },
-  {
-    id: '9be43d96-845b',
-    title: 'Rewards',
-    number: '$0.00',
-  },
-  {
-    id: '9be43e86-845b',
-    title: 'Multiplier Points ARP',
-    number: '100.00%',
-  },
-  {
-    id: '9be44188-845b',
-    title: 'Boost Percentage',
-    number: '0.00%',
-  },
-  {
-    id: '9be442dc-845b',
-    space: true,
-  },
-  {
-    id: '9be443cc-845b',
-    title: 'Total Staked',
-    number: '6,872,658 GMX ($235,106,499)',
-  },
-  {
-    id: 'ccfdec60-845b',
-    title: 'Total Supply',
-    number: '8,203,008 GMX ($280,595,113)',
-  },
-];
+// const MRXEarn = [
+//   {
+//     id: '9be43710-845b',
+//     title: 'Price',
+//     number: '$84.31',
+//   },
+//   {
+//     id: '9be43986-845b',
+//     title: 'Wallet',
+//     number: '0.00 MRX ($0.00)',
+//   },
+//   {
+//     id: '9be43ab2-845b',
+//     title: 'Staked',
+//     number: '0.00 MRX ($0.00)',
+//   },
+//   {
+//     id: '9be43bb6-845b',
+//     space: true,
+//   },
+//   {
+//     id: '9be43cb0-845b',
+//     title: 'APR',
+//     number: '14.22%',
+//   },
+//   {
+//     id: '9be43d96-845b',
+//     title: 'Rewards',
+//     number: '$0.00',
+//   },
+//   {
+//     id: '9be43e86-845b',
+//     title: 'Multiplier Points ARP',
+//     number: '100.00%',
+//   },
+//   {
+//     id: '9be44188-845b',
+//     title: 'Boost Percentage',
+//     number: '0.00%',
+//   },
+//   {
+//     id: '9be442dc-845b',
+//     space: true,
+//   },
+//   {
+//     id: '9be443cc-845b',
+//     title: 'Total Staked',
+//     number: '6,872,658 GMX ($235,106,499)',
+//   },
+//   {
+//     id: 'ccfdec60-845b',
+//     title: 'Total Supply',
+//     number: '8,203,008 GMX ($280,595,113)',
+//   },
+// ];
 const MLPEarn = [
   {
     id: 'ccfdef44-845b',
@@ -187,51 +187,51 @@ const MLPEarn = [
   },
 ];
 
-const EMRXEarn = [
-  {
-    id: 'ccfdf9f8-845b',
-    title: 'Price',
-    number: '$84.31',
-  },
-  {
-    id: 'ccfdfb6a-845b',
-    title: 'Wallet',
-    number: '0.00 MRX ($0.00)',
-  },
-  {
-    id: 'f3833034-845b',
-    title: 'Staked',
-    number: '0.00 MRX ($0.00)',
-  },
-  {
-    id: 'f383335e-845b',
-    space: true,
-  },
-  {
-    id: 'f3833520-845b',
-    title: 'APR',
-    number: '14.22%',
-  },
-  {
-    id: 'f38336ce-845b',
-    title: 'Multiplier Points ARP',
-    number: '100.00%',
-  },
-  {
-    id: 'f3833868-845b',
-    space: true,
-  },
-  {
-    id: 'f3833a20-845b',
-    title: 'Total Staked',
-    number: '6,872,658 GMX ($235,106,499)',
-  },
-  {
-    id: 'f3833bd8-845b',
-    title: 'Total Supply',
-    number: '8,203,008 GMX ($280,595,113)',
-  },
-];
+// const EMRXEarn = [
+//   {
+//     id: 'ccfdf9f8-845b',
+//     title: 'Price',
+//     number: '$84.31',
+//   },
+//   {
+//     id: 'ccfdfb6a-845b',
+//     title: 'Wallet',
+//     number: '0.00 MRX ($0.00)',
+//   },
+//   {
+//     id: 'f3833034-845b',
+//     title: 'Staked',
+//     number: '0.00 MRX ($0.00)',
+//   },
+//   {
+//     id: 'f383335e-845b',
+//     space: true,
+//   },
+//   {
+//     id: 'f3833520-845b',
+//     title: 'APR',
+//     number: '14.22%',
+//   },
+//   {
+//     id: 'f38336ce-845b',
+//     title: 'Multiplier Points ARP',
+//     number: '100.00%',
+//   },
+//   {
+//     id: 'f3833868-845b',
+//     space: true,
+//   },
+//   {
+//     id: 'f3833a20-845b',
+//     title: 'Total Staked',
+//     number: '6,872,658 GMX ($235,106,499)',
+//   },
+//   {
+//     id: 'f3833bd8-845b',
+//     title: 'Total Supply',
+//     number: '8,203,008 GMX ($280,595,113)',
+//   },
+// ];
 
 export default function Earn() {
   const [tab, setTab] = useState('MLP');
@@ -367,13 +367,13 @@ export default function Earn() {
                       </div>
                     </div>
                     <div className="earnTab__footer">
-                      <Link href="/liquidity">
+                      <Link href="/liquidity" legacyBehavior>
                         <button type="button" className="button sm primary">
                           Buy
                         </button>
                       </Link>
 
-                      <Link href="/liquidity">
+                      <Link href="/liquidity" legacyBehavior>
                         <button type="button" className="button sm secondary">
                           Sell
                         </button>
@@ -547,40 +547,40 @@ export default function Earn() {
           </div>
         </div>
       </div>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {unStakeMlp ? (
           <UnStakeMlp closeFunc={() => setUnStakeMlp(false)} />
         ) : (
           ''
         )}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {stakeMlp ? <StakeMlp closeFunc={() => setStakeMlp(false)} /> : ''}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {claimReward ? (
           <ClaimReward closeFunc={() => setClaimReward(false)} />
         ) : (
           ''
         )}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {compReward ? (
           <CompoundReward closeFunc={() => setCompReward(false)} />
         ) : (
           ''
         )}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {mlpVault ? <MlpVault closeFunc={() => setMlpVault(false)} /> : ''}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {mlpWith ? <MlpWith closeFunc={() => setMlpWith(false)} /> : ''}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {mpxVault ? <MpxVault closeFunc={() => setMpxVault(false)} /> : ''}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {mpxWith ? <MpxWith closeFunc={() => setMpxWith(false)} /> : ''}
       </AnimatePresence>
     </>

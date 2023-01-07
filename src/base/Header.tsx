@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ConnectKitButton } from 'connectkit';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
@@ -25,7 +25,7 @@ import Settings from '../components/Settings';
 export default function Header() {
   const [checked, setChecked] = useState<boolean>(false);
 
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const dispatch = useDispatch();
 
   const theme = useSelector(selectTheme);
@@ -119,8 +119,8 @@ export default function Header() {
     <header className="header">
       <div className="auto__container">
         <div className="header__inner">
-          <Link href="/" passHref>
-            <a className="header__inner-logo">{logo}</a>
+          <Link href="/" className="header__inner-logo">
+            {logo}
           </Link>
           <div
             role="presentation"
@@ -129,59 +129,53 @@ export default function Header() {
           >
             <div className="nav__inner">
               <div className="nav__inner-links">
-                <Link href="/overview" passHref>
-                  <a
-                    className={`nav__inner-link ${
-                      pathname === '/overview' ? 'active' : ''
-                    }`}
-                  >
-                    Overview
-                  </a>
+                <Link
+                  href="/overview"
+                  className={`nav__inner-link ${
+                    pathname === '/overview' ? 'active' : ''
+                  }`}
+                >
+                  Overview
                 </Link>
-                <Link href="/trade" passHref>
-                  <a
-                    className={`nav__inner-link ${
-                      pathname === '/trade' ? 'active' : ''
-                    }`}
-                  >
-                    Trade
-                  </a>
+                <Link
+                  href="/trade"
+                  className={`nav__inner-link ${
+                    pathname === '/trade' ? 'active' : ''
+                  }`}
+                >
+                  Trade
                 </Link>
-                <Link href="/liquidity" passHref>
-                  <a
-                    className={`nav__inner-link ${
-                      pathname === '/liquidity' ? 'active' : ''
-                    }`}
-                  >
-                    Liquidity
-                  </a>
+                <Link
+                  href="/liquidity"
+                  className={`nav__inner-link ${
+                    pathname === '/liquidity' ? 'active' : ''
+                  }`}
+                >
+                  Liquidity
                 </Link>
-                <Link href="/earn" passHref>
-                  <a
-                    className={`nav__inner-link ${
-                      pathname === '/earn' ? 'active' : ''
-                    }`}
-                  >
-                    Earn
-                  </a>
+                <Link
+                  href="/earn"
+                  className={`nav__inner-link ${
+                    pathname === '/earn' ? 'active' : ''
+                  }`}
+                >
+                  Earn
                 </Link>
-                <Link href="/mlqdr" passHref>
-                  <a
-                    className={`nav__inner-link ${
-                      pathname === '/mlqdr' ? 'active' : ''
-                    }`}
-                  >
-                    mLQDR
-                  </a>
+                <Link
+                  href="/mlqdr"
+                  className={`nav__inner-link ${
+                    pathname === '/mlqdr' ? 'active' : ''
+                  }`}
+                >
+                  mLQDR
                 </Link>
-                <Link href="/referrals" passHref>
-                  <a
-                    className={`nav__inner-link ${
-                      pathname === '/referrals' ? 'active' : ''
-                    }`}
-                  >
-                    Referrals
-                  </a>
+                <Link
+                  href="/referrals"
+                  className={`nav__inner-link ${
+                    pathname === '/referrals' ? 'active' : ''
+                  }`}
+                >
+                  Referrals
                 </Link>
                 <div className="nav__inner-drop" ref={navDrop}>
                   <button
@@ -191,7 +185,7 @@ export default function Header() {
                   >
                     More
                   </button>
-                  <AnimatePresence exitBeforeEnter>
+                  <AnimatePresence mode="wait">
                     {moreTabOpen ? (
                       <motion.div
                         initial={{ opacity: 0 }}
@@ -215,8 +209,8 @@ export default function Header() {
                           >
                             Docs
                           </a>
-                          <Link href="/" passHref>
-                            <a className="nav__inner-link">Proof of Reserves</a>
+                          <Link href="/" className="nav__inner-link">
+                            Proof of Reserves
                           </Link>
                         </div>
                       </motion.div>
@@ -270,7 +264,7 @@ export default function Header() {
               >
                 {setting}
               </div>
-              <AnimatePresence exitBeforeEnter>
+              <AnimatePresence mode="wait">
                 {settingsOpen ? <Settings /> : ''}
               </AnimatePresence>
             </div>

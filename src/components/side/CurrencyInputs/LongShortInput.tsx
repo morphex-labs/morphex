@@ -39,7 +39,7 @@ const LongShortInput = ({ label, value, setValue, leverage }: InputProps) => {
           >
             {symbol}
           </div>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode="wait">
             {isOpen ? (
               <ChooseCurrencyLongShort
                 closeFunc={() => setIsOpen(false)}

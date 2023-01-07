@@ -39,7 +39,7 @@ const PayInput = ({ label, value, setValue, leverage }: InputProps) => {
           >
             {symbol}
           </div>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode="wait">
             {isOpen ? (
               <ChooseCurrencyPay closeFunc={() => setIsOpen(false)} />
             ) : (

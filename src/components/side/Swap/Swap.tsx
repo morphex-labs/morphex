@@ -71,7 +71,7 @@ export default function Swap() {
       </div>
       <h6 className="xsm">Fees</h6>
       {type === 'market' && (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           {isConfirmOpen ? (
             <ConfirmSwap
               closeFunc={() => setIsConfirmOpen(false)}
@@ -85,7 +85,7 @@ export default function Swap() {
         </AnimatePresence>
       )}
       {type === 'limit' && isOrderDisclaimerShown && (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           {isConfirmLimitOpen ? (
             <ConfirmSwap
               closeFunc={() => setIsConfirmLimitOpen(false)}
@@ -99,7 +99,7 @@ export default function Swap() {
         </AnimatePresence>
       )}
       {type === 'limit' && !isOrderDisclaimerShown && (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           {isDisclaimerOpen ? (
             <EnableOrders closeFunc={() => setIsDisclaimerOpen(false)} />
           ) : (

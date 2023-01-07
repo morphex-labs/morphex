@@ -139,7 +139,7 @@ export default function Long() {
         })}
       </div>
       {type === 'market' && (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           {isConfirmOpen ? (
             <ConfirmLong
               closeFunc={() => setIsConfirmOpen(false)}
@@ -155,7 +155,7 @@ export default function Long() {
         </AnimatePresence>
       )}{' '}
       {type === 'limit' && isOrderDisclaimerShown && (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           {isConfirmLimitOpen ? (
             <ConfirmLimit
               closeFunc={() => setIsConfirmLimitOpen(false)}
@@ -172,7 +172,7 @@ export default function Long() {
         </AnimatePresence>
       )}
       {type === 'limit' && !isOrderDisclaimerShown && (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           {isDisclaimerOpen ? (
             <EnableOrders closeFunc={() => setIsDisclaimerOpen(false)} />
           ) : (

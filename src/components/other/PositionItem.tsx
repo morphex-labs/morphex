@@ -123,7 +123,7 @@ export default function PositionItem({
               >
                 {dots}
               </div>
-              <AnimatePresence exitBeforeEnter>
+              <AnimatePresence mode="wait">
                 {active ? (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -148,14 +148,14 @@ export default function PositionItem({
           </div>
         </td>
       </tr>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {closePosition ? (
           <ClosePosition closeFunc={() => setClosePosition(false)} />
         ) : (
           ''
         )}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {editPosition ? (
           <EditPosition closeFunc={() => setEditPosition(false)} />
         ) : (

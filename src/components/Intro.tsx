@@ -52,7 +52,7 @@ export default function Intro() {
             </motion.div>
           </div>
           <div className="intro__btn">
-            <Link href="/trade">
+            <Link href="/trade" legacyBehavior>
               <button type="button" className="button uniq">
                 Launch Exchange
               </button>
