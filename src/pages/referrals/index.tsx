@@ -10,6 +10,8 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 
 import { trpc } from '../../utils/trpc';
 import { ValidateCodeResult } from '../../server/routers/referrals';
+import ReferralsTraders from '../../components/referrals/ReferralsTraders';
+import ReferralsAffiliates from '../../components/referrals/ReferralsAffiliates';
 
 const tiers = [
   {
@@ -34,7 +36,7 @@ const tiers = [
 ];
 
 export default function Referrals() {
-  const [isChecked, setIsChecked] = useState<string>('Referral');
+  const [isChecked, setIsChecked] = useState<string>('Traders');
   const [referralCode, setReferralCode] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -133,12 +135,10 @@ export default function Referrals() {
               <div className="referralsTab__btns">
                 <button
                   type="button"
-                  onClick={() => setIsChecked('Referral')}
-                  className={`button sm ${
-                    isChecked === 'Referral' && 'active'
-                  }`}
+                  onClick={() => setIsChecked('Traders')}
+                  className={`button sm ${isChecked === 'Traders' && 'active'}`}
                 >
-                  Refferal
+                  Traders
                 </button>
                 <button
                   type="button"
@@ -156,75 +156,8 @@ export default function Referrals() {
               </p>
             </div>
             <div className="referralsTab__body">
-              {isChecked === 'Affiliates' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="referralsTab__body-inner"
-                >
-                  <h6 className="xsm">Generate Referral Code</h6>
-                  <p className="xsm">
-                    Looks like you don&apos;t have a referral code to share.
-                    Create one now and start earning rebates!
-                  </p>
-                  <div className="inputS">
-                    <input
-                      type="text"
-                      placeholder="Enter a code"
-                      value={referralCode}
-                      onChange={(e) => handleReferralCodeInput(e)}
-                    />
-                  </div>
-                  {error && <p className="codeError">{error}</p>}
-                  {message && <p className="codeSuccess">{message}</p>}
-                  <button
-                    type="button"
-                    className="button sm primary"
-                    onClick={validateReferralCode}
-                  >
-                    Enter a code
-                  </button>
-                </motion.div>
-              )}
-              {isChecked === 'Referral' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="referralsTab__body-inner"
-                >
-                  <h6 className="xsm">Generate Referral Code</h6>
-                  <p className="xsm">
-                    Please input a referral code to benefit from fee discounts
-                  </p>
-                  <div className="inputS">
-                    <input
-                      type="text"
-                      placeholder="Enter a code"
-                      value={referralCode}
-                      onChange={(e) => handleReferralCodeInput(e)}
-                    />
-                  </div>
-                  {error && <p className="codeError">{error}</p>}
-                  {message && <p className="codeSuccess">{message}</p>}
-                  <div className="referralsTab__body-footer">
-                    <button
-                      type="button"
-                      className="button sm primary"
-                      disabled={isLoading}
-                      onClick={validateReferralCode}
-                    >
-                      Enter Referral Code
-                    </button>
-                    <button type="button" className="button sm secondary">
-                      More info
-                    </button>
-                  </div>
-                </motion.div>
-              )}
+              {isChecked === 'Affiliates' && <ReferralsAffiliates />}
+              {isChecked === 'Traders' && <ReferralsTraders />}
             </div>
           </div>
         </div>
