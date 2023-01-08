@@ -25,9 +25,8 @@ const TradeHeader = () => {
         {symbol} / USD
       </div>
       <div className="tradeMain__header-info">
-        <h6 className="xsm">Price</h6>
-        <p className="xsm">$1,630.70</p>
-        <p className="xsm">$1,630.70</p>
+        <h6 className="xsm">$12,630.70</h6>
+        <p className="xsm">($1,630.70)</p>
       </div>
       <div className="tradeMain__header-info">
         <h6 className="xsm">24H Change</h6>
@@ -35,11 +34,11 @@ const TradeHeader = () => {
       </div>
       <div className="tradeMain__header-info">
         <h6 className="xsm">24H High</h6>
-        <p className="xsm">1,666.90</p>
+        <p className="xsm">12,666.90</p>
       </div>
       <div className="tradeMain__header-info">
         <h6 className="xsm">24H Low</h6>
-        <p className="xsm">1,623.70</p>
+        <p className="xsm">12,623.70</p>
       </div>
       <AnimatePresence mode="wait">
         {isOpen ? (

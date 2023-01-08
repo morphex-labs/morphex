@@ -139,18 +139,48 @@
       .button {
         padding: 5px 16px;
         border-radius: 7px;
-        margin-right: 48px;
+        margin-right: 25px;
       }
       &-info {
-        margin-right: 48px;
-        width: 100%;
-        max-width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 17px;
+        border: 1px solid $border;
+        border-radius: 7px;
+        padding: 8px 18px 8px 22px;
+
         h6.xsm {
           color: $textColor2;
-          margin-bottom: 5px;
+          margin-right: 5px;
         }
         p.xsm {
           color: $gray;
+        }
+        &:nth-child(3) {
+          p {
+            color: $textColor2;
+          }
+          h6 {
+            color: $gray;
+          }
+        }
+        &:nth-child(4) {
+          p {
+            color: $textColor2;
+          }
+          h6 {
+            color: $gray;
+          }
+        }
+        &:nth-child(5) {
+          margin-right: 0px;
+          p {
+            color: $textColor2;
+          }
+          h6 {
+            color: $gray;
+          }
         }
       }
     }
@@ -226,6 +256,90 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .trade {
+    &Main {
+      &__header {
+        .button {
+          margin-right: 17px;
+          white-space: nowrap;
+        }
+        &-info {
+          margin-right: 17px;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1150px) {
+  .trade {
+    &Main {
+      &__header {
+        &-info {
+          margin-right: 17px;
+          white-space: nowrap;
+
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1050px) {
+  .trade {
+    &Main {
+      &__header {
+        &-info {
+          margin-right: 17px;
+          white-space: nowrap;
+
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .trade {
+    &Main {
+      &__header {
+        &-info {
+          margin-right: 17px;
+
+          &:last-child {
+            display: flex;
+          }
+          // &:nth-last-child(2) {
+          //   display: none;
+          // }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .trade {
+    &Main {
+      &__header {
+        &-info {
+          margin-right: 17px;
+
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
 @mixin trade-sm-md {
   .trade {
     &Main {
@@ -235,6 +349,13 @@
         }
         &-info {
           margin-right: 24px;
+
+          &:last-child {
+            display: none;
+          }
+          &:nth-last-child(2) {
+            display: none;
+          }
         }
       }
     }
@@ -265,15 +386,11 @@
           margin: 0;
           width: 100%;
           max-width: 80px;
+          flex-direction: column;
+          padding: 3px 5px 4px 5px;
 
           &:first-child {
             margin-right: 10px;
-          }
-          &:last-child {
-            display: none;
-          }
-          &:nth-last-child(2) {
-            display: none;
           }
         }
       }
