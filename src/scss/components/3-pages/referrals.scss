@@ -132,23 +132,37 @@
           &-codes {
             table {
               // table-layout: fixed;
-              width: calc(100% + 40px);
+              // width: calc(100% + 40px);
               border-collapse: separate;
-              border-spacing: 20px 10px;
-              margin: 0px -20px;
+              border-spacing: 40px 10px;
+              margin: 0px -28px;
 
-              thead th {
-                text-align: center;
-                font-weight: normal;
+              thead tr {
                 border: 1px solid #ececec;
                 border-radius: 7px;
-                box-sizing: border-box;
+
+                th {
+                  text-align: center;
+                  font-weight: normal;
+                  box-sizing: border-box;
+                  padding: 0px;
+                  width: 25%;
+                }
               }
 
-              tbody td {
-                background-color: $box;
-                border: 1px solid transparent;
+              tr {
+                display: block;
+              }
+
+              tbody tr {
+                border: transparent;
                 border-radius: 7px;
+                background-color: $box;
+                margin-bottom: 10px;
+
+                td {
+                  background-color: transparent;
+                }
               }
 
               th,
@@ -156,7 +170,7 @@
                 width: 100px;
                 background-clip: padding-box;
                 text-align: center;
-                padding: 10px 2px;
+                padding: 5px 2px;
               }
             }
           }
@@ -222,15 +236,31 @@
         table {
           margin: 0px -5px;
           width: calc(100% + 10px);
-
-          border-spacing: 5px 0px;
+          border-spacing: 5px 5px;
 
           thead tr {
             border: 1px solid #ececec;
             border-radius: 7px;
+            margin-bottom: 10px;
+            th {
+              padding: 4px 2px;
+            }
           }
           tr {
             display: block;
+          }
+
+          tbody {
+            tr {
+              border: transparent;
+              border-radius: 7px;
+              background-color: $box;
+              margin-bottom: 10px;
+
+              td {
+                background-color: transparent;
+              }
+            }
           }
 
           th,
