@@ -53,6 +53,29 @@
       }
     }
   }
+  .referral {
+    &__body {
+      padding-bottom: 12px;
+      max-width: 360px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &-input {
+        background: $box;
+        color: $textColor;
+        padding: 12px 16px;
+        border-radius: 7px;
+        border: 1px solid #ececec;
+      }
+    }
+    &__footer {
+      .button {
+        width: 100%;
+      }
+    }
+  }
   .swap {
     &__footer {
       display: flex;
@@ -314,7 +337,7 @@
           width: 9px;
           height: 9px;
           border-radius: 2px;
-          background: #0029FF;
+          background: #0029ff;
           @include lightIn {
             background: $main;
           }
