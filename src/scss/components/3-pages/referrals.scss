@@ -93,9 +93,20 @@
           padding-bottom: 20px;
 
           &-table {
+            &__header {
+              margin-bottom: 10px;
+
+              h6.xsm {
+                padding: 9px 13px;
+                border: 1px solid #ececec;
+                border-radius: 7px;
+              }
+            }
             &__item {
               display: flex;
-              flex-direction: column;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
               padding: 16px 26px;
               margin-bottom: 15px;
               border-radius: 7px;
@@ -115,10 +126,6 @@
                 background: linear-gradient($mainBg, $mainBg) padding-box,
                   linear-gradient(to right, #efefef, #a7b3f0) border-box;
               }
-
-              p.xsm {
-                margin-bottom: 5px;
-              }
             }
           }
 
@@ -127,7 +134,7 @@
               // table-layout: fixed;
               width: calc(100% + 40px);
               border-collapse: separate;
-              border-spacing: 20px 5px;
+              border-spacing: 20px 10px;
               margin: 0px -20px;
 
               thead th {
@@ -136,6 +143,12 @@
                 border: 1px solid #ececec;
                 border-radius: 7px;
                 box-sizing: border-box;
+              }
+
+              tbody td {
+                background-color: $box;
+                border: 1px solid transparent;
+                border-radius: 7px;
               }
 
               th,
