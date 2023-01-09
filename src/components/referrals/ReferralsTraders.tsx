@@ -39,8 +39,8 @@ const ReferralsTraders: React.FC = () => {
           <Image
             src={WritePaperIcon}
             alt="Write paper icon"
-            width={12}
-            height={12}
+            width={15}
+            height={15}
             onClick={handleOpenModal}
             style={{ cursor: 'pointer' }}
           />
@@ -81,7 +81,7 @@ const ReferralsTraders: React.FC = () => {
         {isOpen ? (
           <AddReferralCode
             closeFunc={() => setIsOpen(false)}
-            actionName="Create"
+            actionName="Edit"
           />
         ) : (
           ''

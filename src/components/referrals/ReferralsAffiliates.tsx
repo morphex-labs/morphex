@@ -42,7 +42,7 @@ const ReferralsAffiliates: React.FC = () => {
           className="button primary sm"
           onClick={handleOpenModal}
         >
-          Create
+          Create +
         </button>
       </div>
       <div className="referralsTab__body-inner__content">
