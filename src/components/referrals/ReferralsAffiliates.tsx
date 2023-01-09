@@ -1,8 +1,16 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+
+import AddReferralCode from '../../base/modals/AddReferralCode';
 
 const ReferralsAffiliates: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleOpenModal = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -29,7 +37,11 @@ const ReferralsAffiliates: React.FC = () => {
       </div>
       <div className="referralsTab__body-inner__create">
         <h6 className="xsm">Referral Code</h6>
-        <button type="button" className="button primary sm">
+        <button
+          type="button"
+          className="button primary sm"
+          onClick={handleOpenModal}
+        >
           Create
         </button>
       </div>
@@ -85,6 +97,16 @@ const ReferralsAffiliates: React.FC = () => {
           </table>
         </div>
       </div>
+      <AnimatePresence mode="wait">
+        {isOpen ? (
+          <AddReferralCode
+            closeFunc={() => setIsOpen(false)}
+            actionName="Create"
+          />
+        ) : (
+          ''
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
