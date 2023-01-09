@@ -23,7 +23,7 @@ const PayInput = ({ label, value, setValue, leverage }: InputProps) => {
       <label htmlFor="none">
         {label} <span>{leverage ? <>Leverage: {leverage}.00x</> : ''}</span>
       </label>
-      <div className="input ">
+      <div className="input">
         <input
           type="number"
           placeholder="0.0"
